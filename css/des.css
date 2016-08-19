@@ -1,0 +1,11 @@
+#hd{position: absolute;top: 0px;left: 46%}
+#un {position: absolute;top: 70px;left: 40%}
+#pw {position: absolute;top: 110px;left: 40%}
+#sb {position: absolute;top: 150px;left: 45%}
+#login{position: absolute;top: 150px;left: 5%}
+#signup{position: absolute;top: 150px;left: 60%}
+body {background-image: url(rimp.jpg);
+      font-family: arial; line-height: 150%;}
+h1 {font-family: fantasy;color: white;}
+h5 {font-family: cursive;}
+img.passp {width: 113px;height: 150px;}

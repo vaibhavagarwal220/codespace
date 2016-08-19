@@ -1,0 +1,114 @@
+*{font-family: Tahoma;}
+
+header, section, footer, aside, nav, article, figure, figcaption {display: block;}
+
+nav,footer{clear: both;}
+#nv ul{background-color:rgb(0,162,232);border-radius: 10px;}
+
+#nv li{display: inline; list-style: none;margin: 5px;padding:0px;}
+
+body{background-color: rgb(245,196,103);line-height: 7px;}
+#in{background-image: url(Images/7.jpg);background-attachment: fixed;background-repeat: round;color: antiquewhite;}
+#cu{background-image: url(Images/8.jpg);background-attachment: fixed;background-repeat: round;color: antiquewhite;}
+#au{background-image: url(Images/1.jpg);background-attachment: fixed;background-repeat: round;color: antiquewhite;}
+
+table {margin: auto;
+border-spacing: 0px;}
+
+th, td {
+padding: 5px 30px 5px 10px;
+border-spacing: 0px;
+font-size: 90%;
+margin: 25px;}
+.caret{margin: 6px;}
+img {margin:1px}
+figcaption{font-family:monospace;text-align: center}
+img.pport{width: 130px;height: 170px;}
+img.small{width: 100px;height: 100px;}
+img.medium{width:250px;height: 250px;}
+img.large{width: 500px;height: 500px;}
+img.align-left {float: left;margin-left: 10px;margin-right: 10px;}
+img.align-right {float: right;margin-right: 10px;margin-left: 10px}
+
+p {font-family: Comic Sans MS; margin: 17px;padding:15px;line-height: 20px;}
+
+#aus {background-color: darkseagreen;width:70%;margin:7px;padding: 7px;text-align: center;float: left;clear:left;padding:15px;line-height: 17px;width:40%;}
+
+.name {font-weight: bolder;}
+
+
+
+h2 {border-bottom-color: aqua;border-bottom-width: thick;border-bottom-style: ridge ;position: relative;left: 20px;padding:7px; margin-left:0px;}
+
+h2.ttl{width: 300px;border-bottom-color:blanchedalmond;border-bottom-style:solid;margin-left: 330;font-family: Tahoma;}
+h3.subttl{width: 600px;border-bottom-color:beige;border-bottom-style:double;margin-left: 350;line-height: 17px; font-family: Tahoma;}
+
+tr{
+text-align: left;
+font-family: sans-serif;
+border-top: 1px solid #f1f8fe;
+border-bottom: 1px solid #cbd2d8;
+border-right: 1px solid #cbd2d8;}
+
+tr.head th {
+color: #fff;
+border-bottom: 2px solid #547ca0;
+border-right: 1px solid #749abe;
+border-top: 1px solid #90b4d6;
+text-align: center;
+letter-spacing: 0.15em;}
+
+.icn{width:25px;height: 25px;}
+#aushd{width: 600px;}
+tr.head th:first-child {border-top-left-radius: 5px;}
+tr.head th:last-child {border-top-right-radius: 5px;}
+tr:hover {
+background-color: rgb(186,145,131);}
+
+h1.hd{padding:30px;margin:5px;border-radius:10px;color: white; background-color: rgb(0,162,232);font-family:monospace;letter-spacing: 4px;position:fixed;width: 94%}
+        
+a,a:visited {text-decoration:none;color:brown; font-family: sans-serif;}
+
+a.on {color:red;background-color:rgb(11,157,244);text-decoration:none;font-family: sans-serif;}
+
+a:hover {color:red;text-decoration:none;font-family: sans-serif;}
+
+
+#newf{color:whitesmoke;clear: both;text-align: center;padding: 17px;margin:20px;background-color: deeppink;border-radius: 10px;font-family: sans-serif;}
+
+
+figure{float:left;background-position: center;}
+
+
+#rc{width: 200px;text-align: center;}
+#recmain{background-color: #90b4d6;padding:10px;margin-bottom: 20px;
+line-height: 17px;}
+
+#addrmain{background-color: #90b4d6;padding:10px;line-height: 27px;
+text-align: center;margin: 5px;
+}
+
+
+h3.rect{font-weight: lighter;text-align: justify;}
+h4.recst{font-weight: lighter;text-align: justify;}
+.gradient {
+background-image: -webkit-linear-gradient(rgb(22,185,233),
+rgb(50,205,198));}
+
+    section.artic {
+float: left;
+width: 72%;margin: 5px;
+background-color:dimgrey;padding:25}
+
+    article {
+clear: both;
+overflow: auto;
+width: 100%;}
+
+    aside {
+width: 20%;
+float: left;
+padding: 0px 0px 0px 20px;
+margin-left: 15px;}
+
+#dev{width: 200px;text-align: center;padding:5px;}
