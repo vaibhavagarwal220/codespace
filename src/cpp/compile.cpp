@@ -1,3 +1,4 @@
+#include <fstream>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,6 +49,32 @@ int main(int argc,char *argv[])
 		printf("%d\n",ERROR_wrongArguments);
 		exit(EXIT_FAILURE);
 	}
-	
+
+	string status_filename = argv[2];
+	status_filename = "tmp/" + status_filename + ".status";
+	string error_filename = argv[2];
+	error_filename = "tmp/" + error_filename + ".err";
+
+	fstream status,error;
+	status.open(status_filename.c_str(),ios::in | ios::out);
+	char compilation_error[100];
+
+	int check = 0;
+	status>>check;
+
+	if(check)
+	{
+		printf("Compilation Error : \n");
+		error.open(error_filename.c_str(),ios::in | ios::out);
+		while(!error.eof())
+		{
+			error.getline(compilation_error,100);
+			cout<<compilation_error<<endl;
+		}
+		error.close();
+	}
+
+	error.close();
+
 	return 0;	
 }
