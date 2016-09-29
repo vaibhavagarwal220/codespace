@@ -14,75 +14,54 @@ $time=time()+3.5*60*60;
    
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="files\bootstrap-3.3.6-dist\css\bootstrap.min.css">
-  <script src="files/jquery.min.js"></script>
-  <script src="files/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="design/weld.css">  
-<link rel="stylesheet" href="css/a.css">  
+    <title>Online Judge</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/weldes.css">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 
   <style type="text/css">
   .nt{margin-top:40px;}
+  a{color:white;}
   </style>
 </head>
 <body>
-<div class="contaier-fluid" id=cont>    
-<div class=jumbotron><h1><?php echo $name_f;?></h1>
-    <br>
-    <nav id=nv>
-        <ul class="nav nav-pills">
-            <li class=active><a>Feed</a></li>
-            <li><a href=index.php>Gallery</a></li>
-            <li ><div class="btn-group"><a class="btn btn-default btn-xs" href=profile.php><img src= <?php echo $ln_img ?> class="icn" ><?php echo $name_f;?></a>&nbsp;&nbsp;&nbsp;<a class="btn btn-default dropdown-toggle " data-toggle="dropdown"><span class="caret"></span></a>
-        <ul class="dropdown-menu"><li><a href="logout.php">LOG OUT</a></li><li><a href="messages.php">Messages</a></li><li><a href="changep.php">Change Password</a></li></ul>
-        </div></li>
-        </ul>
-    </nav> </div>
-    <section class="artic">
-        <article><img src= <?php echo $ln_img ?> class="pport">
+  
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">OnlineJudge</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a >Home</a></li>
+        <li><a href="practice.php">Practice</a></li>
+        <li><a href="ide.php">OnlineIDE</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
             
-                <hgroup><h2 class="ttl"><?php echo $name_f.' '.$name_sr;?></h2>
-                    <h3 class="subttl"><?php echo $usern.' @ourpage.com';?></h3></hgroup>
-            </article>
-        </section>
-<br>
-    <div class=aside>
-      <input type=button id=cbtn class='btn btn-info cname2' value=CHAT>
-      <div  id=cmenu><h4  class=cname1>Chat&nbsp;<a id=hd1>&times;</a></h4>
-      <div id=chat class=chat></div></div>
-    </div>    
-  <div class=pmsg>
-    <input type=text id=un placeholder="username" class="form-control">
-    <div id=messages></div>
-    <br>
-    <input type=text id=msgc placeholder="type your message" class=form-control><br>
-    <input type=button id=sendbtn class="btn btn-default" value=send>  
-    <br><div id=msgfb></div>
+            <li><div class="btn-group"><a class="btn btn-xs" href="profile.php"><img src= <?php echo $ln_img ?> class="icn" >&nbsp;&nbsp;<?php echo $name_f;?></a>&nbsp;&nbsp;&nbsp;<a class="btn dropdown-toggle " data-toggle="dropdown"><span class="caret"></span></a>
+        <ul class="dropdown-menu"><li><a href="logout.php">Log Out</a></li><li><a href="changep.php">Change Password</a></li></ul>
+        </div></li>
+        
+      </ul>
+    </div>
   </div>
-  </div>
-  
+</nav>
+
+
+    
   
 
-<script src=js/mesg.js></script>
-<script type="text/javascript">
-$('#un').hide();
-setInterval(function()
-{
-
-$.post('getchat.php',{},function(data){
-  $("#chat").html(data).show();
-});
-},1000);
-$('#hd1').click(function(){
-  $('#cmenu').slideUp('fast',function(){
-    $('#cbtn').show();
-  });
-  
-});
-$('#cbtn').click(function(){
-  $('#cbtn').hide();
-  $('#cmenu').slideDown();
-});
-</script>
 </body>
  </html>

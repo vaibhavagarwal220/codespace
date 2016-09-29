@@ -22,7 +22,7 @@ $newpwdmatch=md5(mysql_real_escape_string(htmlentities($_POST['npc'])));
     {
     if($newpwd==$newpwdmatch)
           {
-            if($oldpwd==$newpwd)
+            if($oldpwd!=$newpwd)
             {
               $update=mysql_query("UPDATE user_in SET pword='$newpwd' WHERE id=$id;");
                 if($update==true) 
