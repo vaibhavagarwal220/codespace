@@ -67,12 +67,13 @@ else
 
 <div id="ques">
 <?php
+
+if(!empty($qcode)){
+$my_file = 'questions/'.$qcode."txt";
+$inread = @file($my_file) or die('<h1>No Such Problem</h1>');
 echo "<a href=\"submit.php?q=".$qcode."\" class=\"btn btn-default\" target=_blank>Submit</a>";
 echo "<a href=\"subm.php?q=".$qcode."\" class=\"btn btn-default\" target=_blank>All Submissions</a>";
 echo "<a href=\"subm.php?q=".$qcode."&id=".$id."\" class=\"btn btn-default\" target=_blank>My submissions</a>";
-if(!empty($qcode)){
-$my_file = 'questions/'.$qcode."txt";
-$inread = file($my_file) or die('Cannot open file:  '.$my_file);
 foreach($inread as $line)
   echo $line;
 }

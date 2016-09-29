@@ -89,7 +89,7 @@ $query="SELECT id,qid,user_id,result from submissions where qid='".$qcode."' ".$
 $result=mysql_query($query);
 
 $num=mysql_num_rows($result);
-if($result) 
+if($result&&$num) 
 	{
     if($flag=="and 1") echo "<h3>All submissions for ".$qcode." </h3>";
     else if($myid!=$user) 
@@ -137,6 +137,7 @@ if($result)
 	echo "</tbody>
 		</table>";
 	}
+  else echo "<h1>No submissions</h1>";
 ?>
   
 <div>

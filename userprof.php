@@ -21,11 +21,58 @@ else
    
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Practice Arena</title>
+  <title><?php echo $qcode; ?>'s Profile</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/weldes.css">  
+  
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
 <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
@@ -37,7 +84,9 @@ else
   .page{width:70%;margin:auto;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
+
   </style>
+<link rel="stylesheet" href="css/profdes.css">
 </head>
 <body>
   
@@ -73,28 +122,34 @@ h2.name,h5{display:inline;}
     <?php
 require 'connect.inc.php';
 $query="SELECT fname,srname,imgln,username,id from user_in where username='".$qcode."'";
-$result=mysql_query($query);
+$result=@mysql_query($query);
+$numu=@mysql_num_rows($result);
+if($numu==0) echo "<h1>No such user</h1>";
+else
+{
 if($result) 
-	{
-			$id=mysql_result($result,0,'id');
-			$fname=mysql_result($result,0,'fname');
-      $srname=mysql_result($result,0,'srname');
-      $img=mysql_result($result,0,'imgln');
+  {
+      $id=@mysql_result($result,0,'id');
+      $fname=@mysql_result($result,0,'fname');
+      $srname=@mysql_result($result,0,'srname');
+      $img=@mysql_result($result,0,'imgln');
       $query1="SELECT distinct qid from submissions where result='AC' and user_id=".$id;
-      $result1=mysql_query($query1);
-      $num=mysql_num_rows($result1);
-      echo "<img src=".$img." class=pport><h2 class=name>".$fname." ".$srname."</h2><hr><h6>Username</h6><h5> ".$qcode." <h5><br><h6>List of problems successfully solved</h6><h5>";
+      $result1=@mysql_query($query1);
+      $num=@mysql_num_rows($result1);
+      echo "<img src=".$img." class=\"pport img img-circle\"><h2 class=name>".$fname." ".$srname."</h2><hr><h6>Username</h6><h5> ".$qcode." <h5><br><h6>List of problems successfully solved</h6><h5>";
 
       for($i=0;$i<$num;$i++)
-    { $qid=mysql_result($result1,$i,'qid');
+    { $qid=@mysql_result($result1,$i,'qid');
       if($i==$num-1) echo "<a href=subm.php?q=".$qid."&id=".$id." class=sub>".$qid."</a>";
       else echo "<a href=subm.php?q=".$qid."&id=".$id." class=sub>".$qid."</a>,";
       
     }
     echo "</h5>";
      
-	 
-	}
+   
+  }
+}
+
 ?>
   
 <div>
