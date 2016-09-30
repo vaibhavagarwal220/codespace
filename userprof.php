@@ -23,51 +23,9 @@ else
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?php echo $qcode; ?>'s Profile</title>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
-
-        var options = {
-          title: 'My Daily Activities',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>  
+      
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
-
-        var options = {
-          title: 'My Daily Activities',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>
+    
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/jquery.min.js"></script>
@@ -84,11 +42,21 @@ else
   .page{width:70%;margin:auto;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+}
 
   </style>
 <link rel="stylesheet" href="css/profdes.css">
 </head>
 <body>
+
   
  <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -128,14 +96,47 @@ if($numu==0) echo "<h1>No such user</h1>";
 else
 {
 if($result) 
-  {
+  {   
       $id=@mysql_result($result,0,'id');
       $fname=@mysql_result($result,0,'fname');
       $srname=@mysql_result($result,0,'srname');
       $img=@mysql_result($result,0,'imgln');
+      
       $query1="SELECT distinct qid from submissions where result='AC' and user_id=".$id;
       $result1=@mysql_query($query1);
       $num=@mysql_num_rows($result1);
+
+      $queryt="SELECT qid from submissions where result='TLE' and user_id=".$id;
+      $resultt=@mysql_query($queryt);
+      $numt=@mysql_num_rows($resultt);
+
+      $queryc="SELECT qid from submissions where result='CE' and user_id=".$id;
+      $resultc=@mysql_query($queryc);
+      $numc=@mysql_num_rows($resultc);
+
+      $queryw="SELECT qid from submissions where result='WA' and user_id=".$id;
+      $resultw=@mysql_query($queryw);
+      $numw=@mysql_num_rows($resultw);
+
+      $queryr="SELECT qid from submissions where result='RE' and user_id=".$id;
+      $resultr=@mysql_query($queryr);
+      $numr=@mysql_num_rows($resultr);
+      
+     echo '<div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+    <h2 class="mdl-card__title-text">Update</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Aenan convallis.
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      View Updates
+    </a>
+  </div>
+</div>';
+
       echo "<img src=".$img." class=\"pport img img-circle\"><h2 class=name>".$fname." ".$srname."</h2><hr><h6>Username</h6><h5> ".$qcode." <h5><br><h6>List of problems successfully solved</h6><h5>";
 
       for($i=0;$i<$num;$i++)
@@ -152,6 +153,31 @@ if($result)
 
 ?>
   
-<div>
+</div>
+<script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Result', 'Submissions'],
+          ['AC',     <?php echo $num;?>],
+          ['TLE',      <?php echo $numt;?>],
+          ['CE',  <?php echo $numc;?>],
+          ['WA', <?php echo $numw;?>],
+          ['RE',    <?php echo $numr;?>],
+          
+
+        ]);
+
+        var options = {
+          title: 'All submissions',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 </body>
  </html>
