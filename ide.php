@@ -92,7 +92,7 @@ exec("./o", $output, $status);
     <label class="mdl-textfield__label" for="sample6">enter input here</label>
   </div>
     
-  <input type="submit" value=submit>
+  <input type="submit" value=submit class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 </form>
         
 

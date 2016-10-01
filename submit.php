@@ -74,9 +74,9 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
     $location = 'codes/'.$qcode.$id.$cnt.".c";
     if(move_uploaded_file($tmpname,$location))
     {
-        echo 'Uploaded';
+        
         exec("./o", $output, $status);
-        echo "status: " . $status;
+        echo "<br>status: " . $status;
           if($status==0) $res="AC";
           else if($status==1) $res="TLE";
           else if($status==2) $res="CE";
@@ -106,12 +106,12 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
   
     <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" name=ln></textarea>
     
-  <input type="submit" value=submit>
+  <input type="submit" value=submit  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 </form>
  OR<br>
 <form action="submit.php?q=<?php echo $qcode;?>" method="POST" enctype="multipart/form-data" >
-            <input type="file" name="file" accept=".c,.cpp,.java">
-            <input type="submit" value="submit">
+            <input type="file" name="file" accept=".c,.cpp,.java" required>
+            <input type="submit" value="submit"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
         </form>
         
 

@@ -57,6 +57,7 @@ background-size:100%;margin:auto;overflow:auto;}
 }
 
 *{font-family:'Bitter';}
+h1{border-bottom:6px solid orange;}
   </style>
 
   <script>
@@ -318,6 +319,7 @@ else echo "<div class=\"alert alert-danger fade in log\">Please fill in all the 
 
 <div class=page>
   <h1>ABOUT US</h1>
+  <br><br><br><br><br><br>
 <figure class=col-sm-4>
 <img class="img img-circle small1" src=img/2.jpg>
 <figcaption>Vaibhav(<a href="mailto:vaibhavagarwal220@gmail.com">vaibhavagarwal220@gmail.com</a>)</figcaption>

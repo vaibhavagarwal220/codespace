@@ -32,13 +32,15 @@ else
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
 .demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
-}
+  width: 100%;
+  height: 100%;
+
+  }
 .demo-card-square > .mdl-card__title {
   color: #fff;
   background:
     url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+
 }
 
   </style>
@@ -84,40 +86,9 @@ if($result)
 
       $queryr="SELECT qid from submissions where result='RE' and user_id=".$id;
       $resultr=@mysql_query($queryr);
-      $numr=@mysql_num_rows($resultr);
-      
-     echo '<div class="demo-card-square mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">Update</h2>
-  </div>
-  <div class="mdl-card__supporting-text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Aenan convallis.
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      View Updates
-    </a>
-  </div>
-</div>';
+      $numr=@mysql_num_rows($resultr);?>
 
-      echo "<img src=".$img." class=\"small1 img img-circle\"><h2 class=name>".$fname." ".$srname."</h2><hr><h6>Username</h6><h5> ".$qcode." <h5><br><h6>List of problems successfully solved</h6><h5>";
-
-      for($i=0;$i<$num;$i++)
-    { $qid=@mysql_result($result1,$i,'qid');
-      if($i==$num-1) echo "<a href=subm.php?q=".$qid."&id=".$id." class=sub>".$qid."</a>";
-      else echo "<a href=subm.php?q=".$qid."&id=".$id." class=sub>".$qid."</a>,";
-      
-    }
-    echo "</h5>";
-     
-   
-  }
-}
-
-?>
-
-<script type="text/javascript">
+      <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
@@ -141,9 +112,45 @@ if($result)
         chart.draw(data, options);
       }
     </script>
-  <div id="piechart_3d" style="width: 600px; height: 300px;"></div>
+
+      <?php
+      
+     echo "<div class=\"demo-card-square mdl-card mdl-shadow--2dp\">
+  <div class=\"mdl-card__title mdl-card--expand\">
+    <h2 class=\"mdl-card__title-text\"></h2>
+    <img src=".$img." class=\"small1 img img-circle\">&nbsp;&nbsp;&nbsp;<h2 class=name>".$fname." ".$srname."</h2>
+  </div>
+  <div class=\"mdl-card__supporting-text\"><h6>Username</h6><h5> ".$qcode." <h5><br><h6>List of problems successfully solved</h6><h5>";
+          for($i=0;$i<$num;$i++)
+    { $qid=@mysql_result($result1,$i,'qid');
+      if($i==$num-1) echo "<a href=subm.php?q=".$qid."&id=".$id." class=sub>".$qid."</a>";
+      else echo "<a href=subm.php?q=".$qid."&id=".$id." class=sub>".$qid."</a>,";
+      
+    }
+    echo "</h5><div id=\"piechart_3d\" style=\"width: 600px; height: 300px;\"></div>";
+
+
+    echo "</div>";
+
+  echo "<div class=\"mdl-card__actions mdl-card--border\">
+    <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\">
+      View Updates
+    </a>
+  </div>
+</div>";
+
+
+   
+  }
+}
+
+?>
+
 
   
+  
+
+
 </div>
 
 </body>
