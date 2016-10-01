@@ -37,7 +37,7 @@ include 'navbar.php'
 <div class="btn btn-primary"><i class=material-icons>warning</i> CE (Compilation Error)</div><br><br>
       </div>
 <aside>
-<h3>Recent submissions</h3>
+<h4>Recent submissions</h4>
 <?php
 $query="SELECT id,qid,user_id,result from submissions order by time desc limit 10 ";
 
@@ -92,8 +92,6 @@ if($result&&$num)
  </div>
 
 
-    
-  
 
 </body>
  </html>
