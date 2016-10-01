@@ -1,8 +1,106 @@
 
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OJ</title>
+  <link rel="shortcut icon" href="" type="image/x-icon" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/deslog1.css" type="text/css">
+  <style>
+    .lg {font-size:100px;}
+    
+    
+      .bg-grey{background-color: "grey";}
+      .enterlogin{width:250px;}
+      
+       
+body {
+    text-align: center;
+    background: #e9ebee;
+    
+
+}
+
+#login{height:678px;width:70%;
+background-size:100%;margin:auto;
+padding-top:200px;}
+.page{height:678px;width:70%;
+background-size:100%;margin:auto;overflow:auto;}
+  *{color:black;}
+  #file { display: none;}
+  nav{padding:0px;}
+
+.demo-card-square.mdl-card {
+  width: 400px;
+  height:500px;
+  margin: auto;
+
+}
+.enterlogin{padding:auto;margin:auto;width:370%;}
+
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    url('img/type.jpg') bottom right 15% no-repeat #46B6AC;
+}
+
+*{font-family:'Bitter';}
+  </style>
+
+  <script>
+    $(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+    });
+  //alert($(window).height());
+  //alert($(window).width());
+    var h=$(window).height();
+    var w=$(window).width();
+    $('.page').height(h);
+    $('.page').width(w);
+    $('#login').height(h);
+    $('#login').width(w); 
+  </script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#"><img src="img/Laptop-icon.png" class="icn1">CodeSpace</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a data-toggle="modal" data-target="#modl"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
 <!--sign up -->
-
-
-
 
 <?php
 
@@ -17,16 +115,7 @@ if(isset($_POST['eml'])&&isset($_POST['phn'])&&isset($_POST['uname1'])&&isset($_
       $impronm=$_FILES['proim']['name'];//getting file name
       $improtmp=$_FILES['proim']['tmp_name'];//getting its temporary location
       $hashed=md5($passw);
-      echo $usern1;
-      echo $passw;
-      echo $fname;
-      echo $lname;
-      echo $eml;
-      echo $phn;
-      echo $tomatch;
-      echo $impronm;
-      echo $improtmp;
-      echo $hashed;
+      
       if(!empty($usern1) && !empty($passw)&& !empty($fname) && !empty($lname)&&!empty($impronm) && !empty($eml) && !empty($phn))/*to see the values are not empty*/
         {
           if($tomatch==$passw)/*matching password and re-enter password*/
@@ -78,167 +167,6 @@ if(isset($_POST['eml'])&&isset($_POST['phn'])&&isset($_POST['uname1'])&&isset($_
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>OJ</title>
-  <link rel="shortcut icon" href="https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/under_computer-24.png" type="image/x-icon" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/weldes.css" type="text/css">
-  <style>
-    .lg {font-size:100px;}
-    
-    
-      .bg-grey{background-color: "grey";}
-      .enterlogin{width:250px;}
-      
-       
-body {
-    text-align: center;
-    background: #e9ebee;
-    padding-top: 12px;
-    line-height: 2;
-}
-
-#login{height:678px;width:70%;
-background-size:100%;border:1px solid white;margin:auto;
-padding-top:200px;}
-.page{height:678px;width:70%;
-background-size:100%;border:1px solid white;margin:auto;overflow:auto;}
-  *{color:black;}
-  #file { display: none;}
-  nav{padding:0px;}
-
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
-  margin: auto;
-}
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
-}
-
-  </style>
-
-  <script>
-    $(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-    });
-  //alert($(window).height());
-  //alert($(window).width());
-    var h=$(window).height();
-    var w=$(window).width();
-    $('.page').height(h);
-    $('.page').width(w);
-    $('#login').height(h);
-    $('#login').width(w); 
-  </script>
-</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#">OnlineJudge</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a data-toggle="modal" data-target="#modl"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-
-<button class="mdl-button mdl-js-button mdl-button--primary" data-toggle=modal data-target=#modl>
-  Sign Up
-</button>
-
-<div class="modal fade" id="modl">
-        
-        <div class="modal-dialog">
-            
-            <div class="modal-content">
-
-<div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Sign Up</h4>
-                </div>
-                <div class="modal-body">
-                 <form method="post" action="<?php echo $current_file;?>" enctype="multipart/form-data">
-                    
-                      <input type="file" id="file" accept='image/*' name="proim" required>
-<label for="file" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
-  <i class="material-icons">person_outline</i>
-</label>
-
-                    <div id="ustatus"> </div> <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="text" name="uname1" maxlength="40" value="<?php if(isset($usern1)) echo $usern1;?>" required id="nameuser">
-    <label class="mdl-textfield__label" for="nameuser">Username:
-  </div></label>
-  </div>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="password" type="password" name="pword1" required id="p1">
-    <label class="mdl-textfield__label" for="p1">Password:</label>
-  </div>
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="password" name="pword11" required id="p2">
-    <label class="mdl-textfield__label" for="p2">Retype Password:</label>
-  </div>
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="text" name="namef1" maxlength="30" value="<?php if(isset($fname)) echo $fname;?>" id="fnm">
-    <label class="mdl-textfield__label" for="fnm">First Name:</label>
-  </div>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="text" name="namel1" maxlength="30" value="<?php if(isset($lname)) echo $lname;?>" id="lnm">
-    <label class="mdl-textfield__label" for="lnm">Last Name:</label>
-  </div>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="email" name="eml" maxlength="30" value="<?php if(isset($eml)) echo $eml;?>" required id="em">
-    <label class="mdl-textfield__label" for="lnm">Email:</label>
-  </div>
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="phn" maxlength="30" value="<?php if(isset($phn)) echo $phn;?>" id="ph">
-    <label class="mdl-textfield__label" for="ph">Phone</label>
-    <span class="mdl-textfield__error">Input is not a number!</span>
-  </div>
-  <br>
-
-
-
-
-              
-  </div>
-                <div class="modal-footer">
-                
-                <button type="submit" class="btn btn-default">Create Account</button>
-              </form></div>
-            </div>
-
-            </div>
-
                 
 <div class="page">
   <?php
@@ -279,83 +207,134 @@ if(!empty($usern) && !empty($passw))/*check the fields are not empty*/
 else echo "<div class=\"alert alert-danger fade in log\">Please fill in all the fields<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a></div>";
 }}
 ?>
-        <div class="col-sm-8" id="imgp">
-          Hello
-        </div>
-
+      
  
 
         <div class="demo-card-square mdl-card mdl-shadow--2dp">
 
   <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">Sign In</h2>
+    <h1 class="mdl-card__title-text">Log In</h1>
   </div>
   <div class="mdl-card__supporting-text">
-            <form method="post" action="<?php echo $current_file;?>" class="form-vertical col-sm-4">
-            <div class=enterlogin>
-            <input type="text" name="uname" maxlength="40" value="<?php if(isset($usern)) echo $usern;?>" placeholder="Username" required class="form-control">
-      
-      
-            <input type="password" name="pword" required class="form-control" placeholder="Password">
-       
-        
-          <div class="checkbox">
-            <label><input type="checkbox" name=rmmbr> Remember me</label>
-          </div>
-        
-          
-        </div>
+            <form method="post" action="<?php echo $current_file;?>">
+            
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type ="text" name="uname" id="unam" maxlength="40" value="<?php if(isset($usern)) echo $usern;?>">
+    <label class="mdl-textfield__label" for="unam">Username
+  </label></div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type ="password" name="pword" id="unam2" value="">
+    <label class="mdl-textfield__label" for="unam2">Password
+  </label></div>
+  
+<br>
+            <input type="checkbox" name=rmmbr id="rmmbr"><label for="rmmbr">Remember Me</label><br>
+<input type="submit" value="Log In" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    </form>
+
+    OR
         
   </div>
   <div class="mdl-card__actions mdl-card--border">
-    <input type="submit" value="Log In" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-    </form>
+  
+  <button class="mdl-button mdl-js-button mdl-button--primary" data-toggle=modal data-target=#modl>
+  Sign Up
+</button>
+    
+
   </div>
 </div>
 </div>
+
+
+
+
+<div class="modal fade" id="modl">
+        
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
+
+<div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Sign Up</h4>
+                </div>
+                <div class="modal-body">
+                 <form method="post" action="<?php echo $current_file;?>" enctype="multipart/form-data">
+                    
+                      <input type="file" id="file" accept='image/*' name="proim" >
+<label for="file" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+  <i class="material-icons">person_outline</i>
+</label>
+
+                    <div id="ustatus"> </div> <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type ="text" name="uname1" maxlength="40" value="<?php if(isset($usern1)) echo $usern1;?>" id="nameuser">
+    <label class="mdl-textfield__label" for="nameuser">Username:
+  </div></label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="password" type="password" name="pword1" id="p1">
+    <label class="mdl-textfield__label" for="p1">Password:</label>
+  </div>
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="password" name="pword11" id="p2">
+    <label class="mdl-textfield__label" for="p2">Retype Password:</label>
+  </div>
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type ="text" name="namef1" maxlength="30" value="<?php if(isset($fname)) echo $fname;?>" id="fnm">
+    <label class="mdl-textfield__label" for="fnm">First Name:</label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type ="text" name="namel1" maxlength="30" value="<?php if(isset($lname)) echo $lname;?>" id="lnm">
+    <label class="mdl-textfield__label" for="lnm">Last Name:</label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type ="email" name="eml" maxlength="30" value="<?php if(isset($eml)) echo $eml;?>" id="em">
+    <label class="mdl-textfield__label" for="lnm">Email:</label>
+  </div>
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="phn" maxlength="30" value="<?php if(isset($phn)) echo $phn;?>" id="ph">
+    <label class="mdl-textfield__label" for="ph">Phone</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+
+  <br><br><br>
+<button type="submit" class="btn btn-default">Create Account</button>
+              </form>
+<br><br><br>
+
+
+              
+  </div>
+                <div class="modal-footer">
+                
+                </div>
+            </div>
+
+            </div></div>
+
+<div class=page>
+  <h1>ABOUT US</h1>
+<figure class=col-sm-4>
+<img class="img img-circle small1" src=img/2.jpg>
+<figcaption>Vaibhav(<a href="mailto:vaibhavagarwal220@gmail.com">vaibhavagarwal220@gmail.com</a>)</figcaption>
+</figure>
+<figure class=col-sm-4>
+<img class="img img-circle small1" src=>
+<figcaption>Deepanshu</figcaption>
+</figure>
+
+<figure class=col-sm-4>
+<img class="img img-circle small1" src=img/1.jpg>
+<figcaption>Kushagra</figcaption>
+</figure>
 </div>
     
-    <div class="page">
-        <div class="col-sm-2 col-sm-offset-1"><h1>Practice</h1>
-          <span class="glyphicon glyphicon-globe lg"></span>
-        </div>
-        <div class="col-sm-2 col-sm-offset-2"><h1>Competitions</h1>
-          <span class="glyphicon glyphicon-leaf lg"></span>
-        </div>
-        <div class="col-sm-3 col-sm-offset-1 "><h1>Leaderboard</h1>
-          <span class="glyphicon glyphicon-heart lg"></span>
-        </div>
-      
-      </div>
 
-    <div class="page bg-grey">
-        <h3 class="text-center">CONTACT</h3>
-        <div class=col-sm-6>
-            <p><span class="glyphicon glyphicon-map-marker"></span> B6 Hostel,IIT Mandi</p>
-            <a href=tel:9736260564><p><span class="glyphicon glyphicon-phone"></span> 9736260564</p>
-             </a> <a href=mailto:vaibhavagarwal220@gmail.com><p>  <span class="glyphicon glyphicon-envelope"></span> vaibhavagarwal220@gmail.com
-            </p></a></div>
-        <div class=col-sm-6>
-        <div class="col-sm-6 form-group">
-            <input type="text" placeholder="Name" class="form-control"></div>
-            
-                <div class="col-sm-6 form-group">
-                    <input type="text" placeholder="Email Address" class="form-control">
-                </div>
-            <div class="col-sm-12"><textarea class="form-control" rows=5 placeholder=Comment></textarea><br></div>
-            
-            
-        <div class=col-sm-12>
-            <button class="btn btn-default pull-right" type="submit">Send</button><br><br>
-                </div>
-        </div>     
-        
-        </div>
-    
-    
-    <br><br>
-    <br><br>
     <script type="text/javascript" src=js/check.js></script>
-<a href="https://icons8.com">Icon pack by Icons8</a>
+
 </body>
 </html>

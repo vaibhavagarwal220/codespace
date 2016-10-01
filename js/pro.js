@@ -1,4 +1,4 @@
-$('#save_btn').click(function()
+$('#savbtn').click(function()
 {
 
 var nf=$('#fnm').val();

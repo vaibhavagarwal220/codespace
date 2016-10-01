@@ -22,18 +22,7 @@ else
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?php echo $qcode; ?>'s Profile</title>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 
   <style type="text/css">
   .nt{margin-top:40px;}
@@ -53,38 +42,13 @@ h2.name,h5{display:inline;}
 }
 
   </style>
-<link rel="stylesheet" href="css/profdes.css">
 </head>
 <body>
 
   
- <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#">OnlineJudge</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href=welcome.php>Home</a></li>
-        <li><a href=practice.php>Practice</a></li>
-        <li><a href="ide.php">OnlineIDE</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
-            
-            <li><div class="btn-group"><a class="btn btn-xs" href="profile.php"><img src= <?php echo $ln_img ?> class="icn" >&nbsp;&nbsp;<?php echo $name_f;?></a>&nbsp;&nbsp;&nbsp;<a class="btn dropdown-toggle " data-toggle="dropdown"><span class="caret"></span></a>
-        <ul class="dropdown-menu"><li><a href="logout.php">Log Out</a></li><li><a href="changep.php">Change Password</a></li></ul>
-        </div></li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
+ <?php
+include 'navbar.php'
+ ?>
 
 <div class=page>
     <?php
@@ -152,8 +116,7 @@ if($result)
 }
 
 ?>
-  
-</div>
+
 <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
@@ -178,6 +141,10 @@ if($result)
         chart.draw(data, options);
       }
     </script>
-  <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+  <div id="piechart_3d" style="width: 600px; height: 300px;"></div>
+
+  
+</div>
+
 </body>
  </html>
