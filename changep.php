@@ -21,8 +21,7 @@ $pwd=getfield('pword');
 
   <style type="text/css">
 
-      *{font-family: "Acmeregular";}
-    .artic {width:70%;color: black;}
+    .contain{width:70%;margin:auto;}
     #slideNotice{background-color:#f0f0f0;display:none;height:50px;position:relative;top:0;left:0;width:100%;text-align:center;font-family: Aclonicaregular;font-size: 20px;font-weight: bold;padding: 8px;scroll-behavior: auto;color: black;}
     .upld,.btn-success,.pport{margin-left:40px;}
     input{border-radius: 5px;}
@@ -35,18 +34,25 @@ $pwd=getfield('pword');
 <?php
 include 'navbar.php'
  ?>
-
+    <div class=contain>
     <div id="slideNotice"></div> 
                 
-    
-                  <input type=password placeholder="enter old password" id="opwd" required maxlength="40">
-                  <input type=password placeholder="enter new password" id="npwd" required maxlength="40">
-                  <input type=password placeholder="re-enter new password" id="npwdc" required maxlength="40">
-                  <input type=button id="save_btn" value="save" class="btn btn-success">
-                
-            </article>
-        </section>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type=password id="opwd" maxlength="40">
+    <label class="mdl-textfield__label" for="unam">Old Password
+  </label></div>
+           <br> <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type=password id="npwd" maxlength="40">
+    <label class="mdl-textfield__label" for="unam">New password
+  </label></div>
+        <br>    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type=password id="npwdc" maxlength="40">
+    <label class="mdl-textfield__label" for="unam">New Password
+  </label></div>
 <br>
+
+                  <input type=button id="save_btn" value="save" class="btn btn-success">
+        
         
   </div>
   <script type="text/javascript" src="js/jquery.min.js"></script>

@@ -12,9 +12,6 @@
 <script type="text/javascript" src="edit_area/edit_area_full.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
  <link rel="stylesheet" type="text/css" href="css/fonts.css">
-  <link rel="stylesheet" type="text/css" href="css/weldes.css">
-   <link rel="stylesheet" type="text/css" href="css/deslog.css">
-    <link rel="stylesheet" type="text/css" href="css/profdes.css">
     <link rel="stylesheet" type="text/css" href="css/deslog1.css">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -55,13 +52,35 @@
         <li><a href="ide.php">OnlineIDE</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+<style type="text/css">
+#cwhite{background-color:white;}
+a:hover{text-decoration:none;}
+
+</style>  
+<?php
+if(loggedin())
+{
+$viewprof=getfield('username');  
+}
+
+?>
+          <div id="cwhite"><a class="btn" href="userprof.php?q=<?php echo $viewprof;?>"><img src= <?php echo $ln_img ?> class="icn" >&nbsp;<?php echo $name_f;?></a><a id="demo-menu-lower-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</a><div>
+
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-lower-right">
+  <a href="profile.php"><li class="mdl-menu__item">Edit Profile</li></a>
+  <a href="changep.php"><li class="mdl-menu__item">Change Password</li></a>
+  <a href="logout.php"><li class="mdl-menu__item">Log Out</li></a>
+  
+</ul>
         
-            
-            <li><div class="btn-group"><a class="btn btn-xs" href="profile.php"><img src= <?php echo $ln_img ?> class="icn" >&nbsp;&nbsp;<?php echo $name_f;?></a>&nbsp;&nbsp;&nbsp;<a class="btn dropdown-toggle " data-toggle="dropdown"><span class="caret"></span></a>
-        <ul class="dropdown-menu"><li><a href="logout.php">Log Out</a></li><li><a href="changep.php">Change Password</a></li></ul>
-        </div></li>
+        </div>
         
       </ul>
+      
     </div>
   </div>
 </nav>

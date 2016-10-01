@@ -40,15 +40,16 @@ $usern=getfield('username');
    
   <style type="text/css">
 
-      *{font-family: "Tahoma";}
-    
+
+    body{font-family:sans-serif;}
     #slideNotice{display:none;height:50px;
-      width:100%;text-align:center;font-family: Tahoma;
+      width:100%;text-align:center;
       background-color: gray;color:white;
-      margin:auto;padding:auto;
+      font-size:20px;
+      font-family:sans-serif;
     }
     
-    button{font-family: Tahoma;}
+    button{font-family:sans-serif;}
     #contain{width:70%;margin:auto;}
     
   </style>

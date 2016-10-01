@@ -101,7 +101,7 @@ if($result)
   </div>
 </div>';
 
-      echo "<img src=".$img." class=\"pport img img-circle\"><h2 class=name>".$fname." ".$srname."</h2><hr><h6>Username</h6><h5> ".$qcode." <h5><br><h6>List of problems successfully solved</h6><h5>";
+      echo "<img src=".$img." class=\"small1 img img-circle\"><h2 class=name>".$fname." ".$srname."</h2><hr><h6>Username</h6><h5> ".$qcode." <h5><br><h6>List of problems successfully solved</h6><h5>";
 
       for($i=0;$i<$num;$i++)
     { $qid=@mysql_result($result1,$i,'qid');

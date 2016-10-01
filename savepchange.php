@@ -41,7 +41,7 @@ $newpwdmatch=md5(mysql_real_escape_string(htmlentities($_POST['npc'])));
   }
   else 
   {
-   echo 'enter at least 8 characters'; 
+   echo 'Enter at least 8 characters'; 
   }
 }
 ?>

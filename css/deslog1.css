@@ -6,15 +6,13 @@ figcaption{display:block;}
 
 
 
-.caret{margin:6.5px;}
-
 img.pport{width: 300px;height: 300px;}
 img.small{width: 100px;height: 100px;}
 img.small1{width: 160px;height: 160px;}
 img.medium{width:250px;height: 250px;}
 img.large{width: 500px;height: 500px;}
-img.align-left {float: left;margin-left: 10px;margin-right: 10px;}
-img.align-right {float: right;margin-right: 10px;margin-left: 10px}
+img.align-left {float: left;}
+img.align-right {float: right;}
 
 
 
@@ -24,10 +22,8 @@ img.icn{width:20px;height:27px;}
 img.icn1{width:50px;height:50px;}
 
 
-.aside{float:right;position:fixed;top:0px;left:68%;width:22%;}
-    .artic {width:600px;}
     .icn-lg {width:30px;height: 30px;}
-     ul{list-style: none; margin:0px;padding: 0px;}
+     ul{list-style: none;}
     
     
     

@@ -3,6 +3,7 @@ require 'core.inc.php';
 require 'connect.inc.php';
 if(!loggedin()) {header('Location:index1.php');}
 $name_f=getfield('fname');
+$id=getfield('fname');
 $name_sr=getfield('srname');
 $ln_img=getfield('imgln');
 $usern=getfield('username');
@@ -15,12 +16,8 @@ $time=time()+3.5*60*60;
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CodeSpace</title>
- 
- 
-
   <style type="text/css">
-  a{color:white;}
-  .btn{width:100%;}
+  
   #contain{width:70%;margin:auto;}
   </style>
 </head>
