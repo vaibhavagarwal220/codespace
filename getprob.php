@@ -5,10 +5,10 @@ require 'core.inc.php';
 if(isset($_POST['q']))
   $quid=$_POST['q'];
 
-$query="SELECT qid,qname from questions";
+$query="SELECT qid from keptin where cid='".$quid."'";
 $result=mysql_query($query);
 $num=mysql_num_rows($result);
-if($result) 
+if($result&&$num) 
 	{
 		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
 			  <thead>
@@ -20,9 +20,14 @@ if($result)
     				</tr>
   			  </thead>
   			  <tbody>";
-		for($i=0;$i<$num;$i++)
+		
+    for($i=0;$i<$num;$i++)
 		{	$qid=mysql_result($result,$i,'qid');
-			$qname=mysql_result($result,$i,'qname');
+
+      $query3="SELECT qname from questions where qid='".$qid."'";
+      $result3=mysql_query($query3);
+			$qname=mysql_result($result3,0,'qname');
+
       $query1="SELECT count(*) from submissions where result='AC' AND qid='".$qid."'";
       $result1=mysql_query($query1);
       $succnum=mysql_result($result1,0,'count(*)');
@@ -42,4 +47,6 @@ if($result)
 	echo "</tbody>
 		</table>";
 	}
+  else {echo "<h1>No problems uploaded Yet</h1>";}
+
 ?>

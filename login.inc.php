@@ -198,11 +198,9 @@ if(!empty($usern) && !empty($passw))/*check the fields are not empty*/
 
       /*start a session and send to index1.php*/$_SESSION['user_id']=$us_id;
             
-            $qry="INSERT INTO `oj`.`online` (`id`, `username`, `time`) VALUES (NULL, '$usern', CURRENT_TIMESTAMP);";
-            if($res=mysql_query($qry));     
-            {
+            
             header('Location: index.php');}
-          }
+          
       }
     }//check all fields are filled
 else echo "<div class=\"alert alert-danger fade in log\">Please fill in all the fields<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a></div>";

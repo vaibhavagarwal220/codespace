@@ -22,21 +22,22 @@ if($result)
     //  echo "End:".$estamp."<br>";
       //echo "Now:".$nstamp."<br>";
 
-      $query2="SELECT TIMESTAMPDIFF(MINUTE,'".$nstamp."','".$sstamp."')%60";
+      $query2="SELECT TIMESTAMPDIFF(MINUTE,'".$nstamp."','".$estamp."')%60";
       $result2=mysql_query($query2);
       $min=mysql_result($result2,0);
 
-      $query3="SELECT TIMESTAMPDIFF(DAY,'".$nstamp."','".$sstamp."')";
+      $query3="SELECT TIMESTAMPDIFF(DAY,'".$nstamp."','".$estamp."')";
       $result3=mysql_query($query3);
       $day=mysql_result($result3,0);
 
-      $query4="SELECT TIMESTAMPDIFF(HOUR,'".$nstamp."','".$sstamp."')%24";
+      $query4="SELECT TIMESTAMPDIFF(HOUR,'".$nstamp."','".$estamp."')%24";
       $result4=mysql_query($query4);
       $hour=mysql_result($result4,0);
 
-      $query5="SELECT TIMESTAMPDIFF(SECOND,'".$nstamp."','".$sstamp."')%60";
+      $query5="SELECT TIMESTAMPDIFF(SECOND,'".$nstamp."','".$estamp."')%60";
       $result5=mysql_query($query5);
       $sec=mysql_result($result5,0);
+
       
       //$query6="SELECT TIMESTAMPDIFF(MONTH,'".$nstamp."','".$sstamp."')%12";
       //$result6=mysql_query($query6);
@@ -54,13 +55,13 @@ if($result)
       //echo "<h4>Problems will appear in ".$mon." Months ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h4>";
       //else 
             if($day>0)
-      echo "<h4>Problems will appear in ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h4>";
+      echo "<h4>Contest will end in ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h4>";
       else if($hour>0)
-      echo "<h4>Problems will appear in ".$hour." Hours ".$min." Minutes ".$sec." Seconds.";
+      echo "<h4>Contest will end in ".$hour." Hours ".$min." Minutes ".$sec." Seconds.";
       else if($min>0)
-      echo "<h4>Problems will appear in ".$min." Minutes ".$sec." Seconds</h4>";
+      echo "<h4>Contest will end in ".$min." Minutes ".$sec." Seconds</h4>";
       else if($sec>0)
-      echo "<h4>Problems will appear in ".$sec." Seconds</h4>";
+      echo "<h4>Contest will end in ".$sec." Seconds</h4>";
       else  echo "0"; 
       
     	}

@@ -14,19 +14,19 @@ function loggedin()
   else
     return false;
 }
-function onln($uname)
-{
-  $query="SELECT COUNT(*) from online where username='$uname'";
-  $res=mysql_query($query);
-  $rows=mysql_result($res,0,'COUNT(*)');
-  if ($rows==0) return false;
-  else if($rows==1) return true;
-}
+//function onln($uname)
+//{
+  //$query="SELECT COUNT(*) from online where username='$uname'";
+  //$res=mysql_query($query);
+  //$rows=mysql_result($res,0,'COUNT(*)');
+  //if ($rows==0) return false;
+ // else if($rows==1) return true;
+//}
 function getfield($field)
 {
   $query="SELECT $field from user_in where id='".$_SESSION['user_id']."';";
 if($query_res=mysql_query($query))
-  {if($fieldres=mysql_result($query_res,0,$field));
+  {if($fieldres=mysql_result($query_res,0,$field))
     {
     return $fieldres;
     }

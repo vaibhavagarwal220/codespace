@@ -41,32 +41,61 @@ include 'navbar.php';
     
 <div id="time">
 </div>
-
+<div id="questions">
+</div>
 
 <script type="text/javascript">
 
-var inter=setInterval(function()
+$.post('remtime.php',{q:'<?php echo $quid;?>'},function(data){
+        if(data!="0") {
+          
+          var inter=setInterval(function()
 {
 
 $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data){
   if(data!="0") $("#time").hide().html(data).show();
   else {
+
+
     clearInterval(inter);
+    
     alert("Contest has started");
+    
+    $.post('getprob.php',{q:'<?php echo $quid;?>'},function(data){$("#questions").hide().html(data).show();});
+    
     var interq=setInterval(function(){
 
-      $.post('getprob.php',{q:'<?php echo $quid;?>'},function(data){$("#time").hide().html(data).show();});
+      $.post('getprob.php',{q:'<?php echo $quid;?>'},function(data){$("#questions").hide().html(data).show();});
 
-    },100);
+    },10000);
+    
+    var interp=setInterval(function(){
 
+      $.post('remtime.php',{q:'<?php echo $quid;?>'},function(data){
+        if(data!="0") $("#time").hide().html(data).show();
+        else 
+        {
+          clearInterval(interp);
+          clearInterval(interq);
+          alert('Ended');
 
+        }
+      });
 
-
-
-
+    },1000);
+        
   }
 });
 },1000);
+        }
+        else 
+        {
+          alert('Ended');
+          
+        }
+      });
+
+
 </script>
 
     
