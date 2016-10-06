@@ -1,6 +1,6 @@
 <?php
-require 'connect.inc.php';
-require 'core.inc.php';
+require '../connect.inc.php';
+require '../core.inc.php';
 $query="SELECT * from user_in;";
 
       if($result=mysql_query($query))
@@ -21,7 +21,7 @@ $query="SELECT * from user_in;";
             <th>Last Name</th>
             <th>Password</th>
             <th>Image</th>
-            <th>Status</th>
+
             </tr>";
             for($ind=$num_rows-1;$ind>=0;$ind--)
             {
@@ -30,8 +30,8 @@ $query="SELECT * from user_in;";
              $fnm=mysql_result($result,$ind,'fname');
              $srnm=mysql_result($result,$ind,'srname');
              $pw=mysql_result($result,$ind,'pword');
-             $imgl=mysql_result($result,$ind,'imgln');
-             $stat=(onln($unm))?"<img src=onln.jpg class=\"icn-lg\">Online":"<img src=ofln.jpg class=\"icn-lg\">Offline";
+             $imgl='../'.mysql_result($result,$ind,'imgln');
+             
             echo 
             "<tr>
             <td>$us_id</td>
@@ -40,7 +40,7 @@ $query="SELECT * from user_in;";
             <td>$srnm</td>
             <td>$pw</td>
             <td><img src=\"$imgl\" class=pport></td>
-            <td>$stat</td>
+            
             </tr>";
             }
             echo"</table>";

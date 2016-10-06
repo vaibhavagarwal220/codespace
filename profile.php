@@ -1,8 +1,12 @@
 <?php
 include 'core.inc.php';
 include 'connect.inc.php';
-if(!loggedin()) {header('Location:index1.php');}
+if(!loggedin()) {header('Location:index.php');}
 $idimup=getfield('id');
+$name_f=getfield('fname');
+$name_sr=getfield('srname');
+$ln_img=getfield('imgln');
+$usern=getfield('username');
 ?>
 <?php
 if(isset($_FILES['filein']['name'])&&!empty($_FILES['filein']['name']))
@@ -14,6 +18,7 @@ if(isset($_FILES['filein']['name'])&&!empty($_FILES['filein']['name']))
     if(move_uploaded_file($tmpname,$location)&&mysql_query($query))
     {
         echo '';
+        unlink($ln_img);
 
     }
     else
@@ -21,15 +26,10 @@ if(isset($_FILES['filein']['name'])&&!empty($_FILES['filein']['name']))
         echo '';
     }
 }
+$ln_img=getfield('imgln');
 ?>
 
-<?php
-if(!loggedin()) {header('Location:index1.php');}
-$name_f=getfield('fname');
-$name_sr=getfield('srname');
-$ln_img=getfield('imgln');
-$usern=getfield('username');
-?>
+
 
  <html>
  <head>
@@ -51,6 +51,7 @@ $usern=getfield('username');
     
     button{font-family:sans-serif;}
     #contain{width:70%;margin:auto;}
+    #files{display:none;}
     
   </style>
 </head>
@@ -63,11 +64,13 @@ include 'navbar.php'
   <div id="slideNotice"></div>       
                 
     
-                <img src= <?php echo $ln_img ?> class="small1 img img-circle">
+                <img src= <?php echo $ln_img ?> class="small1 img img-circle" id="image">
                 
       <form action="profile.php" method="POST" enctype="multipart/form-data" >
-            <input type="file" name="filein" class=upld accept="image/*" required>
-            <br>
+            <input type="file" name="filein" class=upld accept="image/*" required id="files">
+            <label for="files" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+              <i class="material-icons">+</i>
+            </label>
             <button type="submit" class="btn btn-success">
             <span class="glyphicon glyphicon-camera"></span>&nbsp;&nbsp;&nbsp;Change profile picture</button>
         </form>
@@ -97,5 +100,18 @@ include 'navbar.php'
 
 
   <script type="text/javascript" src="js/upprof.js"></script>
+  <script type="text/javascript">
+  document.getElementById("files").onchange = function () {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("image").src = e.target.result;
+    };
+
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+};
+</script>
 </body>
  </html>

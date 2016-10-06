@@ -147,7 +147,7 @@ if(isset($_POST['eml'])&&isset($_POST['phn'])&&isset($_POST['uname1'])&&isset($_
                           //if(!mysql_query($query1)) echo 'error';
           
                 $_SESSION['user_id']=$us_id;//starting the session for the user
-                      header('Location: index1.php');
+                      header('Location: index.php');
                     }
               }
               else {echo "<div class=\"alert alert-danger fade in signup\">error uploading image<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a></div>";}//display error about image
@@ -172,7 +172,7 @@ if(isset($_POST['eml'])&&isset($_POST['phn'])&&isset($_POST['uname1'])&&isset($_
 <div class="page">
   <?php
 if(!empty($_COOKIE['uid'])&&isset($_COOKIE['uid'])){$_SESSION['user_id']=$_COOKIE['uid'];
-            header('Location: index1.php');}/*to directly login in case of preset cookies*/
+            header('Location: index.php');}/*to directly login in case of preset cookies*/
 else {if(isset($_POST['uname'])&&isset($_POST['pword']))//check if the values are set i.e. form is submitted by user
 {$usern=$_POST['uname'];//getting values using more secure post method
 
@@ -201,7 +201,7 @@ if(!empty($usern) && !empty($passw))/*check the fields are not empty*/
             $qry="INSERT INTO `oj`.`online` (`id`, `username`, `time`) VALUES (NULL, '$usern', CURRENT_TIMESTAMP);";
             if($res=mysql_query($qry));     
             {
-            header('Location: index1.php');}
+            header('Location: index.php');}
           }
       }
     }//check all fields are filled

@@ -1,7 +1,7 @@
 <?php
 include 'core.inc.php';
 include 'connect.inc.php';
-if(!loggedin()) {header('Location:index1.php');}
+if(!loggedin()) {header('Location:index.php');}
 if(isset($_POST['nf'])&&isset($_POST['nf']))
 {
 $firstname=mysql_real_escape_string(htmlentities($_POST['nf']));

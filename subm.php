@@ -3,7 +3,7 @@
 <?php
 require 'core.inc.php';
 require 'connect.inc.php';
-if(!loggedin()) {header('Location:index1.php');}
+if(!loggedin()) {header('Location:index.php');}
 $name_f=getfield('fname');
 $name_sr=getfield('srname');
 $ln_img=getfield('imgln');

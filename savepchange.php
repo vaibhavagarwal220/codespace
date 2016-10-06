@@ -1,7 +1,7 @@
 <?php
 include 'core.inc.php';
 include 'connect.inc.php';
-if(!loggedin()) {header('Location:index1.php');}
+if(!loggedin()) {header('Location:index.php');}
 $id=getfield('id');
 $name_f=getfield('fname');
 $name_sr=getfield('srname');

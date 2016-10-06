@@ -34,30 +34,42 @@ h2.name,h5{display:inline;}
 </head>
 <body>
 <?php
-include 'navbar.php'
+include 'navbar.php';
  ?>
 
 <div class=page>
-    <?php
-require 'connect.inc.php';
-$query="SELECT qid,user_id,subln from submissions where id='".$quid."'";
-$result=mysql_query($query);
-if($result) 
-	{
-			$qid=mysql_result($result,0,'qid');
-			$userid=mysql_result($result,0,'user_id');
-      $codeln=mysql_result($result,0,'subln');
-      $query1="SELECT * from user_in where id=".$userid;
-      $result1=mysql_query($query1);
-      $num=mysql_num_rows($result1);
-      $unm=mysql_result($result1,0,'username');
-      echo "<a href=userprof.php?q=".$unm." class=sub>".$unm."</a> >> <a href=problem.php?q=".$qid.">".$qid." >></a> ".$quid."<br><br><pre class=line-numbers><code class=\"language-cpp\">";
-      $inread=file($codeln);
-     foreach($inread as $line)
-        echo $line."<br>";
-	   echo "</code></pre>";
-	}
-?>
+    
+<div id="time">
+</div>
+
+
+<script type="text/javascript">
+
+var inter=setInterval(function()
+{
+
+$.post('caltime.php',{q:'<?php echo $quid;?>'},function(data){
+  if(data!="0") $("#time").hide().html(data).show();
+  else {
+    clearInterval(inter);
+    alert("Contest has started");
+    var interq=setInterval(function(){
+
+      $.post('getprob.php',{q:'<?php echo $quid;?>'},function(data){$("#time").hide().html(data).show();});
+
+    },100);
+
+
+
+
+
+
+  }
+});
+},1000);
+</script>
+
+    
   
 <div>
 </body>
