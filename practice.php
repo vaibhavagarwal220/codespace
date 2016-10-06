@@ -36,9 +36,18 @@ include 'navbar.php'
 <div class=page>
     <?php
 require 'connect.inc.php';
-$query="SELECT qid,qname from questions";
+$query="SELECT * 
+FROM questions";
 $result=mysql_query($query);
 $num=mysql_num_rows($result);
+
+$query1="SELECT * 
+FROM questions,keptin
+WHERE questions.qid != keptin.qid";
+$result1=mysql_query($query1);
+$num1=mysql_num_rows($result1);
+if($num1) {$result=$result1;$num=$num1;}
+
 if($result) 
 	{
 		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">

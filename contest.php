@@ -9,10 +9,7 @@ $name_sr=getfield('srname');
 $ln_img=getfield('imgln');
 $usern=getfield('username');
 $time=time()+3.5*60*60;
-if(isset($_GET['q']))
-  $quid=$_GET['q'];
-else
-  header('Location:practice.php');
+
 
   /*echo "<div class=awe>Logged in since ".date('d-M-Y H:i:s' , $time)." </div><br><div class=awe>Your IP Address is ".retip()."</div><br><br>";*/    
 ?>
@@ -24,20 +21,63 @@ else
   <title>Practice Arena</title>
 
   <style type="text/css">
-  .nt{margin-top:40px;}
   a.sub{color:blue;}
   table a{color:blue;}
   .page{width:70%;margin:auto;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
+
   </style>
 </head>
 <body>
 <?php
-include 'navbar.php';
+include 'navbar.php';?>
+<div class=page>
+
+<?php
+ if(isset($_GET['q']))
+  $quid=$_GET['q'];
+else
+  {
+
+
+
+$queryqw="SELECT * from contests";
+
+$resultqw=mysql_query($queryqw);
+
+$numqw=mysql_num_rows($resultqw);
+
+if($resultqw&&$numqw) 
+  {
+    echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
+        <thead>
+          <tr>
+              <th class=\"mdl-data-table__cell--non-numeric\">Contest Name</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">Link</th>
+            </tr>
+          </thead>
+          <tbody>";
+    
+    for($i=0;$i<$numqw;$i++)
+    { $nm=mysql_result($resultqw,$i,'name');
+      $cid=mysql_result($resultqw,$i,'cid');
+      echo "<tr>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric \">".$nm."</td>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"contest.php?q=".$cid."\">Enter</a></td>";      
+      echo "</tr>";
+    }
+  echo "</tbody>
+    </table>";
+  }
+  else {echo "<h1>No problems uploaded Yet</h1>";}
+
+
+
+  }
  ?>
 
-<div class=page>
+
     
 <div id="time">
 </div>
@@ -91,6 +131,10 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data){
         else 
         {
           alert('Ended');
+          <?php 
+           $query1="DELETE from keptin where cid='".$quid."'";
+            $result1=mysql_query($query1);
+          ?>
           
         }
       });
@@ -100,6 +144,6 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data){
 
     
   
-<div>
+</div>
 </body>
  </html>
