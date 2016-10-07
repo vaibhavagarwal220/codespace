@@ -50,6 +50,7 @@
         <li><a href=welcome.php>Home</a></li>
         <li><a href=practice.php>Practice</a></li>
         <li><a href="ide.php">OnlineIDE</a></li>
+        <li><a href="contest.php">Compete</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 <style type="text/css">
