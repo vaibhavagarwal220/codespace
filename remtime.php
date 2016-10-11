@@ -10,9 +10,9 @@ $result=mysql_query($query);
 $query1="SELECT NOW();";
 $result1=mysql_query($query1);
 if($result) 
-	{
-			$sdate=mysql_result($result,0,'sdate');
-			$edate=mysql_result($result,0,'edate');
+  {
+      $sdate=mysql_result($result,0,'sdate');
+      $edate=mysql_result($result,0,'edate');
       $stime=mysql_result($result,0,'stime');
       $etime=mysql_result($result,0,'etime');
       $sstamp=$sdate.' '.$stime;
@@ -50,19 +50,19 @@ if($result)
 //      echo "<br>".$years."<br>"."<br>".$mon."<br>"."<br>".$day."<br>"."<br>".$hour."<br>"."<br>".$min."<br>"."<br>".$sec."<br>";
 
       //if($years>0)
-      //echo "<h4>Problems will appear in ".$years." Years ".$mon." Months ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h4>";
+      //echo "<h5>Problems will appear in ".$years." Years ".$mon." Months ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h5>";
       //else if($mon>0)
-      //echo "<h4>Problems will appear in ".$mon." Months ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h4>";
+      //echo "<h5>Problems will appear in ".$mon." Months ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h5>";
       //else 
             if($day>0)
-      echo "<h4>Contest will end in ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h4>";
+      echo "<h5>Contest will end in ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h5>";
       else if($hour>0)
-      echo "<h4>Contest will end in ".$hour." Hours ".$min." Minutes ".$sec." Seconds.";
+      echo "<h5>Contest will end in ".$hour." Hours ".$min." Minutes ".$sec." Seconds.";
       else if($min>0)
-      echo "<h4>Contest will end in ".$min." Minutes ".$sec." Seconds</h4>";
+      echo "<h5>Contest will end in ".$min." Minutes ".$sec." Seconds</h5>";
       else if($sec>0)
-      echo "<h4>Contest will end in ".$sec." Seconds</h4>";
+      echo "<h5>Contest will end in ".$sec." Seconds</h5>";
       else  echo "0"; 
       
-    	}
+      }
 ?>

@@ -32,6 +32,20 @@ if($query_res=mysql_query($query))
     }
   }
 }
+
+function cexists($cont)
+{
+  $query="SELECT * from contests where cid='".$cont."';";
+$query_res=@mysql_query($query);
+  if(mysql_num_rows($query_res))
+    {
+    return true;
+    }
+    else 
+      return false;
+  
+}
+
 function retip()
 {
   if(@$ipc=$_SERVER['HTTP_CLIENT_IP']||
@@ -41,5 +55,52 @@ if(!empty($ipc)) return $ipc;
 else if(!empty($ipf)) return $ipf;
 else return $ipr;
 }}
+
+function getcontests($queryqw)
+{
+
+$resultqw=@mysql_query($queryqw);
+
+$numqw=@mysql_num_rows($resultqw);
+
+if($resultqw&&$numqw) 
+  {
+    echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
+        <thead>
+          <tr>
+              <th class=\"mdl-data-table__cell--non-numeric\">Contest Name</th>
+              
+              <th class=\"mdl-data-table__cell--non-numeric\">Start Time</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">End Time</th>
+            </tr>
+          </thead>
+          <tbody>";
+    
+    for($i=0;$i<$numqw;$i++)
+    { $nm=@mysql_result($resultqw,$i,'name');
+      $cid=@mysql_result($resultqw,$i,'cid');
+      $st=@mysql_result($resultqw,$i,'stime');
+      $sd=@mysql_result($resultqw,$i,'sdate');
+      $et=@mysql_result($resultqw,$i,'etime');
+      $ed=@mysql_result($resultqw,$i,'edate');
+
+
+      echo "<tr>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric \"><a href=\"contest.php?q=".$cid."\">".$nm."</a></td>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\">".$sd."<br>".$st."</td>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\">".$ed."<br>".$et."</td>";      
+      echo "</tr>";
+    }
+  echo "</tbody>
+    </table>";
+  }
+  else {echo "<h1>No problems uploaded Yet</h1>";}
+
+
+
+  
+ 
+}
+
 
  ?>

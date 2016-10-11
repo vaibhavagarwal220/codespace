@@ -41,7 +41,7 @@ FROM questions";
 $result=mysql_query($query);
 $num=mysql_num_rows($result);
 
-$query1="SELECT * 
+$query1="SELECT DISTINCT questions.qid,questions.qname
 FROM questions,keptin
 WHERE questions.qid != keptin.qid";
 $result1=mysql_query($query1);
