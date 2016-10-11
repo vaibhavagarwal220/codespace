@@ -11,7 +11,7 @@ using namespace std;
 int main(int argc,char *argv[])
 {
 	string compiler,source_code;
-	string command = "src/bash_scripts/compile.sh";
+	string command = "bin/compile.sh";
 
 	switch(argc)
 	{

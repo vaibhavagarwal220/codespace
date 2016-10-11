@@ -20,13 +20,13 @@ LIBS = -lm
 all: Controller Compile Execute Compare
 
 clean:	
-	$(RM) $(RMFLAGS) bin/* tmp/*
+	$(RM) $(RMFLAGS) bin/*.out tmp/*
 
 clean_temp:
 	$(RM) $(RMFLAGS) tmp/*
 
 clean_objects:
-	&(RM) $(RMFLAGS) bin/*
+	&(RM) $(RMFLAGS) bin/*.out
 
 Controller:	
 
