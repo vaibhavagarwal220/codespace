@@ -1,5 +1,5 @@
 
-CC = g++
+CPP = g++
 CFLAGS = -Wall -Wextra -g -Werror -I
 LFLAGS = 
 
@@ -9,7 +9,7 @@ RMFLAGS = -rf
 SRCS = src/
 
 SRCS_COMPILE = src/cpp/compile.cpp
-SRCS_EXECUTE = src
+SRCS_EXECUTE = src/cpp/execute.cpp
 SRCS_COMPARE = src/
 
 
@@ -31,7 +31,7 @@ clean_objects:
 Controller:	
 
 Compile:	$(SRCS_COMPILE)
-	$(CC) $(CFLAGS) $(INCLUDES) -o bin/Compile $(SRCS_COMPILE) $(LIBS)
+	$(CPP) $(CFLAGS) $(INCLUDES) -o bin/Compile $(SRCS_COMPILE) $(LIBS)
 
 Execute:
 
