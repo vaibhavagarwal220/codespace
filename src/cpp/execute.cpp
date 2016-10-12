@@ -45,15 +45,14 @@ int main(int argc,char *argv[])
 	}
 
 	string timer,runner,command;
-	timer = "bin/timer.sh";
-	runner = "bin/runner.sh";
+	timer = "./bin/timer.sh";
+	runner = "./bin/runner.sh";
 
-	timer = timer + " " + time_limit + " " + size_limit + " " + usr_exe + " &";
+	timer = timer + " " + time_limit + " " + size_limit + " " + usr_exe + " & ";
 	runner = runner + " " + input_filename + " " +usr_exe;
 	command = timer + runner;
 
 	system(command.c_str());
 
 	return 0;
-
 }

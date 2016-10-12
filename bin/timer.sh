@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TIMELIMT=$1
+TIMELIMIT=$1
 SIZELIMIT=$2
 USR_EXE=$3
 
@@ -22,11 +22,16 @@ PID_RUNNER="$(ps -C runner.sh -o pid=)"
 FLAG=0
 while true
 do
-	TIME="$(ps -C $USR_EXE -o etimes=)"
-	if [ "$TIME" -eq "$TIMELIMT" ]
+	TIME="$(ps -C $USR_EXE -o etimes= | tr -d ' ')"
+	if [ -z "$TIME" ]
 	then
+		break;
+	else
+		if [ "$TIME" -ge "$TIMELIMIT" ]
+		then
 		FLAG=1
 		break;
+		fi
 	fi
 done
 
@@ -35,10 +40,8 @@ then
 	kill $PID_RUNNER
 	kill $PID_EXE
 	echo "TIME LIMIT EXCEEDED"
-else
-	echo "SUCCESSFULL"
 fi
 
-
+echo 'timer ended'
 
 
