@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <fstream>
 #include <string.h>
 #include <stdio.h>
@@ -55,15 +54,6 @@ int main(int argc,char *argv[])
 
 	system(command.c_str());
 
-=======
-#include <stdio.h>
-#include <iostream>
-
-using namespace std;
-
-int main()
-{
-	
->>>>>>> cf78917fad1fa56c32072c159a12c17d7921e0da
 	return 0;
+
 }
