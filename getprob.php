@@ -1,54 +1,14 @@
-
-
 <?php
+require 'connect.inc.php';
 require 'core.inc.php';
-require 'connect.inc.php';
-if(!loggedin()) {header('Location:index.php');}
-$name_f=getfield('fname');
-$name_sr=getfield('srname');
-$ln_img=getfield('imgln');
-$usern=getfield('username');
-$time=time()+3.5*60*60;
-  /*echo "<div class=awe>Logged in since ".date('d-M-Y H:i:s' , $time)." </div><br><div class=awe>Your IP Address is ".retip()."</div><br><br>";*/    
-?>
- <html>
- <head>
-   
-     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Practice Arena</title>
 
+if(isset($_POST['q']))
+  $quid=$_POST['q'];
 
-  <style type="text/css">
-  .nt{margin-top:40px;}
-  a{color:white;}
-  table a{color:blue;}
-  .page{width:70%;margin:auto;}
-
-  </style>
-</head>
-<body>
-  
- <?php
-include 'navbar.php'
- ?>
-
-<div class=page>
-    <?php
-require 'connect.inc.php';
-$query="SELECT * 
-FROM questions";
+$query="SELECT qid from keptin where cid='".$quid."'";
 $result=mysql_query($query);
 $num=mysql_num_rows($result);
-
-$query1="SELECT DISTINCT questions.qid,questions.qname
-FROM questions,keptin
-WHERE questions.qid != keptin.qid";
-$result1=mysql_query($query1);
-$num1=mysql_num_rows($result1);
-if($num1) {$result=$result1;$num=$num1;}
-
-if($result) 
+if($result&&$num) 
 	{
 		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
 			  <thead>
@@ -60,9 +20,14 @@ if($result)
     				</tr>
   			  </thead>
   			  <tbody>";
-		for($i=0;$i<$num;$i++)
+		
+    for($i=0;$i<$num;$i++)
 		{	$qid=mysql_result($result,$i,'qid');
-			$qname=mysql_result($result,$i,'qname');
+
+      $query3="SELECT qname from questions where qid='".$qid."'";
+      $result3=mysql_query($query3);
+			$qname=mysql_result($result3,0,'qname');
+
       $query1="SELECT count(*) from submissions where result='AC' AND qid='".$qid."'";
       $result1=mysql_query($query1);
       $succnum=mysql_result($result1,0,'count(*)');
@@ -82,8 +47,6 @@ if($result)
 	echo "</tbody>
 		</table>";
 	}
+  else {echo "<h1>No problems uploaded Yet</h1>";}
+
 ?>
-  
-<div>
-</body>
- </html>
