@@ -4,6 +4,12 @@ using namespace std;
 
 int main()
 {
-	cout<<"Hello World c++\n"
+	int t,num1,num2;
+	cin>>t;
+	while(t)
+	{
+		//cin>>num1>>num2;
+//		cout<<(num1+num2)<<endl;
+	}	
 	return 0;
 }

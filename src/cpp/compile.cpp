@@ -11,7 +11,7 @@ using namespace std;
 int main(int argc,char *argv[])
 {
 	string compiler,source_code;
-	string command = "src/bash_scripts/compile.sh";
+	string command = "bin/compile.sh";
 
 	switch(argc)
 	{
@@ -62,19 +62,18 @@ int main(int argc,char *argv[])
 	int check = 0;
 	status>>check;
 
+	error.open(error_filename.c_str(),ios::in | ios::out);
 	if(check)
 	{
 		printf("Compilation Error : \n");
-		error.open(error_filename.c_str(),ios::in | ios::out);
 		while(!error.eof())
 		{
 			error.getline(compilation_error,100);
 			cout<<compilation_error<<endl;
 		}
-		error.close();
 	}
-
 	error.close();
+	status.close();
 
 	return 0;	
 }

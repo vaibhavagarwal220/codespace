@@ -1,0 +1,9 @@
+#!/bin/bash
+
+INPUT=$1
+USR_EXE=$2
+
+LOCATION_EXE="./tmp/"
+LOCATION_INPUT="./input/"
+
+	cat $LOCATION_INPUT$INPUT | $LOCATION_EXE$USR_EXE > $LOCATION_EXE$USR_EXE.output
