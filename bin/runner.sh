@@ -1,25 +1,24 @@
 #!/bin/bash
 
-INPUT=$1
-USR_EXE=$2
+TIME_LIMIT=$1
+SIZE_LIMIT=$2
+INPUT_FILE=$3
+USR_EXE=$4
+SRC_CODE=${USR_EXE: 0:(-4)}
 
-LOCATION_EXE="./tmp/"
-LOCATION_INPUT="./input/"
+RUN_TIMER="./bin/Timer.out"
 
-	cat $LOCATION_INPUT$INPUT | $LOCATION_EXE$USR_EXE > $LOCATION_EXE$USR_EXE.output
+	$RUN_TIMER $1 $2 $4 
 
-if [ "$?" -eq "139" ]
-	then
-		echo 'segmentation fault'
-		exit;
-	fi
+	cat "./input/$INPUT_FILE" | "./tmp/$USR_EXE" > "./tmp/$USR_EXE.output"
+
+if [ "$?" == "139" ]
+then
+	echo "RE" > "./tmp/$SRC_CODE.status"
+fi
 
 PID_TIMER="$(ps -C timer.sh -o pid=)"
-	
-if [ -z "$PID_EXE" ]
+if [ "$PID_TIMER" ] 
 then
-	echo 'e'
-else
 	kill $PID_TIMER
 fi
-	

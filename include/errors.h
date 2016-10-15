@@ -14,4 +14,10 @@
 #define ERROR_wfTimeLimit 201
 #define ERROR_wfSizeLimit 202
 
+#define ERROR_ifnf 301
+#define ERROR_ofnf 302
+#define ERROR_outnf 303
+#define ERROR_sfnf 304
+#define ERROR_efnf 305
+
 #endif

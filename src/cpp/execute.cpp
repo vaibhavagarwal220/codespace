@@ -11,7 +11,7 @@ using namespace std;
 
 int main(int argc,char *argv[])
 {
-	string time_limit,size_limit,input_filename,usr_exe;
+	string time_limit,size_limit,input_filename,source_code,usr_exe;
 
 	switch(argc)
 	{
@@ -44,15 +44,63 @@ int main(int argc,char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	string timer,runner,command;
-	timer = "./bin/timer.sh";
-	runner = "./bin/runner.sh";
+	string temp = "./input/" + input_filename;
+	if(!exist_file(temp))
+	{
+		cout<<ERROR_ifnf<<endl;
+		exit(EXIT_FAILURE);
+	}
 
-	timer = timer + " " + time_limit + " " + size_limit + " " + usr_exe + " & ";
-	runner = runner + " " + input_filename + " " +usr_exe;
-	command = timer + runner;
+	temp = "./tmp/" + usr_exe;
+	if(!exist_file(temp))
+	{
+		cout<<ERROR_outnf<<endl;
+		exit(EXIT_FAILURE);
+	}
+
+	source_code = ".out";
+	source_code = usr_exe.substr(0,usr_exe.size() - source_code.size());
+
+	string runner,command;
+	runner = "./bin/runner.sh";
+	command = runner + " " + time_limit + " " + size_limit + " " + input_filename + " " + usr_exe;
 
 	system(command.c_str());
 
+	string status_filename = "./tmp/" + source_code + ".status";
+	string error_filename = "./tmp/" + source_code + ".err";
+	fstream status,error;
+	status.open(status_filename.c_str(),ios::in | ios::out);
+	error.open(error_filename.c_str(),ios::in | ios::out);
+
+	if(!status.is_open())
+	{
+		cout<<ERROR_sfnf<<endl;
+		exit(EXIT_FAILURE);
+	}
+	if(!error.is_open())
+	{
+		cout<<ERROR_efnf<<endl;
+		exit(EXIT_FAILURE);
+	}
+
+	string status_check;
+	status>>status_check;
+
+	if(status_check == "RE")
+	{
+		cout<<"Runtime Error\n"<<endl;
+	}
+	else if(status_check == "TLE")
+	{
+		cout<<"Time Limit Exceeded"<<endl;
+	}
+	else
+	{
+		cout<<"Successful\n";
+	}
+
+	error.close();
+	status.close();
 	return 0;
 }
