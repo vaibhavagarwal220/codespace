@@ -19,5 +19,7 @@
 #define ERROR_outnf 303
 #define ERROR_sfnf 304
 #define ERROR_efnf 305
+#define ERROR_cnotCreated 306
+#define ERROR_usr_exe_notCreated 307
 
 #endif

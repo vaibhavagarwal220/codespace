@@ -6,38 +6,32 @@
 #include <string>
 #include <iostream>
 #include "functions.h"
+#include <unistd.h>
+#include <time.h>
+#include <cstdlib>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdio.h>
 
 using namespace std;
 
 int main(int argc,char *argv[])
 {
-	string time_limit,size_limit,input_filename,source_code,usr_exe;
+	double time_limit,run_time;
+	string input_filename,source_code,usr_exe;
 
 	switch(argc)
 	{
 	case 1:
 	case 2:
 	case 3:
-	case 4:
 		cout<<ERROR_wrongArguments<<endl;
 		exit(EXIT_FAILURE);
 	break;
-	case 5:
-		if(!isNumber(argv[1]))
-		{
-			cout<<ERROR_wfTimeLimit<<endl;
-			exit(EXIT_FAILURE);
-		}
-		if(!isNumber(argv[2]))
-		{
-			cout<<ERROR_wfSizeLimit<<endl;
-			exit(EXIT_FAILURE);
-		}
-
-		time_limit = argv[1];
-		size_limit = argv[2];
-		input_filename = argv[3];
-		usr_exe = argv[4];
+	case 4:
+		time_limit = atof(argv[1]);
+		input_filename = argv[2];
+		usr_exe = argv[3];
 	break;
 	default:
 		cout<<ERROR_wrongArguments<<endl;
@@ -61,46 +55,82 @@ int main(int argc,char *argv[])
 	source_code = ".out";
 	source_code = usr_exe.substr(0,usr_exe.size() - source_code.size());
 
-	string runner,command;
-	runner = "./bin/runner.sh";
-	command = runner + " " + time_limit + " " + size_limit + " " + input_filename + " " + usr_exe;
+	pid_t child = fork();
 
-	system(command.c_str());
+	clock_t start,end;
+	run_time = 0;
+	if(child < 0)
+	{
+		cout<<ERROR_cnotCreated<<endl;
+		exit(EXIT_FAILURE);
+	}
+	else if(child == 0)
+	{
+		string temp = source_code;
+		temp += ".output";
 
-	string status_filename = "./tmp/" + source_code + ".status";
-	string error_filename = "./tmp/" + source_code + ".err";
-	fstream status,error;
-	status.open(status_filename.c_str(),ios::in | ios::out);
-	error.open(error_filename.c_str(),ios::in | ios::out);
+		//freopen(temp.c_str(),"w",stdout);
 
-	if(!status.is_open())
+		string command;
+		cout<<"Starting child\n";
+		command = "cat ./input/" + input_filename + " | " + "./tmp/" + usr_exe + " > ./tmp/" + source_code + ".output";
+		//command = "cat \"./input/" + input_filename + "\" | \"./tmp/" + usr_exe + "\" > \"./tmp/" + source_code + ".output\"";
+		//cout<<command<<endl;
+		//string command = "./bin/runner.sh";
+		//command += " " + input_filename + " " + source_code + " " + usr_exe;
+		system(command.c_str());
+		cout<<"Ended child\n";
+		exit(0);	
+	}
+	else
+	{
+		start = clock();
+		int pid_usr_exe;
+		cout<<"Getting pid\n";
+		pid_usr_exe = get_pid(usr_exe.c_str());
+		cout<<"Pid obtained\n";
+		do
+		{
+			if(kill(pid_usr_exe,0) == -1)
+				break;
+			end = clock();
+		}
+		while((double)(end-start)/CLOCKS_PER_SEC <= time_limit);		
+	}
+	int run_status;
+	if((run_status = get_pid(usr_exe.c_str())))
+	{
+		cout<<"Time Limit Exceeded\n";
+		kill(run_status,SIGKILL);
+		return 0;
+	}
+
+	/*fstream exe_status;
+	string exe_status_filename = source_code + ".status";
+	cout<<exe_status_filename<<endl;
+	exe_status.open(exe_status_filename.c_str(),ios::in | ios::out);
+
+	if(!exe_status.is_open())
 	{
 		cout<<ERROR_sfnf<<endl;
 		exit(EXIT_FAILURE);
 	}
-	if(!error.is_open())
-	{
-		cout<<ERROR_efnf<<endl;
-		exit(EXIT_FAILURE);
-	}
 
-	string status_check;
-	status>>status_check;
-
-	if(status_check == "RE")
+	string check_rstatus;
+	exe_status >> check_rstatus;
+	if(check_rstatus == "SR")
 	{
-		cout<<"Runtime Error\n"<<endl;
+		cout<<"Successfully executed \n";
 	}
-	else if(status_check == "TLE")
+	else if(check_rstatus == "RE")
 	{
-		cout<<"Time Limit Exceeded"<<endl;
+		cout<<"Runtime Error\n";
+		exe_status.close();
+		return 0;
 	}
-	else
-	{
-		cout<<"Successful\n";
-	}
-
-	error.close();
-	status.close();
+	exe_status.close();
+*/
+	run_time = (double)(end-start)/CLOCKS_PER_SEC;
+	cout<<"Run time :\t"<<run_time<<endl;	
 	return 0;
 }
