@@ -1,9 +1,10 @@
-#include "functions.h"
+#include "utility.h"
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 #include <fstream>
 #include <string>
+#include <iostream>
 
 using namespace std;	
 
@@ -62,33 +63,3 @@ string itostring(num n)
 	}while(n /= 10);
 	return str;
 }
-
-int get_pid(const char *str)
-{
-/*	char line[10];
-	char command[50];
-	//sprintf(command, "pidof %s",str);  
-	FILE *cmd = popen(command, "r");
-	fgets(line, 10, cmd);
-	pid_t pid = strtoul(line, NULL, 10);
-	pclose(cmd);*/
-	printf("\n%s\n",str);
-	pid_t pid = 0;
-	return pid;
-}
-
-/*int get_pid(const char *str)
-{
-	char command[32];  
-   	sprintf(command, "pidof %s > run.status",str);  
-	system(command);
-
-   	fstream file;
-   	file.open("run.status",ios ::in | ios::out);
-   	int temp = 0;
-   	file>>temp;
-   	file.close();
-   	system("rm run.status");
-   	
-   	return temp;
-}*/
