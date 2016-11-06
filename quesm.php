@@ -1,5 +1,5 @@
 <?php
-include 'connect.inc.php';
+include '../connect.inc.php';
 if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POST['test'])&&isset($_POST['exin'])&&isset($_POST['exout'])&&isset($_POST['qcode'])&&isset($_POST['qnm']) ){
 $prob=nl2br($_POST['stat']);
 $inf=nl2br($_POST['in']);

@@ -5,7 +5,7 @@
 
 
 <?php
-require 'connect.inc.php';
+require '../connect.inc.php';
 if(isset($_POST['qcode'])&&isset($_POST['qname'])&&isset($_FILES['inp']['name'])&&isset($_FILES['outp']['name'])&&isset($_FILES['ques']['name'])&&isset($_POST['tl']))/*to check that user has submitted the signup form*/
     { //getting values from fields using post method
       $qcode=$_POST['qcode'];

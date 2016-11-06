@@ -42,19 +42,9 @@ background-size:100%;margin:auto;overflow:auto;}
   #file { display: none;}
   nav{padding:0px;}
 
-.demo-card-square.mdl-card {
-  width: 400px;
-  height:500px;
-  margin: auto;
 
-}
 .enterlogin{padding:auto;margin:auto;width:370%;}
 
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background:
-    url('img/type.jpg') bottom right 15% no-repeat #46B6AC;
-}
 
 *{font-family:'Bitter';}
 h1{border-bottom:6px solid orange;}
@@ -91,6 +81,7 @@ h1{border-bottom:6px solid orange;}
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><a data-toggle="modal" data-target="#modllog"><span class="glyphicon glyphicon-user"></span> Log In</a></li>
         <li><a data-toggle="modal" data-target="#modl"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         
       </ul>
@@ -209,41 +200,50 @@ else echo "<div class=\"alert alert-danger fade in log\">Please fill in all the 
       
  
 
-        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+       
 
-  <div class="mdl-card__title mdl-card--expand">
-    <h1 class="mdl-card__title-text">Log In</h1>
-  </div>
-  <div class="mdl-card__supporting-text">
-            <form method="post" action="<?php echo $current_file;?>">
-            
-                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="text" name="uname" id="unam" maxlength="40" value="<?php if(isset($usern)) echo $usern;?>">
-    <label class="mdl-textfield__label" for="unam">Username
-  </label></div>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="password" name="pword" id="unam2" value="">
-    <label class="mdl-textfield__label" for="unam2">Password
-  </label></div>
-  
-<br>
-            <input type="checkbox" name=rmmbr id="rmmbr"><label for="rmmbr">Remember Me</label><br>
-<input type="submit" value="Log In" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-    </form>
 
-    OR
+<div class="modal fade" id="modllog">
         
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-  
-  <button class="mdl-button mdl-js-button mdl-button--primary" data-toggle=modal data-target=#modl>
-  Sign Up
-</button>
-    
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
 
-  </div>
-</div>
-</div>
+<div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Log In</h4>
+                </div>
+                <div class="modal-body">
+       
+                   <form method="post" action="<?php echo $current_file;?>">
+         
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type ="text" name="uname" id="unam" maxlength="40" value="<?php if(isset($usern)) echo $usern;?>">
+                    <label class="mdl-textfield__label" for="unam">
+                      Username
+                    </label>
+                  </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type ="password" name="pword" id="unam3" value="">
+                  <label class="mdl-textfield__label" for="unam3">
+                    Password
+                  </label>
+                </div>
+                
+                <br>
+                <input type="checkbox" name=rmmbr id="rmmbr"><label for="rmmbr">Remember Me</label><br>
+                <input type="submit" value="Log In" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </form>
+              
+                </div>
+                <div class="modal-footer">
+                
+                </div>
+            </div>
+
+            </div></div>
+
+
 
 
 
