@@ -5,6 +5,7 @@
 <script src="js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Amatica+SC|Galada|Lato|Montserrat|PT+Sans|Suez+One" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ 
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
 <link rel="stylesheet" type="text/css" href="css/fonts.css">
 <link rel="stylesheet" type="text/css" href="css/deslog1.css">
@@ -37,6 +38,13 @@
     
   </script>
 
+  <style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+  .navbar{
+    font-family:'Roboto',monospace;font-size:30px; 
+   }
+  </style>
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -45,14 +53,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="welcome.php">CodeSpace</a>
+      <a class="navbar-brand" href="welcome.php">CODESPACE</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href=welcome.php>Home</a></li>
-        <li><a href=practice.php>Practice</a></li>
+        <li><a href=welcome.php>HOME</a></li>
+        <li><a href=practice.php>PRACTICE</a></li>
         <!--<li><a href="ide.php">OnlineIDE</a></li>-->
-        <li><a href="contest.php">Compete</a></li>
+        <li><a href="contest.php">COMPETE</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 <style type="text/css">
