@@ -37,10 +37,12 @@
 
   <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-  .navbar{
-    font-family:'Roboto',monospace;font-size:30px; 
-   }
+
+*{font-family: Roboto;font-size:16px;}
+a:hover{text-decoration:none;font-weight:bold;}
+a{text-decoration:none;}
   </style>
+
 <style>
 .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
   padding-right: 0;
@@ -50,7 +52,12 @@
 <?php
 if(loggedin())
 {
+$name_f=getfield('fname');
+$name_sr=getfield('srname');
+$ln_img=getfield('imgln');
+$usern=getfield('username');
 $viewprof=getfield('username');
+$id=getfield('id');
 $lnimg=getfield('imgln');}?>
 
 <div class="demo-layout-waterfall mdl-layout mdl-js-layout">

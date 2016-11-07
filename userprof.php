@@ -4,17 +4,11 @@
 require 'core.inc.php';
 require 'connect.inc.php';
 if(!loggedin()) {header('Location:index.php');}
-$name_f=getfield('fname');
-$name_sr=getfield('srname');
-$ln_img=getfield('imgln');
-$usern=getfield('username');
-$time=time()+3.5*60*60;
+
 if(isset($_GET['q']))
   $qcode=$_GET['q'];
 else
   header('Location:practice.php');
-
-  /*echo "<div class=awe>Logged in since ".date('d-M-Y H:i:s' , $time)." </div><br><div class=awe>Your IP Address is ".retip()."</div><br><br>";*/    
 ?>
  <html>
  <head>
@@ -33,13 +27,13 @@ img.pport{display:inline;}
 h2.name,h5{display:inline;}
 .demo-card-square.mdl-card {
   width: 100%;
-  height: 100%;
+  height: 150%;
 
   }
 .demo-card-square > .mdl-card__title {
   color: #fff;
   background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+    url('') bottom right 15% no-repeat #46B6AC;
 
 }
 aside{background-color:#f1f1f1;box-shadow:0px 0px 5px 1px;text-align:center;}
@@ -134,8 +128,8 @@ if($result)
     echo "</div>";
 
   echo "<div class=\"mdl-card__actions mdl-card--border\">
-    <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\">
-      View Updates
+    <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\" href=\"profile.php\">
+      EDIT PROFILE
     </a>
   </div>
 </div><br><br><br>";
@@ -150,7 +144,7 @@ if($result)
 <aside>
 <h4>Recent submissions</h4>
 <?php
-$query="SELECT id,qid,user_id,result from submissions order by time desc limit 10 ";
+$query="SELECT id,qid,user_id,result from submissions where user_id=".getfield('id')." order by time desc limit 10 ;";
 
 $result=mysql_query($query);
 
@@ -173,14 +167,14 @@ if($result&&$num)
           <tbody>";
           if($num==0) echo "<tr><td></td><td>No submissions</td><td></td><td></td></tr>";
     for($i=0;$i<$num;$i++)
-    { $quid=mysql_result($result,$i,'id');
-      $qid=mysql_result($result,$i,'qid');
-      $res=mysql_result($result,$i,'result');
-      $uid=mysql_result($result,$i,'user_id');
+    { $quid=@mysql_result($result,$i,'id');
+      $qid=@mysql_result($result,$i,'qid');
+      $res=@mysql_result($result,$i,'result');
+      $uid=@mysql_result($result,$i,'user_id');
 
       $query2="SELECT username from user_in where id=".$uid;
-      $result2=mysql_query($query2);
-      $uname=mysql_result($result2,0,'username');
+      $result2=@mysql_query($query2);
+      $uname=@mysql_result($result2,0,'username');
       
 
       echo "<tr>";

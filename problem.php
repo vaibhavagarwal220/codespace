@@ -2,18 +2,11 @@
 require 'core.inc.php';
 require 'connect.inc.php';
 if(!loggedin()) {header('Location:index.php');}
-$name_f=getfield('fname');
-$name_sr=getfield('srname');
-$ln_img=getfield('imgln');
-$usern=getfield('username');
-$id=getfield('id');
-$time=time()+3.5*60*60;
+
 if(isset($_GET['q']))
   $qcode=$_GET['q'];
 else
   header('Location:practice.php');
-
-  /*echo "<div class=awe>Logged in since ".date('d-M-Y H:i:s' , $time)." </div><br><div class=awe>Your IP Address is ".retip()."</div><br><br>";*/    
 ?>
  <html>
  <head>
