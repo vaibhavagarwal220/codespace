@@ -54,7 +54,9 @@ include 'navbar.php'
                   <input type=button id="save_btn" value="save" class="btn btn-success">
         
         
-  </div>
+  </div></div>
+  </main>
+</div>
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/changep.js"></script>
 </body>

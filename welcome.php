@@ -90,8 +90,8 @@ if($result&&$num)
 ?>
 </aside>
  </div>
-
-
-
+</div>
+  </main>
+</div>
 </body>
  </html>

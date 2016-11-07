@@ -93,6 +93,9 @@ include 'navbar.php'
       
         
   </div>
+  </div>
+  </main>
+</div>
 
 
 

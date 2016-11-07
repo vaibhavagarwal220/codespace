@@ -110,6 +110,9 @@ if($result&&$num)
   else echo "<h1>No submissions</h1>";
 ?>
   
-<div>
+</div>
+</div>
+  </main>
+</div>
 </body>
  </html>

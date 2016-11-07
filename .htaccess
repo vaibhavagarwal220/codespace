@@ -1,2 +1,2 @@
-ErrorDocument 404 http://localhost/learning/oj/CodeSpace/index.php
+ErrorDocument 404 http://localhost/CodeSpace/index.php
 

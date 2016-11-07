@@ -47,5 +47,8 @@ foreach($inread as $line)
 }
 ?>
 </div>
+</div>
+  </main>
+</div>
   </body>
  </html>

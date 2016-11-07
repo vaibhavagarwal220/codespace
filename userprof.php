@@ -206,6 +206,8 @@ if($result&&$num)
 
 
 </div>
-
+</div>
+  </main>
+</div>
 </body>
  </html>
