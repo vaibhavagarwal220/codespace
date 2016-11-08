@@ -32,9 +32,9 @@ include 'navbar.php'
 if(!empty($qcode)){
 $my_file = 'questions/'.$qcode."txt";
 $inread = @file($my_file) or die('<h1>No Such Problem</h1>');
-echo "<a href=\"submit.php?q=".$qcode."\" class=\"btn btn-default\" target=_blank>Submit</a>";
-echo "<a href=\"subm.php?q=".$qcode."\" class=\"btn btn-default\" target=_blank>All Submissions</a>";
-echo "<a href=\"subm.php?q=".$qcode."&id=".$id."\" class=\"btn btn-default\" target=_blank>My submissions</a>";
+echo "<a href=\"submit.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" target=_blank>Submit</a>";
+echo "<a href=\"subm.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" target=_blank>All Submissions</a>";
+echo "<a href=\"subm.php?q=".$qcode."&id=".$id."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" target=_blank>My submissions</a>";
 foreach($inread as $line)
   echo $line;
 }

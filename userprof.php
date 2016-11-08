@@ -27,7 +27,7 @@ img.pport{display:inline;}
 h2.name,h5{display:inline;}
 .demo-card-square.mdl-card {
   width: 100%;
-  height: 150%;
+  
 
   }
 .demo-card-square > .mdl-card__title {
@@ -115,7 +115,8 @@ if($result)
     <h2 class=\"mdl-card__title-text\"></h2>
     <img src=".$img." class=\"small1 img img-circle\">&nbsp;&nbsp;&nbsp;<h2 class=name>".$fname." ".$srname."</h2>
   </div>
-  <div class=\"mdl-card__supporting-text\"><h6>Username</h6><h5> ".$qcode." <h5><br><h6>List of problems successfully solved</h6><h5>";
+  <div class=\"mdl-card__supporting-text\"><h6>Username</h6><h5> ".$qcode." <h5><br>";
+  if($num>0){echo "<h6>List of problems successfully solved</h6><h5>";
           for($i=0;$i<$num;$i++)
     { $qid=@mysql_result($result1,$i,'qid');
       if($i==$num-1) echo "<a href=subm.php?q=".$qid."&id=".$id." class=sub>".$qid."</a>";
@@ -123,16 +124,16 @@ if($result)
       
     }
     echo "</h5><div id=\"piechart_3d\" style=\"width: 600px; height: 300px;\"></div>";
-
+   }
 
     echo "</div>";
 
-  echo "<div class=\"mdl-card__actions mdl-card--border\">
+  if(getfield('username')==$qcode) echo "<div class=\"mdl-card__actions mdl-card--border\">
     <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\" href=\"profile.php\">
       EDIT PROFILE
     </a>
-  </div>
-</div><br><br><br>";
+  </div>";
+echo "</div><br><br><br>";
 
 
    
@@ -144,11 +145,15 @@ if($result)
 <aside>
 <h4>Recent submissions</h4>
 <?php
-$query="SELECT id,qid,user_id,result from submissions where user_id=".getfield('id')." order by time desc limit 10 ;";
 
-$result=mysql_query($query);
+$query1="SELECT id from user_in where username='$qcode';";
+$result1=@mysql_query($query1);
+$idsub=@mysql_result($result1,0,'id');
 
-$num=mysql_num_rows($result);
+$query="SELECT id,qid,user_id,result from submissions where user_id=$idsub order by time desc limit 10 ;";
+$result=@mysql_query($query);
+
+$num=@mysql_num_rows($result);
 if($result&&$num) 
   {
     
@@ -191,7 +196,7 @@ if($result&&$num)
   echo "</tbody>
     </table>";
   }
-  else echo "<h1>No submissions</h1>";
+  else echo "<h4>No submissions</h4>";
 ?>
 </aside>
 

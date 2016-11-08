@@ -6,7 +6,6 @@ require 'connect.inc.php';
 if(!loggedin()) {header('Location:index.php');}
 
 $myid=getfield('id');
-$time=time()+3.5*60*60;
 
 if(isset($_GET['q']))
   {$qcode=$_GET['q'];
@@ -48,24 +47,24 @@ include 'navbar.php'
 require 'connect.inc.php';
 
 $query2="SELECT username from user_in where id=".$myid;
-      $result2=mysql_query($query2);
-      $uname=mysql_result($result2,0,'username');
+      $result2=@mysql_query($query2);
+      $uname=@mysql_result($result2,0,'username');
 
 $query="SELECT id,qid,user_id,result from submissions where qid='".$qcode."' ".$flag;
 
-$result=mysql_query($query);
+$result=@mysql_query($query);
 
-$num=mysql_num_rows($result);
+$num=@mysql_num_rows($result);
 if($result&&$num) 
 	{
     if($flag=="and 1") echo "<h3>All submissions for ".$qcode." </h3>";
     else if($myid!=$user) 
       {
         $query3="SELECT username from user_in where id=".$user;
-      $result3=mysql_query($query3);
-      $numr=mysql_num_rows($result3);
+      $result3=@mysql_query($query3);
+      $numr=@mysql_num_rows($result3);
       if($numr==0) header("Location:practice.php");
-      $uname=@mysql_result($result3,0,'username');
+      $uname=@@mysql_result($result3,0,'username');
 
         echo "<h3><a href=userprof.php?q=".$uname.">".$uname."</a>'s submissions for <a href=problem.php?q=".$qcode.">".$qcode."</a> </h3>";
         
@@ -84,11 +83,13 @@ if($result&&$num)
   			  <tbody>";
           if($num==0) echo "<tr><td></td><td>No submissions</td><td></td><td></td></tr>";
 		for($i=0;$i<$num;$i++)
-		{	$quid=mysql_result($result,$i,'id');
-      $qid=mysql_result($result,$i,'qid');
-      $res=mysql_result($result,$i,'result');
-      $uid=mysql_result($result,$i,'user_id');
-      
+		{	$quid=@mysql_result($result,$i,'id');
+      $qid=@mysql_result($result,$i,'qid');
+      $res=@mysql_result($result,$i,'result');
+      $uid=@mysql_result($result,$i,'user_id');
+      $query4="SELECT username from user_in where id=".$uid;
+      $result4=@mysql_query($query4);
+      $unam=@mysql_result($result4,0,'username');
 
 			echo "<tr>";
 			echo "<td class=\"mdl-data-table__cell--non-numeric\">".$quid."</td>";
@@ -98,7 +99,7 @@ if($result&&$num)
       else if ($res=="RE") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>error_outline</i></td>";
       else if ($res=="TLE") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>alarm</i></td>";
       else if ($res=="CE") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>warning</i></td>";
-      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"userprof.php?q=".$uname."\">".$uname."</a></td>";      
+      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"userprof.php?q=".$unam."\">".$unam."</a></td>";      
       echo "</tr>";
 		}
 	echo "</tbody>

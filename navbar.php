@@ -6,7 +6,7 @@
  
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
 <link rel="stylesheet" type="text/css" href="css/fonts.css">
-<link rel="stylesheet" type="text/css" href="css/deslog.css">
+<link rel="stylesheet" type="text/css" href="css/deslog2.css">
 <link href="css/prism.css" rel="stylesheet" />
   <script src="js/prism.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/g/ace@1.2.4(min/ace.js+min/mode-c_cpp.js)"></script>
@@ -38,7 +38,7 @@
   <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-*{font-family: Roboto;font-size:16px;}
+*{font-family: 'Roboto';font-size:16px;}
 a:hover{text-decoration:none;font-weight:bold;}
 a{text-decoration:none;}
   </style>
@@ -47,6 +47,7 @@ a{text-decoration:none;}
 .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
   padding-right: 0;
 }
+#box{width:200px;background-color:white;height: 10px;display:none;}
 </style>
 
 <?php
@@ -71,11 +72,12 @@ $lnimg=getfield('imgln');}?>
                   mdl-textfield--floating-label mdl-textfield--align-right">
         <label class="mdl-button mdl-js-button mdl-button--icon"
                for="waterfall-exp">
-          <i class="material-icons">search</i>
+          <i class="material-icons" id="link">search</i>
         </label>
         <div class="mdl-textfield__expandable-holder">
           <input class="mdl-textfield__input" type="text" name="sample"
-                 id="waterfall-exp">
+                 id="waterfall-exp"><div id="box"></div>
+      
         </div>
       </div>
     </div>
@@ -87,13 +89,14 @@ $lnimg=getfield('imgln');}?>
         <a class="mdl-navigation__link" href="welcome.php">Home</a>
         <a class="mdl-navigation__link" href="practice.php">Practice</a>
         <a class="mdl-navigation__link" href="contest.php">Compete</a>
+        <a class="mdl-navigation__link" href="leaderboard.php">Leaderboard</a>
         
       </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title"><a  href="userprof.php?q=<?php echo $viewprof;?>">
-              <img src=<?php echo $lnimg;?> class="icn" >&nbsp;<?php echo $name_f;?>
+              <img src=<?php echo $lnimg;?> class="icn" >&nbsp;&nbsp;&nbsp;&nbsp;Welcome&nbsp;<?php echo $name_f;?>
             </a></span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="profile.php">Edit Profile</a>
@@ -104,3 +107,10 @@ $lnimg=getfield('imgln');}?>
   <main class="mdl-layout__content">
     <div class="page-content"><!-- Your content goes here --><br><br><br><br>
 
+
+
+    <script type="text/javascript">
+        var box = $('#box');
+        var link = $('#link');
+
+    </script>
