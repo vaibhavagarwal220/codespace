@@ -3,6 +3,10 @@ require 'core.inc.php';
 require 'connect.inc.php';
 if(!loggedin()) {header('Location:index.php');}
 $id=getfield('fname');
+
+if(isset($_GET['q']))
+  $qcode=$_GET['q'];
+  
 ?>
  <html>
  <head>

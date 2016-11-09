@@ -44,9 +44,9 @@ if($result)
     echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
         <thead>
           <tr>
-              <th class=\"mdl-data-table__cell--non-numeric\">Rank</th>
-              <th class=\"mdl-data-table__cell--non-numeric\">Username</th>
-              <th class=\"mdl-data-table__cell--non-numeric\">Score</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">RANK</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">USER</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">SCORE</th>
             </tr>
           </thead>
           <tbody>";

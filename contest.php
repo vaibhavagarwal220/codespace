@@ -54,7 +54,7 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data1){
           
         }
         else if(data=="0"&&data1=="0") {
-          alert('Contest Ended');
+  
           <?php
            $quer="DELETE from keptin where cid='".$quid."';";
            $quer_res=@mysql_query($query);
@@ -110,7 +110,7 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data){
           ?>
           clearInterval(interp);
           clearInterval(interq);
-          alert('Ended');
+          alert('Contest Ended');
 
         }
       });

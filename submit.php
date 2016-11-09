@@ -41,7 +41,7 @@ if(isset($_POST['ln'])) {
 $code=$_POST['ln'];
 
 if(!empty($code)&&!empty($qcode)){
-$my_file = 'codes/'.$qcode.$id.$cnt.".c";
+$my_file = 'adminaccess/codes/'.$qcode.$id.$cnt.".c";
 $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
 fwrite($handle, $code);
 exec("./o", $output, $status);

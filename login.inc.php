@@ -12,16 +12,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
 <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
   
   <script src="js/jquery.min.js"></script>
   
-  <link rel="stylesheet" href="css/deslog1.css" type="text/css">
   <style> 
 body {
     text-align: center;
       }
+
 
   #file { display: none;}
   </style>
@@ -44,9 +44,12 @@ body {
 
   <style>
 
-#logins{background:white;box-shadow:1px 1px 5px 1px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
-#logups{background:white;box-shadow: 1px 1px 5px 1px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
+#logins{background:white;box-shadow:6px 6px 20px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
+#logups{background:white;box-shadow: 6px 6px 20px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
 .mdl-grid{margin:auto;}
+img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
+
+
 </style>
 
 <div class="mdl-layout mdl-js-layout">
@@ -65,13 +68,12 @@ body {
     <div class="page-content"><!-- Your content goes here -->
 
 
-<div class=mdl-grid>    
 <div id="logins" class="mdl-cell mdl-cell--6-col">
-  <br>
-  <h4>LOG IN</h4>
-  <br>
 <form method="post" action="log.php">
-                  <br><br>
+                  <br>
+                    <h4>LOG IN</h4>
+
+                  <br>
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" type ="text" name="uname" id="unam" maxlength="40" value="<?php if(isset($usern)) echo $usern;?>">
                     <label class="mdl-textfield__label" for="unam">
@@ -85,12 +87,14 @@ body {
                     Password
                   </label>
                 </div>
-                <br><br>
                 
-                <input type="checkbox" name=rmmbr id="rmmbr"><label for="rmmbr">Remember Me</label><br>
+               <br><br><label>Remember Me<input type="checkbox" id="rmmbr" name=rmmbr class="mdl-switch__input">
+                </label>
+                <br>
                 <br><br>
-                <input type="submit" value="Log In" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                 <br><br><br>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit>
+                LOG IN
+                </button>                 <br><br>
                   </form><br><br>
 </div>
 
@@ -106,9 +110,10 @@ body {
 <label for="file" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
   <i class="material-icons">person_outline</i>
 </label>
+<br> Choose Image
 
                     <div id="ustatus"> </div> <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="text" name="uname1" maxlength="40" value="<?php if(isset($usern1)) echo $usern1;?>" id="nameuser">
+    <input class="mdl-textfield__input" type ="text" name="uname1" maxlength="40" id="nameuser">
     <label class="mdl-textfield__label" for="nameuser">Username:
   </label></div>
     
@@ -127,31 +132,32 @@ body {
   </div>
 <br><br>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="text" name="namef1" maxlength="30" value="<?php if(isset($fname)) echo $fname;?>" id="fnm">
+    <input class="mdl-textfield__input" type ="text" name="namef1" maxlength="30" id="fnm">
     <label class="mdl-textfield__label" for="fnm">First Name:</label>
   </div>
   <br><br>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="text" name="namel1" maxlength="30" value="<?php if(isset($lname)) echo $lname;?>" id="lnm">
+    <input class="mdl-textfield__input" type ="text" name="namel1" maxlength="30" id="lnm">
     <label class="mdl-textfield__label" for="lnm">Last Name:</label>
   </div>
   <br><br>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type ="email" name="eml" maxlength="30" value="<?php if(isset($eml)) echo $eml;?>" id="em">
+    <input class="mdl-textfield__input" type ="email" name="eml" maxlength="30" id="em">
     <label class="mdl-textfield__label" for="lnm">Email:</label>
   </div>
 <br><br>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="phn" maxlength="30" value="<?php if(isset($phn)) echo $phn;?>" id="ph">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="phn" maxlength="30" id="ph">
     <label class="mdl-textfield__label" for="ph">Phone</label>
     <span class="mdl-textfield__error">Input is not a number!</span>
   </div>
   <br><br>
-  <input type="submit" value="Create Account" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-  <br>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit>
+                SIGN UP
+                </button><br>
 </form><br><br>
 </div>
-</div>
+
 <h4>ABOUT US</h4><br>
 <div class="mdl-grid">
 <figure>
@@ -177,7 +183,7 @@ body {
 </div>
 
 
-    <script type="text/javascript" src=js/check.js></script>
+    <script type="text/javascript" src="js/check1.js"></script>
 
 </body>
 </html>

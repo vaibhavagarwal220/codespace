@@ -103,7 +103,7 @@ if($result&&$num)
       echo "</tr>";
 		}
 	echo "</tbody>
-		</table>";
+		</table><br><br><br><br><br><br>";
 	}
   else echo "<h1>No submissions</h1>";
 ?>

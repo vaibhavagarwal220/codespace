@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Amatica+SC|Galada|Lato|Montserrat|PT+Sans|Suez+One" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
  
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
 <link rel="stylesheet" type="text/css" href="css/fonts.css">
 <link rel="stylesheet" type="text/css" href="css/deslog2.css">
 <link href="css/prism.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{font-family: 'Roboto';font-size:16px;}
-a:hover{text-decoration:none;font-weight:bold;}
+a:hover{text-decoration:none;}
 a{text-decoration:none;}
   </style>
 

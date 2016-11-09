@@ -15,10 +15,8 @@ if(isset($_FILES['filein']['name'])&&!empty($_FILES['filein']['name']))
     $tmpname=$_FILES['filein']['tmp_name'];
     $location='imgprof/'.$name;
     $query="UPDATE `oj`.`user_in` SET `imgln`='$location' WHERE `id`='$idimup'";
-    if(move_uploaded_file($tmpname,$location)&&mysql_query($query))
+    if(unlink($ln_img)&&move_uploaded_file($tmpname,$location)&&mysql_query($query))
     {
-        echo '';
-        unlink($ln_img);
 
     }
     else
@@ -36,15 +34,15 @@ $ln_img=getfield('imgln');
        
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?php echo $name_f?></title>
+  <title><?php echo $name_f." ".$name_sr;?></title>
    
   <style type="text/css">
 
 
     body{font-family:sans-serif;}
-    #slideNotice{display:none;height:50px;
+    #slideNotice{display:none;
       width:100%;text-align:center;
-      background-color: gray;color:white;
+      background-color: gray;color:white;padding:20px;
       font-size:20px;
       font-family:sans-serif;
     }
@@ -61,20 +59,24 @@ $ln_img=getfield('imgln');
 include 'navbar.php'
  ?>
   <div id="contain">
-  <div id="slideNotice"></div>       
+         
                 
-    
-                <img src= <?php echo $ln_img ?> class="small1 img img-circle" id="image">
+                <div class=mdl-grid>
+                <div class="mdl-cell mdl-cell--6-col"><img src= <?php echo $ln_img ?> class="small1" id="image">
+                <br>
                 
-      <form action="profile.php" method="POST" enctype="multipart/form-data" >
-            <input type="file" name="filein" class=upld accept="image/*" required id="files">
+      <form action="profile.php" method="POST" enctype="multipart/form-data" ><br><br><br>
+            Choose Image<input type="file" name="filein" class=upld accept="image/*" required id="files">
             <label for="files" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
-              <i class="material-icons">+</i>
-            </label>
-            <button type="submit" class="btn btn-success">
-            <span class="glyphicon glyphicon-camera"></span>&nbsp;&nbsp;&nbsp;Change profile picture</button>
+              <i class="material-icons">person_outline</i>
+            </label><br><br>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit>
+  Change Profile Picture
+</button>
         </form>
-
+</div>
+<div class="mdl-cell mdl-cell--6-col">
+  <div id="slideNotice"></div>
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="text"  value="<?php echo $name_f;?>" id="fnm" required maxlength="40">
     <label class="mdl-textfield__label" for="fnm">First Name</label>
@@ -86,13 +88,15 @@ include 'navbar.php'
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="text" value="<?php echo $usern;?>" id="un" required maxlength="40">
     <label class="mdl-textfield__label" for="un">Username</label>
-  </div>
-  <button id="savbtn" class="btn btn-info">
-          Save </button>      
+  </div><br><br>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit id="savbtn">
+  Save Changes
+</button>
 
-      
-        
+      <br><br>
+ </div>       
   </div>
+</div>
   </div>
   </main>
 </div>

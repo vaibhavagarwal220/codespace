@@ -13,11 +13,12 @@ else
    
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Online Judge</title>
+<title>CodeSpace|Problem Page</title>
 
   <style type="text/css">
   #ques{width:70%;margin: auto;}
   a{color:green;}
+  body{text-align:center;}
   </style>
 </head>
 <body>
@@ -30,7 +31,7 @@ include 'navbar.php'
 <?php
 
 if(!empty($qcode)){
-$my_file = 'questions/'.$qcode."txt";
+$my_file = 'adminaccess/questions/'.$qcode."txt";
 $inread = @file($my_file) or die('<h1>No Such Problem</h1>');
 echo "<a href=\"submit.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" target=_blank>Submit</a>";
 echo "<a href=\"subm.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" target=_blank>All Submissions</a>";
