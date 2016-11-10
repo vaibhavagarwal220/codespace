@@ -23,23 +23,12 @@
 body {
     text-align: center;
       }
+  #rmmbr{display:none;}
 
   #file { display: none;}
   </style>
 
-  <script>
-    $(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-    });
-  //alert($(window).height());
-  //alert($(window).width());
-    var h=$(window).height();
-    var w=$(window).width();
-    $('.page').height(h);
-    $('.page').width(w);
-    $('#login').height(h);
-    $('#login').width(w); 
-  </script>
+
 </head>
 <body>
 
@@ -146,15 +135,17 @@ else echo "<div class=\"error\">Please fill in all the fields &nbsp;&nbsp;&nbsp;
                 </div>
                 <br><br>
                 
-                <label>Remember Me
                 <input type="checkbox" id="rmmbr" name="rmmbr">
-                </label>
 
                 <br><br>
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit>
                 LOG IN
                 </button>
                   </form>
+                  <br><br>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btnrem">
+                Remember Me
+                </button>
 <br><br><br>
 </div>
 
@@ -168,5 +159,29 @@ else echo "<div class=\"error\">Please fill in all the fields &nbsp;&nbsp;&nbsp;
       $('.success').fadeOut();
     });
     </script>
+
+     <script type="text/javascript">
+        var k;
+        $(document).ready(function(){
+          $('#rmmbr').prop('checked',false);
+          k=0;
+        });
+
+        $('#btnrem').click(function(){
+          if(k%2==0 ) {
+
+            $('#rmmbr').prop('checked',true);
+            $('#btnrem').css('background-color','green');
+            $('#btnrem').attr('title','Yes');
+          }
+          else {
+            $('#rmmbr').prop('checked',false);
+            $('#btnrem').css('background-color','red');
+            $('#btnrem').attr('title','No');
+          }
+          k++;
+
+        });
+        </script>
 </body>
 </html>

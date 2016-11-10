@@ -50,7 +50,7 @@ $ln_img=getfield('imgln');
     button{font-family:sans-serif;}
     #contain{width:70%;margin:auto;}
     #files{display:none;}
-    
+    #posimb{text-align:center;position: relative;left:-160px;}
   </style>
 </head>
 <body>
@@ -62,12 +62,12 @@ include 'navbar.php'
          
                 
                 <div class=mdl-grid>
-                <div class="mdl-cell mdl-cell--6-col"><img src= <?php echo $ln_img ?> class="small1" id="image">
+                <div class="mdl-cell mdl-cell--6-col" id="posimb"><img src= <?php echo $ln_img ?> class="small1" id="image">
                 <br>
                 
       <form action="profile.php" method="POST" enctype="multipart/form-data" ><br><br><br>
-            Choose Image<input type="file" name="filein" class=upld accept="image/*" required id="files">
-            <label for="files" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+            <input type="file" name="filein" class=upld accept="image/*" required id="files">
+            <label for="files" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" title="Choose Profile Picture">
               <i class="material-icons">person_outline</i>
             </label><br><br>
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit>

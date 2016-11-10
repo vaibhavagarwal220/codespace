@@ -18,7 +18,7 @@ else
   <style type="text/css">
   #ques{width:70%;margin: auto;}
   a{color:green;}
-  body{text-align:center;}
+
   </style>
 </head>
 <body>
@@ -32,7 +32,7 @@ include 'navbar.php'
 
 if(!empty($qcode)){
 $my_file = 'adminaccess/questions/'.$qcode."txt";
-$inread = @file($my_file) or die('<h1>No Such Problem</h1>');
+$inread = @file($my_file) or die('<h2>Error 404:No Problem Found</h2>');
 echo "<a href=\"submit.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" target=_blank>Submit</a>";
 echo "<a href=\"subm.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" target=_blank>All Submissions</a>";
 echo "<a href=\"subm.php?q=".$qcode."&id=".$id."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" target=_blank>My submissions</a>";

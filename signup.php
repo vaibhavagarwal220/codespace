@@ -86,7 +86,7 @@ if(isset($_POST['eml'])&&isset($_POST['phn'])&&isset($_POST['uname1'])&&isset($_
                 echo $improtmp;/*moving the profile picture onto our server*/
                 if(move_uploaded_file($improtmp,$location))
                 {
-                    $query="INSERT INTO `oj`.`user_in` (`id`, `fname`, `srname`, `pword`, `username`, `email`, `phone`, `score`,`imgln`) VALUES (NULL,'".@mysql_real_escape_string($fname)."','".@mysql_real_escape_string($lname)."','".@mysql_real_escape_string($hashed)."','".@mysql_real_escape_string($usern1)."','".@mysql_real_escape_string($eml)."','".@mysql_real_escape_string($phn)."','1000','".@mysql_real_escape_string($location)."');";//query to upload our data on server database
+                    $query="INSERT INTO `user_in` (`id`, `fname`, `srname`, `pword`, `username`, `email`, `phone`, `score`,`imgln`) VALUES (NULL,'".@mysql_real_escape_string($fname)."','".@mysql_real_escape_string($lname)."','".@mysql_real_escape_string($hashed)."','".@mysql_real_escape_string($usern1)."','".@mysql_real_escape_string($eml)."','".@mysql_real_escape_string($phn)."','1000','".@mysql_real_escape_string($location)."');";//query to upload our data on server database
                     if($result=@mysql_query($query))//run the query
                     {
                       echo "<div class=\"success\">Your account has been created successfully&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";/*giving notification about successful creation of account*/
