@@ -153,22 +153,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
 </form><br><br>
 </div>
 
-<h4>ABOUT US</h4><br>
-<div class="mdl-grid">
-<figure>
-<img class="small1 mdl-cell mdl-cell--4-col" src="img/2.jpg">
-<figcaption>Vaibhav</figcaption>
-</figure>
-<figure>
-<img class="small1 mdl-cell mdl-cell--4-col" >
-<figcaption>Deepanshu</figcaption>
-</figure>
 
-<figure>
-<img class="small1 mdl-cell mdl-cell--4-col" src="img/1.jpg" >
-<figcaption>Kushagra</figcaption>
-</figure>
-</div>
 
 
 

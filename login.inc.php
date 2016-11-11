@@ -47,6 +47,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
 #posme{position:relative;left:150px;}
 #service{font-size:90px;}
 #rmmbr{display:none;}
+.linkbtn{margin:10px;padding-left:50px;padding-right:50px;text-align:center;}
   </style>
 
 
@@ -117,9 +118,14 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
                 <div class="col-md-12 col-sm-12 animate fadeInDown">
                    <h1 class="text-capitalize">Welcome on <strong>Code<span class="themecolor">Space</span></strong></h1>
                <p class="lead">We are a Online Judge built for those who love to <strong>code</strong></p>
-                <a class="btn btn-primary page-scroll" id="downloadbt" href="#portfolio">Log In</a> 
-                <a class="btn btn-primary page-scroll" id="downloadbt" href="#client" >Sign Up</a>               
-                </div>
+                <a class="mdl-button page-scroll mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent linkbtn" href="#portfolio" >
+                LOG IN 
+                </a>
+                
+                <a class="mdl-button page-scroll mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent linkbtn" href="#client" >
+                SIGN UP
+                </a>
+                 </div>
                  <a href="#about" class="fa fa-angle-down page-scroll"></a>
             </div>
             
@@ -558,6 +564,8 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
         var k;
         $(document).ready(function(){
           $('#rmmbr').prop('checked',false);
+          $('#btnrem').css('background-color','#E0E0E0');
+          $('#btnrem').css('color','black');
 
           k=0;
         });
@@ -565,13 +573,15 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
         $('#btnrem').click(function(){
           if(k%2==0 ) {
             $('#rmmbr').prop('checked',true);
-            $('#btnrem').css('background-color','green');
+            $('#btnrem').css('background-color','#448AFF');
             $('#btnrem').attr('title','Yes');
+            $('#btnrem').css('color','white');
           }
           else {
             $('#rmmbr').prop('checked',false);
-            $('#btnrem').css('background-color','red');
+            $('#btnrem').css('background-color','#E0E0E0');
             $('#btnrem').attr('title','No');
+            $('#btnrem').css('color','black');
           }
           k++;
 
