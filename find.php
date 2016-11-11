@@ -15,6 +15,7 @@ if(isset($_GET['q']))
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search</title>
   <style type="text/css">
+  .mdl-grid{text-align:center;}
   #contain{width:70%;margin:auto;}
   #wide{width:100%;font-family:'Roboto';}
   #term{font-size:30px;font-weight:bold;}
@@ -28,27 +29,32 @@ include 'navbar.php'
  ?>
 	<div id="contain">
  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="wide">
-    <input class="mdl-textfield__input" type="text" id="term">
+    <input class="mdl-textfield__input" type="text" id="term" value="<?php if(isset($qcode)) echo $qcode;?>">
     <label class="mdl-textfield__label" for="term">Search...</label>
   </div>
 
       
 
 
-<div class="tabs">
-    <ul class="tab-links">
-        <li class="active"><a href="#data1">Users</a></li>
-        <li><a href="#data2">Problems</a></li>
-    </ul>
- 
-    <div class="tab-content">
-        <div id="data1" class="tab active">
-        </div>
- 
-        <div id="data2" class="tab">
-        </div> 
-    </div>
-</div>
+
+
+
+
+<div class="tab-wrapper">
+  
+  <ul class="tab-menu">
+    <li class="active">Users</li>
+    <li>Problems</li>
+
+  </ul>
+  
+  <div class="tab-content">
+    <div id="data1"></div>
+    <div id="data2"></div>
+  </div><!-- //tab-content -->
+  
+</div><!-- //tab-wrapper -->
+
 
 
 
@@ -60,77 +66,112 @@ include 'navbar.php'
   </main>
 </div>
 <style type="text/css">
-.tabs {
-    width:100%;
-    display:inline-block;
+
+.tab-wrapper {
+  margin: 60px auto;
+  width: 100%;
+  
 }
- 
-    /*----- Tab Links -----*/
-    /* Clearfix */
-    .tab-links:after {
-        display:block;
-        clear:both;
-        content:'';
-    }
- 
-    .tab-links li {
-        margin:0px 5px;
-        float:left;
-        list-style:none;
-    }
- 
-        .tab-links a {
-            padding:9px 15px;
-            display:inline-block;
-            border-radius:3px 3px 0px 0px;
-            background:#7FB5DA;
-            font-size:16px;
-            font-weight:600;
-            color:#4c4c4c;
-            transition:all linear 0.15s;
-        }
- 
-        .tab-links a:hover {
-            background:#a7cce5;
-            text-decoration:none;
-        }
- 
-    li.active a, li.active a:hover {
-        background:#fff;
-        color:#4c4c4c;
-    }
- 
-    /*----- Content of Tabs -----*/
-    .tab-content {
-        padding:15px;
-        border-radius:3px;
-        box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
-        background:#fff;
-    }
- 
-        .tab {
-            display:none;
-        }
- 
-        .tab.active {
-            display:block;
-        }
-        .tab{text-align:center;}
+
+.tab-menu li {
+  position:relative;
+  background-color: #fff;
+  color:#bcbcbc;
+  display: inline-block;
+  padding: 20px 40px;
+  opacity: 0.8;
+  cursor:pointer;
+  z-index:0;
+}
+
+.tab-menu li:hover {
+  color:#464646;
+}
+
+.tab-menu li.active {
+  color:#464646;
+  opacity: 1;
+}
+
+.tab-menu li.active:hover {
+  color:#464646;
+}
+
+.tab-content>div {
+  background-color: #fff;
+
+  width: 100%;
+  padding: 50px;   
+  min-height:200px;
+}
+
+.line {
+  position:absolute;
+  width: 0;
+  height: 7px;
+  background-color: aqua;
+  top: 0;
+  left: 0;
+}
+
+
+
+
 </style>
 <script type="text/javascript">
 $(document).ready(function() {
-    $('.tabs .tab-links a').on('click', function(e)  {
-        var currentAttrValue = $(this).attr('href');
- 
-        // Show/Hide Tabs
-        $('.tabs ' + currentAttrValue).show().siblings().hide();
- 
-        // Change/remove current tab to active
-        $(this).parent('li').addClass('active').siblings().removeClass('active');
- 
-        e.preventDefault();
-    });
-});
+  
+  var $wrapper = $('.tab-wrapper'),
+      $allTabs = $wrapper.find('.tab-content > div'),
+      $tabMenu = $wrapper.find('.tab-menu li'),
+      $line = $('<div class="line"></div>').appendTo($tabMenu);
+  
+  $allTabs.not(':first-of-type').hide();  
+  $tabMenu.filter(':first-of-type').find(':first').width('100%')
+  
+  $tabMenu.each(function(i) {
+    $(this).attr('data-tab', 'tab'+i);
+  });
+  
+  $allTabs.each(function(i) {
+    $(this).attr('data-tab', 'tab'+i);
+  });
+  
+  $tabMenu.on('click', function() {
+    
+    var dataTab = $(this).data('tab'),
+        $getWrapper = $(this).closest($wrapper);
+    
+    $getWrapper.find($tabMenu).removeClass('active');
+    $(this).addClass('active');
+    
+    $getWrapper.find('.line').width(0);
+    $(this).find($line).animate({'width':'100%'}, 'fast');
+    $getWrapper.find($allTabs).hide();
+    $getWrapper.find($allTabs).filter('[data-tab='+dataTab+']').show();
+  });
+
+});//end ready
+</script>
+<script type="text/javascript">
+        $(document).ready(function(){
+
+                    var sterm=$('#term').val();
+        $.post('search.php',{
+        sterm:sterm         
+        },function(data){
+            $('#data1').html(data);
+        });     
+
+        $.post('sq.php',{
+        sterm:sterm         
+        },function(dataq){
+            $('#data2').html(dataq);
+        });
+
+
+        });
+
 </script>
 </body>
  </html>

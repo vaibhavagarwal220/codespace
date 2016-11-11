@@ -41,6 +41,8 @@
 *{font-family: 'Roboto';font-size:16px;}
 a:hover{text-decoration:none;}
 a{text-decoration:none;}
+/*.mycard{background:#1e88e5;box-shadow:6px 6px 10px 2px;margin-bottom:10px;padding:20px;color:white;}*/
+.title-mycard{font-size:20px;}
   </style>
 
 <style>
@@ -60,6 +62,8 @@ $usern=getfield('username');
 $viewprof=getfield('username');
 $id=getfield('id');
 $lnimg=getfield('imgln');}?>
+
+<!--<div class="mycard"><div class="title-mycard">CodeSpace</div></div>-->
 
 <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
   <header class="mdl-layout__header mdl-layout__header--waterfall">
@@ -112,5 +116,10 @@ $lnimg=getfield('imgln');}?>
     <script type="text/javascript">
         var box = $('#box');
         var link = $('#link');
+     $('#waterfall-exp').keyup(function (e) {
+    if (e.keyCode === 13) {
+window.location.href = "find.php?q="+$('#waterfall-exp').val();
+    }
+  });
 
     </script>

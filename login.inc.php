@@ -48,6 +48,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
 #service{font-size:90px;}
 #rmmbr{display:none;}
 .linkbtn{margin:10px;padding-left:50px;padding-right:50px;text-align:center;}
+.mklrg{font-size:20px;}
   </style>
 
 
@@ -90,8 +91,8 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right mklrg">
             <li><a href="#home" class="page-scroll">Home</a></li>
             <li><a href="#about" class="page-scroll">About</a></li>
             <li><a href="#service" class="page-scroll">Services</a></li>
@@ -117,7 +118,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
             <div class="row">
                 <div class="col-md-12 col-sm-12 animate fadeInDown">
                    <h1 class="text-capitalize">Welcome on <strong>Code<span class="themecolor">Space</span></strong></h1>
-               <p class="lead">We are a Online Judge built for those who love to <strong>code</strong></p>
+               <p class="lead mklrg">We are a Online Judge built for those who love to <strong>code</strong></p>
                 <a class="mdl-button page-scroll mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent linkbtn" href="#portfolio" >
                 LOG IN 
                 </a>
@@ -150,7 +151,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
                             <hr>
                             <div class="clearfix"></div>
                         </div>
-                        <p class="intro">We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
+                        <p class="mklrg">We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
                         <ul class="aboutList">
                             <li>
                                 <span class="fa fa-dot-circle-o"></span>
@@ -215,9 +216,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
                     <h4><strong>Leaderboard</strong></h4>
                     <p>Lead the board with points you earn.</p>
                 </div>
-
-
-     
+                
  </div>    
  </section>
  
