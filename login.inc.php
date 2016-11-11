@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
-AUTHOR : Vijayan PP
-PROJECT :CodeSpace
-VERSION : 1.1
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 -->
 <html>
 <head>
@@ -517,14 +512,13 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
  <footer class="footer">
         <div class="container">
             <div class="pull-left fnav">
-                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a href="http://www.your-plugin.com" class="themecolor">YOUR PLUGIN</a></p>
+                <p>Designed by Vaibhav</a></p>
             </div>
             <div class="pull-right fnav">
                 <ul class="footer-social">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.facebook.com/vaibhavagarwal220"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://plus.google.com/u/0/101162161263792680107"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://twitter.com/vaibhav_a1997"><i class="fa fa-twitter"></i></a></li>
                 </ul>
             </div>
         </div>
