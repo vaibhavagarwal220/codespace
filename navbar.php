@@ -8,6 +8,8 @@
 <link rel="stylesheet" type="text/css" href="css/fonts.css">
 <link rel="stylesheet" type="text/css" href="css/deslog2.css">
 <link href="css/prism.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-blue.min.css">
+<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
   <script src="js/prism.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/g/ace@1.2.4(min/ace.js+min/mode-c_cpp.js)"></script>
   <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
@@ -41,15 +43,22 @@
 *{font-family: 'Roboto';font-size:16px;}
 a:hover{text-decoration:none;}
 a{text-decoration:none;}
-/*.mycard{background:#1e88e5;box-shadow:6px 6px 10px 2px;margin-bottom:10px;padding:20px;color:white;}*/
-.title-mycard{font-size:20px;}
-  </style>
+.mcard{margin-bottom:10px;color:white;position:fixed;width:100%;}
+.title-mcard{font-size:20px;padding:10px;background:url('navi.jpeg');max-height:50px;}
 
-<style>
-.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
-  padding-right: 0;
+a.wbtn,.usr { color:white ;
+ }
+.srch {
+  padding-bottom :10px;
+  padding-top:6px;
 }
-#box{width:200px;background-color:white;height: 10px;display:none;}
+.icnew{
+  width:30px;
+  height:30px;
+  border-radius: 15px;
+}
+.mnu{position:absolute;}
+
 </style>
 
 <?php
@@ -62,64 +71,82 @@ $usern=getfield('username');
 $viewprof=getfield('username');
 $id=getfield('id');
 $lnimg=getfield('imgln');}?>
+<div class="mcard"><div class="title-mcard mdl-shadow--12dp">CodeSpace
+<a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="welcome.php">Home</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="practice.php">Practice</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="contest.php">Compete</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="leaderboard.php">Leaderboard</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="usr"  href="userprof.php?q=<?php echo $viewprof;?>">
+              <img src=<?php echo $lnimg;?> class="icnew" >&nbsp;&nbsp;&nbsp;&nbsp;Welcome&nbsp;<?php echo $name_f;?>
+            </a>
+    <button id="demo-menu-lower-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
 
-<!--<div class="mycard"><div class="title-mycard">CodeSpace</div></div>-->
-
-<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
-  <header class="mdl-layout__header mdl-layout__header--waterfall">
-    <!-- Top row, always visible -->
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">CodeSpace</span>
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mnu mdl-shadow--12dp"
+    for="demo-menu-lower-right">
+  <li class="mdl-menu__item">Some Action</li>
+  <li class="mdl-menu__item">Another Action</li>
+  <li disabled class="mdl-menu__item">Disabled Action</li>
+  <li class="mdl-menu__item">Yet Another Action</li>
+</ul>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                   mdl-textfield--floating-label mdl-textfield--align-right">
         <label class="mdl-button mdl-js-button mdl-button--icon"
                for="waterfall-exp">
-          <i class="material-icons" id="link">search</i>
+          <i class="material-icons">search</i>
         </label>
         <div class="mdl-textfield__expandable-holder">
           <input class="mdl-textfield__input" type="text" name="sample"
-                 id="waterfall-exp"><div id="box"></div>
-      
+                 id="waterfall-exp">
         </div>
       </div>
+</div></div>
+<!--<div id = "navi">
+<div class="dummy-card-wide mdl-card mdl-shadow--12dp">
+  <div class="mdl-card__title ">
+    <h2 class="mdl-card__title-text">CodeSpace</h2>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="welcome.php">Home</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="practise.php">Practice</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="contest.php">Compete</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="leaderboard.php">Leaderboard</a>
+       
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable srch">
+  <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="sample-input" />
+      <label class="mdl-textfield__label" for="sample-input">Expandable Input</label>
     </div>
-    <!-- Bottom row, not visible on scroll -->
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation -->
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="welcome.php">Home</a>
-        <a class="mdl-navigation__link" href="practice.php">Practice</a>
-        <a class="mdl-navigation__link" href="contest.php">Compete</a>
-        <a class="mdl-navigation__link" href="leaderboard.php">Leaderboard</a>
-        
-      </nav>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><a  href="userprof.php?q=<?php echo $viewprof;?>">
-              <img src=<?php echo $lnimg;?> class="icn" >&nbsp;&nbsp;&nbsp;&nbsp;Welcome&nbsp;<?php echo $name_f;?>
-            </a></span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="profile.php">Edit Profile</a>
-      <a class="mdl-navigation__link" href="changep.php">Change Password</a>
-      <a class="mdl-navigation__link" href="logout.php">Log Out</a>
-    </nav>
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-input">
+      <i class="material-icons">search</i>
+    </label>
+    
   </div>
-  <main class="mdl-layout__content">
-    <div class="page-content"><!-- Your content goes here --><br><br><br><br>
-
+    
+  </div>
+  <!--<div class="mdl-card__supporting-text">
+    Learn Material Design....
+  </div>
+  <div class="mdl-card__actions mdl-card--border"> Search
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" align="center">
+      Learn More
+    </a>
+  </div>
+</div>
+</div>-->
 
 
     <script type="text/javascript">
         var box = $('#box');
         var link = $('#link');
-     $('#waterfall-exp').keyup(function (e) {
+     $('#sample-input').keyup(function (e) {
     if (e.keyCode === 13) {
-window.location.href = "find.php?q="+$('#waterfall-exp').val();
+window.location.href = "find.php?q="+$('#sample-input').val();
     }
   });
 
+
     </script>
+
+    <br><br><br><br><br>
