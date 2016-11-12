@@ -92,17 +92,15 @@ $lnimg=getfield('imgln');}?>
   <li disabled class="mdl-menu__item">Disabled Action</li>
   <li class="mdl-menu__item">Yet Another Action</li>
 </ul>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="waterfall-exp">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample"
-                 id="waterfall-exp">
-        </div>
-      </div>
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable srch">
+  <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="sample-input" />
+      <label class="mdl-textfield__label" for="sample-input">Expandable Input</label>
+    </div>
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-input">
+      <i class="material-icons">search</i>
+    </label>
+    </div>
 </div></div>
 <!--<div id = "navi">
 <div class="dummy-card-wide mdl-card mdl-shadow--12dp">
