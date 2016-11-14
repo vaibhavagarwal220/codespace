@@ -3,7 +3,6 @@
 <?php
 require 'core.inc.php';
 require 'connect.inc.php';
-if(!loggedin()) {header('Location:index.php');}
 
 if(isset($_GET['q']))
   $qcode=$_GET['q'];
@@ -31,8 +30,8 @@ h2.name,h5{display:inline;}
 .demo-card-square > .mdl-card__title {
   color: #fff;
   background:15% #46B6AC;
-
 }
+.smallimg{width:200px;height:200px;}
 
 
   </style>
@@ -110,7 +109,7 @@ if($result)
      echo "<div class=\"demo-card-square mdl-card mdl-shadow--2dp\">
   <div class=\"mdl-card__title mdl-card--expand\">
     <h2 class=\"mdl-card__title-text\"></h2>
-    <img src=".$img." class=\"small1 img img-circle\">&nbsp;&nbsp;&nbsp;<h2 class=name>".$fname." ".$srname."</h2>
+    <img src=".$img." class=\"smallimg\">&nbsp;&nbsp;&nbsp;<h2 class=name>".$fname." ".$srname."</h2>
   </div>
   <div class=\"mdl-card__supporting-text\"><h6>Username</h6><h5> ".$qcode." <h5><br>";
   if($num>0){echo "<h6>List of problems successfully solved</h6><h5>";

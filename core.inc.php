@@ -24,9 +24,9 @@ function loggedin()
 //}
 function getfield($field)
 {
-  $query="SELECT $field from user_in where id='".$_SESSION['user_id']."';";
-if($query_res=mysql_query($query))
-  {if($fieldres=mysql_result($query_res,0,$field))
+  $query="SELECT $field from user_in where id='".@$_SESSION['user_id']."';";
+if($query_res=@mysql_query($query))
+  {if($fieldres=@mysql_result($query_res,0,$field))
     {
     return $fieldres;
     }
@@ -37,7 +37,7 @@ function cexists($cont)
 {
   $query="SELECT * from contests where cid='".$cont."';";
 $query_res=@mysql_query($query);
-  if(mysql_num_rows($query_res))
+  if(@mysql_num_rows($query_res))
     {
     return true;
     }

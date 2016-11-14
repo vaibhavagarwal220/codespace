@@ -11,8 +11,7 @@ $id=getfield('fname');
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CodeSpace</title>
   <style type="text/css">
-  aside{float:left;position:absolute;left:75%;top:5%;overflow:auto;}
-  #contain{width:70%;margin:auto;}
+  .mdl-grid{margin:auto;width:70%;text-align:center;}
   </style>
 </head>
 <body>
@@ -21,25 +20,47 @@ $id=getfield('fname');
 include 'navbar.php'
  ?>
 
- <div id="contain">
-
  	<div class=mdl-grid>
 
- 		<div class="mdl-cell mdl-cell--6-col"></div>
- 		<div class="mdl-cell mdl-cell--6-col"></div>
- 		<div class="mdl-cell mdl-cell--6-col"></div>
- 		<div class="mdl-cell mdl-cell--6-col"></div>
- 		<div class="mdl-cell mdl-cell--6-col"></div>
- 		<div class="mdl-cell mdl-cell--6-col"></div>
- 		<div class="mdl-cell mdl-cell--6-col"></div>
+ 		<div class="mdl-cell mdl-cell--4-col">
+ 			<div class="mdl-card mdl-shadow--4dp">
+			  <div class="mdl-card__media"><img src="Icon.png" width="173" height="157" border="0" alt="" style="padding:10px;">
+			  </div>
+		<div class="mdl-card__supporting-text">
+			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href=quesm.php>
+			  CREATE QUESTION TEXT
+			</a>
+		</div></div></div>
 
+ 	
+ 		<div class="mdl-cell mdl-cell--4-col">
+ 			<div class="mdl-card mdl-shadow--4dp">
+			  <div class="mdl-card__media"><img src="contest.png" width="173" height="157" border="0" alt="" style="padding:10px;">
+			  </div>
+		<div class="mdl-card__supporting-text">
+			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href=addcontest.php>
+			  ADD CONTEST
+			</a>
+		</div></div></div>
+ 	
+ 		<div class="mdl-cell mdl-cell--4-col">
+ 			<div class="mdl-card mdl-shadow--4dp">
+			  <div class="mdl-card__media"><img src="add.png" width="173" height="157" border="0" alt="" style="padding:10px;">
+			  </div>
+		<div class="mdl-card__supporting-text">
+			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href=quesadd.php>
+			  ADD QUESTION
+			</a>
+		</div></div></div>
+ 	
+ 	
+ 		 	
  	</div>
+ 	
 
 
- </div>
+</div></main></div>
 
-</div>
-  </main>
-</div>
+
 </body>
  </html>

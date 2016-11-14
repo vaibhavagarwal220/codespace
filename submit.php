@@ -113,9 +113,7 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
 
     
   </div>
-</div>
-  </main>
-</div>
+
 </body>
 <script>
      

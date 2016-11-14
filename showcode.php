@@ -60,8 +60,6 @@ if($result)
 ?>
   
 </div>
-</div>
-  </main>
-</div>
+
 </body>
  </html>

@@ -5,7 +5,7 @@
  
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
 <link rel="stylesheet" type="text/css" href="../css/fonts.css">
-<link rel="stylesheet" type="text/css" href="../css/deslog2.css">
+<link rel="stylesheet" type="text/css" href="../css/deslog3.css">
   <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 
   <style type="text/css">
@@ -17,10 +17,7 @@ a{text-decoration:none;}
   </style>
 
 <style>
-.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
-  padding-right: 0;
-}
-#box{width:200px;background-color:white;height: 10px;display:none;}
+
 </style>
 
 <?php
@@ -34,28 +31,12 @@ $viewprof=getfield('username');
 $id=getfield('id');
 $lnimg=getfield('imgln');}?>
 
-<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
-  <header class="mdl-layout__header mdl-layout__header--waterfall">
-    <!-- Top row, always visible -->
+<div class="mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title">CodeSpace</span>
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="waterfall-exp">
-          <i class="material-icons" id="link">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample"
-                 id="waterfall-exp"><div id="box"></div>
-      
-        </div>
-      </div>
-    </div>
-    <!-- Bottom row, not visible on scroll -->
-    <div class="mdl-layout__header-row">
+      <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
@@ -65,20 +46,19 @@ $lnimg=getfield('imgln');}?>
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><a  href="userprof.php?q=<?php echo $viewprof;?>">
-              <img src=<?php echo $lnimg;?> class="icn" >&nbsp;&nbsp;&nbsp;&nbsp;Welcome&nbsp;<?php echo $name_f;?>
-            </a></span>
+    <span class="mdl-layout-title">Menu</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="quesadd.php">Add Question</a>
+          <a class="mdl-navigation__link" href="quesadd.php">Add Question</a>
       <a class="mdl-navigation__link" href="addcontest.php">Add Contest</a>
       <a class="mdl-navigation__link" href="quesm.php">Create Question Text</a>
       <a class="mdl-navigation__link" href="profile.php">Edit Profile</a>
       <a class="mdl-navigation__link" href="changep.php">Change Password</a>
       <a class="mdl-navigation__link" href="logout.php">Log Out</a>
+  
     </nav>
   </div>
   <main class="mdl-layout__content">
-    <div class="page-content"><!-- Your content goes here --><br><br><br><br>
+    <div class="page-content">
 
 
 

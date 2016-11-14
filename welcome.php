@@ -60,7 +60,7 @@ include 'navbar.php'
 <i class=material-icons>warning</i><br>CE (Compilation Error)<br><br>
  </div>
 
- <br><br><br><br><br><br><br><br>
+ <br><br><br><br>
  
 
 

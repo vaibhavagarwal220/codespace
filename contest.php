@@ -129,8 +129,6 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data){
     
   
 </div>
-</div>
-  </main>
-</div>
+
 </body>
  </html>

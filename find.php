@@ -62,9 +62,7 @@ include 'navbar.php'
 	</div>	
 
 
-</div>
-  </main>
-</div>
+
 <style type="text/css">
 
 .tab-wrapper {

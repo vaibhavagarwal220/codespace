@@ -11,7 +11,6 @@ $id=getfield('fname');
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Leaderboard</title>
   <style type="text/css">
-  aside{float:left;position:absolute;left:75%;top:5%;overflow:auto;}
   #contain{width:70%;margin:auto;}
   </style>
 </head>
@@ -27,9 +26,8 @@ include 'navbar.php'
   table a{color:blue;}
   .page{width:70%;margin:auto;}
   table{width:100%;}
-  .imgi{margin:0px 320px 0px 300px;}
+  .imgi{width:100%;}
   </style>
-  <h1>Leaderboard</h1>
   <img src="img/lead.png" class=imgi>
   
     <?php
@@ -70,8 +68,6 @@ if($result)
 
 
  </div>
-</div>
-  </main>
-</div>
+
 </body>
  </html>
