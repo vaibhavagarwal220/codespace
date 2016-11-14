@@ -16,7 +16,6 @@ if(!loggedin()) {header('Location:index.php');}
   a{color:white;}
   table a{color:blue;}
   .page{width:70%;margin:auto;}
-    aside{float:left;position:absolute;left:75%;top:5%;overflow:auto;}
 
   </style>
 </head>
@@ -25,9 +24,7 @@ if(!loggedin()) {header('Location:index.php');}
  <?php
 include 'navbar.php'
  ?>
- <?php
-prirecsub();
-?>
+
 <div class=page>
     <?php
 require 'connect.inc.php';
@@ -78,10 +75,11 @@ if($result)
 		</table>";
 	}
 ?>
+   <?php
+prirecsub();
+?>
+
+</div>
   
-</div>
-  </div>
-  </main>
-</div>
 </body>
  </html>

@@ -24,12 +24,12 @@ if(isset($_POST['sterm'])){
 	}
 	echo "</div>";
 }
-else{echo "<h3>No Users found</h3>";}
+else{echo "<div class=searche>No Users found</div>";}
 
 
 
 	}
-	else{echo "<h3>Enter atleast 3 characters</h3>";}
+	else{echo "<div class=searche>Enter atleast 3 characters</div>";}
 }
 ?>
 

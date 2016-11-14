@@ -6,8 +6,10 @@
  
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
 <link rel="stylesheet" type="text/css" href="css/fonts.css">
-<link rel="stylesheet" type="text/css" href="css/deslog2.css">
+<link rel="stylesheet" type="text/css" href="css/deslog3.css">
 <link href="css/prism.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-blue.min.css">
+<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
   <script src="js/prism.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/g/ace@1.2.4(min/ace.js+min/mode-c_cpp.js)"></script>
   <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
@@ -41,17 +43,30 @@
 *{font-family: 'Roboto';font-size:16px;}
 a:hover{text-decoration:none;}
 a{text-decoration:none;}
-.mycard{background:#1e88e5;box-shadow:6px 6px 10px 2px;margin-bottom:10px;padding:20px;color:white;width:97.25%}
-.title-mycard{font-size:30px;1}
-.navcontent{text-align:right;}
 
-  </style>
+.mcard{color:white;width:97.3%;background:#263238;padding:20px;max-height:100px;height:90px;margin-bottom:30px;}
+.title-mcard{font-size:30px;padding:20px;}
 
-<style>
-.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
-  padding-right: 0;
+a.wbtn,.usr { color:white;}
+body{background-color:#EFF3F6;}
+.icnew{
+  width:20px;
+  height:20px;
+  border-radius:10px;
 }
-#box{width:200px;background-color:white;height: 10px;display:none;}
+.lnko{text-decoration:none;color:black;}
+.left{float:left;}
+.right{float:right;padding-right:15px;display:inline;z-index:5;}
+#sample-input{position:absolute;top:15px;right:15px;width:300px;}
+#result{position:absolute;top:50px;right:15px;background-color:white;color:black;display:inline;width:280px;display:none;padding:10px;line-height:20px;z-index:10;text-align: center;}
+.mdl-grid{line-height:20px;padding:10px;}
+.mdl-cell{margin:5px;}
+.searche{color:gray;text-align:center;}
+#out1{margin:10px 0px 10px 0px;font-size:25px;}
+#out2{margin:10px 0px 10px 0px;font-size:25px;}
+#res1{margin:20px 0px 20px 0px;}
+#res2{margin:20px 0px 20px 0px;}
+
 </style>
 
 <?php
@@ -64,66 +79,60 @@ $usern=getfield('username');
 $viewprof=getfield('username');
 $id=getfield('id');
 $lnimg=getfield('imgln');}?>
+<div class="mcard"><div class="title-mcard mdl-shadow--12dp">CodeSpace   
+<input type=text id="sample-input" placeholder="Search Users,Problems.." title="Press Enter to Search">
 
-<!--<div class="mycard"><div class="title-mycard">CodeSpace</div>
+<div id="result">
+<div id="res1">Users
+<div id="out1">
+</div></div>
+<div id="res2">Problems
+<div id="out2">
+</div></div>
 
-<div class="navcontent">hello</div></div>-->
+</div>
 
-<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
-  <header class="mdl-layout__header mdl-layout__header--waterfall">
-    <!-- Top row, always visible -->
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">CodeSpace</span>
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="waterfall-exp">
-          <i class="material-icons" id="link">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample"
-                 id="waterfall-exp"><div id="box"></div>
-      
+</div>
+        <div class=left><a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="welcome.php">Home</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="practice.php">Practice</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="contest.php">Compete</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="leaderboard.php">Leaderboard</a>
         </div>
-      </div>
-    </div>
-    <!-- Bottom row, not visible on scroll -->
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation -->
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="welcome.php">Home</a>
-        <a class="mdl-navigation__link" href="practice.php">Practice</a>
-        <a class="mdl-navigation__link" href="contest.php">Compete</a>
-        <a class="mdl-navigation__link" href="leaderboard.php">Leaderboard</a>
-        
-      </nav>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><a  href="userprof.php?q=<?php echo $viewprof;?>">
-              <img src=<?php echo $lnimg;?> class="icn" >&nbsp;&nbsp;&nbsp;&nbsp;Welcome&nbsp;<?php echo $name_f;?>
-            </a></span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="profile.php">Edit Profile</a>
-      <a class="mdl-navigation__link" href="changep.php">Change Password</a>
-      <a class="mdl-navigation__link" href="logout.php">Log Out</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content"><!-- Your content goes here --><br><br><br><br>
+  <div class=right>        
+            <a class="usr mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  href="userprof.php?q=<?php echo $viewprof;?>">
+              <img src=<?php echo $lnimg;?> class="icnew" >&nbsp;&nbsp;&nbsp;<?php echo $name_f;?>
+            </a>
+          
 
+<button id="demo-menu-lower-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
 
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-lower-right">
+  <li class="mdl-menu__item"><a href="profile.php" class=lnko>Edit Profile</a></li>
+  <li class="mdl-menu__item"><a href="changep.php" class=lnko>Change Password</a></li>
+  <li class="mdl-menu__item"><a href="logout.php" class=lnko>Log Out</a></li>
+</ul>
+</div>
+</div>
 
     <script type="text/javascript">
-        var box = $('#box');
-        var link = $('#link');
-     $('#waterfall-exp').keyup(function (e) {
+     $('#sample-input').keyup(function (e) {
     if (e.keyCode === 13) {
-window.location.href = "find.php?q="+$('#waterfall-exp').val();
+window.location.href = "find.php?q="+$('#sample-input').val();
     }
   });
+     $('#sample-input').focus(function (e) {
+       $('#result').fadeIn('fast');
+  });
+     $('#sample-input').blur(function (e) {
+       $('#result').fadeOut('fast');
+  });
+
+
 
     </script>
+    <script type="text/javascript" src="js/searchnav.js"></script>
+

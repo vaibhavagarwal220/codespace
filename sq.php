@@ -23,10 +23,10 @@ if(isset($_POST['sterm'])){
 	}
 	echo "</div>";
 }
-	else{echo "<h3>No problem found</h3>";}
+	else{echo "<div class=searche>No problem found</div>";}
 
 	}
-	else{echo "<h3>Enter atleast 3 Characters</h3>";}
+	else{echo "<div class=searche>Enter atleast 3 Characters</div>";}
 }
 ?>
 

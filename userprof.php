@@ -27,16 +27,13 @@ img.pport{display:inline;}
 h2.name,h5{display:inline;}
 .demo-card-square.mdl-card {
   width: 100%;
-  
-
   }
 .demo-card-square > .mdl-card__title {
   color: #fff;
-  background:
-    url('') bottom right 15% no-repeat #46B6AC;
+  background:15% #46B6AC;
 
 }
-aside{background-color:#f1f1f1;box-shadow:0px 0px 5px 1px;text-align:center;}
+
 
   </style>
 </head>
@@ -205,8 +202,6 @@ if($result&&$num)
 
 
 </div>
-</div>
-  </main>
-</div>
+
 </body>
  </html>

@@ -65,8 +65,6 @@ include 'navbar.php'
 
 
 
-</div>
-  </main>
-</div>
+
 </body>
  </html>
