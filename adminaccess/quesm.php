@@ -49,7 +49,12 @@ if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POS
         $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
         $code="<h2>".$name."</h2><h5>Problem Code:".$qcode."</h5><br><p>".$prob."</p><br><h4>Input Format:</h4><br><p>".$inf."</p><h4>Output Format</h4><p>".$outf."</p>
         <br><h4>Constraints:</h4><p>".$cons."</p><br><h4>Example Test Cases:</h4> <br> <h5>Input Format</h5><p>".$exin."</p><br><h5>Output Format</h5><p>".$exout."</p>";
-        if(fwrite($handle, $code)) echo "Problem Text File Created at questext/$qcode txt";
+        if(fwrite($handle, $code)) 
+          {
+            echo "Problem Text File Created at <a href=questext/$qcode"."txt"." title=\"Right-Click & Save Link To download the Question Text\">questext/$qcode txt</a>";
+
+            fclose($handle);
+          }
 
     }
     else {echo "Please fill in all the fields";}

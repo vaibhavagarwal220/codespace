@@ -41,8 +41,10 @@
 *{font-family: 'Roboto';font-size:16px;}
 a:hover{text-decoration:none;}
 a{text-decoration:none;}
-/*.mycard{background:#1e88e5;box-shadow:6px 6px 10px 2px;margin-bottom:10px;padding:20px;color:white;}*/
-.title-mycard{font-size:20px;}
+.mycard{background:#1e88e5;box-shadow:6px 6px 10px 2px;margin-bottom:10px;padding:20px;color:white;width:97.25%}
+.title-mycard{font-size:30px;1}
+.navcontent{text-align:right;}
+
   </style>
 
 <style>
@@ -63,7 +65,9 @@ $viewprof=getfield('username');
 $id=getfield('id');
 $lnimg=getfield('imgln');}?>
 
-<!--<div class="mycard"><div class="title-mycard">CodeSpace</div></div>-->
+<!--<div class="mycard"><div class="title-mycard">CodeSpace</div>
+
+<div class="navcontent">hello</div></div>-->
 
 <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
   <header class="mdl-layout__header mdl-layout__header--waterfall">
