@@ -70,8 +70,8 @@ if($result)
 			echo "<tr>";
 			echo "<td class=\"mdl-data-table__cell--non-numeric \"><a href=\"problem.php?q=".$qid."\">".$qname."</a></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"submit.php?q=".$qid."\">".$qid."</a></td>";
-      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"submit.php?q=".$qid."\">".$succnum."</a></td>";
-			echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"submit.php?q=".$qid."\">".$acc."</a></td>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\">$succnum</td>";
+			echo "<td class=\"mdl-data-table__cell--non-numeric\">$acc</td>";
       
       echo "</tr>";
 		}

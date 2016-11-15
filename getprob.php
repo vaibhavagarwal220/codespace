@@ -47,6 +47,6 @@ if($result&&$num)
 	echo "</tbody>
 		</table>";
 	}
-  else {echo "<h1>No problems uploaded Yet</h1>";}
+  else {echo "<div class=mycard><h1>404</h1><h3>No Problem Statements Available</h3></div>";}
 
 ?>

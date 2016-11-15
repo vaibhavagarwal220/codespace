@@ -64,10 +64,9 @@ fwrite($handle, $code);
 
 else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
 {   $name=$_FILES['file']['name'];
- echo $name;
- echo $qcode;
+ 
     $tmpname=$_FILES['file']['tmp_name'];
-    $location = 'codes/'.$qcode.$id.$cnt.".c";
+    $location = 'adminaccess/codes/'.$qcode.$id.$cnt.".c";
     if(move_uploaded_file($tmpname,$location))
     {
         

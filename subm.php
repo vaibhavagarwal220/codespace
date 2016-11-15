@@ -74,10 +74,11 @@ if($result&&$num)
 		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
 			  <thead>
     			<tr>
-              <th class=\"mdl-data-table__cell--non-numeric\">ID</th>
-      				<th class=\"mdl-data-table__cell--non-numeric\">Code</th>
-              <th class=\"mdl-data-table__cell--non-numeric\">Result</th>
-              <th class=\"mdl-data-table__cell--non-numeric\">Username</th>
+              <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=\"Submission ID\">list</i></th>
+              <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=\"Problem Code\">credit_card</i></th>
+              <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=\"Result\">&#xE890;</i></th>
+              <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=Username>account_circle</i></th>
+              <th class=\"mdl-data-table__cell--non-numeric\">Solution</th>
       			</tr>
   			  </thead>
   			  <tbody>";
@@ -90,16 +91,19 @@ if($result&&$num)
       $query4="SELECT username from user_in where id=".$uid;
       $result4=@mysql_query($query4);
       $unam=@mysql_result($result4,0,'username');
+      $btn='enabled';
+      if(proincon($qid)) $btn='disabled';
 
 			echo "<tr>";
 			echo "<td class=\"mdl-data-table__cell--non-numeric\">".$quid."</td>";
-      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"showcode.php?q=".$quid."\">".$qid."</a></td>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"problem.php?q=".$qid."\">".$qid."</a></td>";
       if ($res=="AC") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>done</i></td>";
       else if ($res=="WA") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>highlight_off</i></td>";
       else if ($res=="RE") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>error_outline</i></td>";
       else if ($res=="TLE") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>alarm</i></td>";
       else if ($res=="CE") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>warning</i></td>";
-      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"userprof.php?q=".$unam."\">".$unam."</a></td>";      
+      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"userprof.php?q=".$unam."\">".$unam."</a></td>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a $btn href=\"showcode.php?q=".$quid."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\">SHOW</a></td>";      
       echo "</tr>";
 		}
 	echo "</tbody>

@@ -54,13 +54,13 @@ if($result)
       //echo "<h5>Problems will appear in ".$mon." Months ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h5>";
       //else 
             if($day>0)
-      echo "<h5>Problems will appear in ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h5>";
+      echo "<div class=mycard><h3>Problems will appear in ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h3></div>";
       else if($hour>0)
-      echo "<h5>Problems will appear in ".$hour." Hours ".$min." Minutes ".$sec." Seconds.";
-      else if($min>0)
-      echo "<h5>Problems will appear in ".$min." Minutes ".$sec." Seconds</h5>";
+       echo "<div class=mycard><h3>Problems will appear in ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h3></div>";
+     else if($min>0)
+      echo "<div class=mycard><h3>Problems will appear in Hours ".$min." Minutes ".$sec." Seconds</h3></div>";
       else if($sec>0)
-      echo "<h5>Problems will appear in ".$sec." Seconds</h5>";
+      echo "<div class=mycard><h3>Problems will appear in ".$sec." Seconds</h3></div>";
       else  echo "0"; 
       
     	}

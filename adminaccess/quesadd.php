@@ -92,7 +92,7 @@ if(isset($_POST['qcode'])&&isset($_POST['qname'])&&isset($_FILES['inp']['name'])
                     if(mysql_query($query))//run the query
                     {
 
-                  if(mysql_query($qury))
+                        @mysql_query($qury);
                       echo "Your question has been added successfully";/*giving notification about successful creation of account*/
                        
                     }

@@ -55,13 +55,13 @@ if($result)
       //echo "<h5>Problems will appear in ".$mon." Months ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h5>";
       //else 
             if($day>0)
-      echo "<h5>Contest will end in ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h5>";
+      echo "<div class=mycard><h3>Contest will End in ".$day." Days ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h3></div>";
       else if($hour>0)
-      echo "<h5>Contest will end in ".$hour." Hours ".$min." Minutes ".$sec." Seconds.";
+      echo "<div class=mycard><h3>Contest will End in ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h3></div>";
       else if($min>0)
-      echo "<h5>Contest will end in ".$min." Minutes ".$sec." Seconds</h5>";
+      echo "<div class=mycard><h3>Contest will End in ".$min." Minutes ".$sec." Seconds</h3></div>";
       else if($sec>0)
-      echo "<h5>Contest will end in ".$sec." Seconds</h5>";
+      echo "<div class=mycard><h3>Contest will End in ".$sec." Seconds</h3></div>";
       else  echo "0"; 
       
       }

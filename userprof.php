@@ -33,6 +33,7 @@ h2.name,h5{display:inline;}
   background:url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
 }
 .smallimg{width:200px;height:200px;}
+  .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;text-align:center;}
 
 
   </style>
@@ -50,7 +51,7 @@ require 'connect.inc.php';
 $query="SELECT fname,srname,imgln,username,id from user_in where username='".$qcode."'";
 $result=@mysql_query($query);
 $numu=@mysql_num_rows($result);
-if($numu==0) echo "<h5>No such user</h5>";
+if($numu==0) echo "<div class=mycard><h1>404</h1><h3>No such User in our database</h3></div>";
 else
 {
 if($result) 
@@ -135,12 +136,12 @@ echo "</div>";
 
    
   }
-}
+
 
 ?>
 
 <?php
-echo "<div class=\"mdl-cell mdl-cell--3-col posrec\">
+echo "<div class=\"mdl-cell mdl-cell--3-col posrec mycard\">
 <h5>Recent submissions</h5>";
 
 $query1="SELECT id from user_in where username='$qcode';";
@@ -167,7 +168,7 @@ if($result&&$num)
             </tr>
           </thead>
           <tbody>";
-          if($num==0) echo "<tr><td></td><td>No submissions</td><td></td><td></td></tr>";
+
     for($i=0;$i<$num;$i++)
     { $quid=@mysql_result($result,$i,'id');
       $qid=@mysql_result($result,$i,'qid');
@@ -193,7 +194,12 @@ if($result&&$num)
   echo "</tbody>
     </table></div></div>";
   }
-  else echo "<h5>No submissions</h5></div></div>";
+  else {
+    echo "<div class=mycard><h3>No Submissions</h3></div>";
+    echo "</div></div>";
+  }
+  }
+
 ?>
 
 
