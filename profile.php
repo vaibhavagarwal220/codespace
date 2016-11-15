@@ -37,20 +37,10 @@ $ln_img=getfield('imgln');
   <title><?php echo $name_f." ".$name_sr;?></title>
    
   <style type="text/css">
-
-
-    body{font-family:sans-serif;}
-    #slideNotice{display:none;
-      width:100%;text-align:center;
-      background-color: gray;color:white;padding:20px;
-      font-size:20px;
-      font-family:sans-serif;
-    }
-    
-    button{font-family:sans-serif;}
-    #contain{width:60%;margin:auto;}
+    .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
+    #contain{width:80%;margin:auto;}
     #files{display:none;}
-    #posimb{text-align:center;position: relative;left:-160px;}
+    #posimb{text-align:center;}
   </style>
 </head>
 <body>
@@ -61,7 +51,7 @@ include 'navbar.php'
   <div id="contain">
          
                 
-                <div class="mdl-grid">
+                <div class="mdl-grid mycard">
                 <div class="mdl-cell mdl-cell--6-col" id="posimb"><img src= <?php echo $ln_img ?> class="small1" id="image">
                 <br>
                 
@@ -106,7 +96,7 @@ include 'navbar.php'
   
 
 
-
+<br><br><br>
 
 
 

@@ -161,27 +161,32 @@ else echo "<div class=\"error\">Please fill in all the fields &nbsp;&nbsp;&nbsp;
     </script>
 
      <script type="text/javascript">
-        var k;
+     var k;
         $(document).ready(function(){
           $('#rmmbr').prop('checked',false);
+          $('#btnrem').css('background-color','#E0E0E0');
+          $('#btnrem').css('color','black');
+
           k=0;
         });
 
         $('#btnrem').click(function(){
           if(k%2==0 ) {
-
             $('#rmmbr').prop('checked',true);
-            $('#btnrem').css('background-color','green');
+            $('#btnrem').css('background-color','#448AFF');
             $('#btnrem').attr('title','Yes');
+            $('#btnrem').css('color','white');
           }
           else {
             $('#rmmbr').prop('checked',false);
-            $('#btnrem').css('background-color','red');
+            $('#btnrem').css('background-color','#E0E0E0');
             $('#btnrem').attr('title','No');
+            $('#btnrem').css('color','black');
           }
           k++;
 
         });
+       
         </script>
 </body>
 </html>

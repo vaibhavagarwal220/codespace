@@ -42,6 +42,18 @@ $lnimg=getfield('imgln');}?>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="welcome.php">Dashboard</a>
         <a class="mdl-navigation__link" href="contest.php">Contests</a>
+        <button id="demo-menu-lower-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
+
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-lower-right">
+  <a href="profile.php"><li class="mdl-menu__item">Edit Profile</li></a>
+    <a href="changep.php"><li class="mdl-menu__item">Change Password</li></a>
+    <a href="logout.php"><li class="mdl-menu__item">Log Out</li></a>
+
+</ul>
       </nav>
     </div>
   </header>
@@ -51,9 +63,8 @@ $lnimg=getfield('imgln');}?>
           <a class="mdl-navigation__link" href="quesadd.php">Add Question</a>
       <a class="mdl-navigation__link" href="addcontest.php">Add Contest</a>
       <a class="mdl-navigation__link" href="quesm.php">Create Question Text</a>
-      <a class="mdl-navigation__link" href="profile.php">Edit Profile</a>
-      <a class="mdl-navigation__link" href="changep.php">Change Password</a>
-      <a class="mdl-navigation__link" href="logout.php">Log Out</a>
+        <a class="mdl-navigation__link" href="users.php">View Users</a>
+ 
   
     </nav>
   </div>

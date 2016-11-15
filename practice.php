@@ -33,9 +33,13 @@ FROM questions";
 $result=mysql_query($query);
 $num=mysql_num_rows($result);
 
-$query1="SELECT DISTINCT questions.qid,questions.qname
-FROM questions,keptin
-WHERE questions.qid != keptin.qid";
+$query1="SELECT questions.qid,questions.qname FROM questions
+WHERE (qid) NOT IN
+( SELECT qid
+  FROM keptin
+) ;
+";
+
 $result1=mysql_query($query1);
 $num1=mysql_num_rows($result1);
 if($num1) {$result=$result1;$num=$num1;}

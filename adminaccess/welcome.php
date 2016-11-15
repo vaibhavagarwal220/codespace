@@ -52,6 +52,15 @@ include 'navbar.php'
 			  ADD QUESTION
 			</a>
 		</div></div></div>
+		 		<div class="mdl-cell mdl-cell--4-col">
+ 			<div class="mdl-card mdl-shadow--4dp">
+			  <div class="mdl-card__media"><img src="user.png" width="173" height="157" border="0" alt="" style="padding:10px;">
+			  </div>
+		<div class="mdl-card__supporting-text">
+			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href=users.php>
+			  VIEW USERS
+			</a>
+		</div></div></div>
  	
  	
  		 	

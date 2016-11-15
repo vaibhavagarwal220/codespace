@@ -22,21 +22,20 @@ else
  
   a.sub{color:blue;}
   table a{color:blue;}
-  .page{width:70%;margin-left:2.5%;}
+  .page{width:70%;margin:auto;margin-top:30px;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
 .demo-card-square.mdl-card {
-  width: 100%;
+  width: 70%;
   
 
   }
 .demo-card-square > .mdl-card__title {
   color: #fff;
   background:
-    url('') bottom right 15% no-repeat #46B6AC;
+    15% #46B6AC;
 
 }
-aside{background-color:#f1f1f1;box-shadow:0px 0px 5px 1px;text-align:center;}
 
   </style>
 </head>
@@ -66,8 +65,7 @@ if($result)
       
      echo "<div class=\"demo-card-square mdl-card mdl-shadow--2dp\">
   <div class=\"mdl-card__title mdl-card--expand\">
-    <h2 class=\"mdl-card__title-text\"></h2>
-    <img src=".$ln_img." class=\"small1\">&nbsp;&nbsp;&nbsp;<h2 class=name>".$name_f." ".$name_sr."</h2>
+    <h2 class=\"mdl-card__title-text\">".$name_f." ".$name_sr."</h2>
   </div>
   <div class=\"mdl-card__supporting-text\"><h6>Username</h6><h5> ".$qcode." <h5><br>";
   
