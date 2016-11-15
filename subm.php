@@ -91,8 +91,10 @@ if($result&&$num)
       $query4="SELECT username from user_in where id=".$uid;
       $result4=@mysql_query($query4);
       $unam=@mysql_result($result4,0,'username');
+        $href="href=showcode.php?q=$quid";
       $btn='enabled';
-      if(proincon($qid)) $btn='disabled';
+      if(proincon($qid)) {$btn='disabled';
+      $href="";}
 
 			echo "<tr>";
 			echo "<td class=\"mdl-data-table__cell--non-numeric\">".$quid."</td>";
@@ -103,7 +105,7 @@ if($result&&$num)
       else if ($res=="TLE") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>alarm</i></td>";
       else if ($res=="CE") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons>warning</i></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"userprof.php?q=".$unam."\">".$unam."</a></td>";
-      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a $btn href=\"showcode.php?q=".$quid."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\">SHOW</a></td>";      
+      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a $btn $href class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\">SHOW</a></td>";      
       echo "</tr>";
 		}
 	echo "</tbody>
