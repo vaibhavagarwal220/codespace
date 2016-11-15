@@ -20,6 +20,7 @@ a{text-decoration:none;}
 .error a:active{font-size:30px;text-decoration:none;color:white;}
 .error a:visited{font-size:30px;text-decoration:none;color:white;}
 body{background-color:#EFF3F6;}
+.imgsm{width:30px;height:30px;border-radius: 15px;}
 
 .success{background-color:#2eb82e;color:white;font-size:20px;padding:15px;}
   </style>
@@ -48,8 +49,10 @@ $lnimg=getfield('imgln');}?>
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
+
         <a class="mdl-navigation__link" href="welcome.php">Dashboard</a>
         <a class="mdl-navigation__link" href="contest.php">Contests</a>
+        <a class="mdl-navigation__link" href="userprof.php?q=<?php echo $usern;?>"><img class=imgsm src=<?php echo $lnimg;?>></a>
         <button id="demo-menu-lower-right"
         class="mdl-button mdl-js-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
