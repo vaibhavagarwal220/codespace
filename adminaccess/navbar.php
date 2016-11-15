@@ -14,6 +14,14 @@
 *{font-family: 'Roboto';font-size:16px;}
 a:hover{text-decoration:none;}
 a{text-decoration:none;}
+   .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;text-align:center;}
+    .error{background-color:#ff3333;color:white;font-size:20px;padding:15px;}
+.error a{font-size:30px;text-decoration:none;color:white;}
+.error a:active{font-size:30px;text-decoration:none;color:white;}
+.error a:visited{font-size:30px;text-decoration:none;color:white;}
+body{background-color:#EFF3F6;}
+
+.success{background-color:#2eb82e;color:white;font-size:20px;padding:15px;}
   </style>
 
 <style>

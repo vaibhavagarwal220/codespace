@@ -29,6 +29,9 @@ if(isset($_GET['q']))
   body,input{text-align:center;}
     .mdl-textfield{width:100%;}
     #pos{position:absolute;left:50px;top:50px;}
+    .mycard{width:50%;margin:auto;}
+
+
   </style>
 
 </head>
@@ -45,6 +48,11 @@ include 'navbar.php'
  <div id="contain">
 
 
+                    <!-- Colored FAB button with ripple -->
+<a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href=index.php id="pos">
+  <i class="material-icons" title=Back to Dashboard>fast_rewind</i>
+</a><br><br><br>
+<div class="mycard"><h2>Problem Adder</h2>
 <?php
 
 if(isset($_POST['qcode'])&&isset($_POST['qname'])&&isset($_FILES['inp']['name'])&&isset($_FILES['outp']['name'])&&isset($_FILES['ques']['name'])&&isset($_POST['tl']))/*to check that user has submitted the signup form*/
@@ -70,7 +78,7 @@ if(isset($_POST['qcode'])&&isset($_POST['qname'])&&isset($_FILES['inp']['name'])
               $reslt=mysql_query($query1);/*running the query*/
               if(mysql_num_rows($reslt)!=0)/*checking that same username exists*/
               {
-                echo "Question Code Already Exists";//producing error if same username exists 
+                echo "<div class=error>Question Code Already Exists&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";//producing error if same username exists 
               }
               else
               {$locin='input/'.$in;
@@ -93,26 +101,19 @@ if(isset($_POST['qcode'])&&isset($_POST['qname'])&&isset($_FILES['inp']['name'])
                     {
 
                         @mysql_query($qury);
-                      echo "Your question has been added successfully";/*giving notification about successful creation of account*/
+                      echo "<div class=success>Your question has been added successfully&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";/*giving notification about successful creation of account*/
                        
                     }
               }
-              else {echo "Error Uploading Question";}//display error about image
+              else {echo "<div class=error>Error Uploading Question&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";}//display error about image
             }
         
 
       }
-      else echo "Please fill in all the fields";//display error about empty fields
+      else echo "<div class=error>Please fill in all the fields&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";//display error about empty fields
 
     }
 ?>
-
-
-                    <!-- Colored FAB button with ripple -->
-<a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href=index.php id="pos">
-  <i class="material-icons" title=Back to Dashboard>fast_rewind</i>
-</a>
-<h2>Problem Adder</h2>
                 <form method="post" action=<?php if(isset($qc)&&!empty($qc)) echo "quesadd.php?q=$qc"; else echo "quesadd.php";?> enctype="multipart/form-data">
                     
 
@@ -166,8 +167,7 @@ if(isset($_POST['qcode'])&&isset($_POST['qname'])&&isset($_FILES['inp']['name'])
 </button>
               </form>
 <br><br><br><br>
-    <script type="text/javascript" src=js/check.js></script>
-
+   </div>
 
 
 
@@ -185,3 +185,9 @@ if(isset($_POST['qcode'])&&isset($_POST['qname'])&&isset($_FILES['inp']['name'])
 
 
 
+<script type="text/javascript">
+    $('.close').click(function(){
+      $('.error').fadeOut();
+      $('.success').fadeOut();
+    });
+    </script>

@@ -11,19 +11,24 @@ if(!loggedin()) {header('Location:index.php');}
   <title>Practice Arena</title>
 
 
-  <style type="text/css">
-  .nt{margin-top:40px;}
-  a{color:white;}
-  table a{color:blue;}
-  .page{width:90%;margin:auto;}
-   .posrec{padding-left:50px;}
-  </style>
+
 </head>
 <body>
   
  <?php
 include 'navbar.php'
  ?>
+
+  <style type="text/css">
+  .nt{margin-top:40px;}
+  a{color:white;}
+  table a{color:blue;}
+  .page{width:90%;margin:auto;}
+   .posrec{padding-left:50px;}
+  table{width:100%;}
+      .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
+  .linksz{font-size:200px;}
+  </style>
 
 <div class=page>
     <?php
@@ -39,14 +44,25 @@ WHERE (qid) NOT IN
   FROM keptin
 ) ;
 ";
-
+?>
+<?php
 $result1=mysql_query($query1);
 $num1=mysql_num_rows($result1);
 if($num1) {$result=$result1;$num=$num1;}
 
 if($result) 
 	{  echo "<div class=mdl-grid>";
-		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--8-col\">
+		echo "<div class=\"mdl-cell mdl-cell--8-col mdl-grid mycard\">
+      <div class=\"mdl-cell mdl-cell-4-col \">
+              <i class=\"material-icons linksz\" >description</i>
+      </div>
+       <div class=\"mdl-cell mdl-cell-8-col\">
+          <h4><strong>Practice</strong></h4>
+          <p>Practice through different difficulty levels.</p>
+       </div><br>
+
+    
+    <table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
 			  <thead>
     			<tr>
       				<th class=\"mdl-data-table__cell--non-numeric\">Name</th>
@@ -76,7 +92,7 @@ if($result)
       echo "</tr>";
 		}
 	echo "</tbody>
-		</table>";
+		</table></div>";
 	}
 ?>
    <?php
