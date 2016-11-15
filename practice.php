@@ -15,8 +15,8 @@ if(!loggedin()) {header('Location:index.php');}
   .nt{margin-top:40px;}
   a{color:white;}
   table a{color:blue;}
-  .page{width:70%;margin:auto;}
-
+  .page{width:90%;margin:auto;}
+   .posrec{padding-left:50px;}
   </style>
 </head>
 <body>
@@ -41,8 +41,8 @@ $num1=mysql_num_rows($result1);
 if($num1) {$result=$result1;$num=$num1;}
 
 if($result) 
-	{
-		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
+	{  echo "<div class=mdl-grid>";
+		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--8-col\">
 			  <thead>
     			<tr>
       				<th class=\"mdl-data-table__cell--non-numeric\">Name</th>
@@ -77,6 +77,7 @@ if($result)
 ?>
    <?php
 prirecsub();
+echo "</div>";
 ?>
 
 </div>

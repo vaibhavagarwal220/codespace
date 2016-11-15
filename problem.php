@@ -16,7 +16,7 @@ else
 <title>CodeSpace|Problem Page</title>
 
   <style type="text/css">
-  #ques{width:70%;margin: auto;}
+  .page{width:90%;margin: auto;}
   a{color:green;}
   .sbtns{float:right;}
   </style>
@@ -27,7 +27,7 @@ else
 include 'navbar.php'
  ?>
 
-<div id="ques">
+<div class="page">
 <?php
 
 if(!empty($qcode)){

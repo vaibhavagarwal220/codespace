@@ -3,6 +3,7 @@ include 'core.inc.php';
 include 'connect.inc.php';
 if(!loggedin()) {header('Location:index.php');}
 $id=getfield('id');
+$pwd=getfield('pword');
 ?>
 <?php
 if(isset($_POST['op'])&&isset($_POST['np'])&&isset($_POST['np']))
@@ -20,22 +21,22 @@ $newpwdmatch=md5(mysql_real_escape_string(htmlentities($_POST['npc'])));
             {
               $update=mysql_query("UPDATE user_in SET pword='$newpwd' WHERE id=$id;");
                 if($update==true) 
-                 echo "New details are saved";
+                 echo "Password Succesfully Changed";
                 else 
-                  echo "There was an error";
+                  echo "There Was an Error";
             }
             else 
-              echo "please enter a new password";
+              echo "Please Enter a New Password";
           }
     else 
-      echo 'Passwords do not match';
+      echo 'Passwords Do Not Match';
     }
   else 
-    echo 'Old Password is not correct';
+    echo 'Old Password is Not Correct';
   }
   else 
   {
-   echo 'Enter at least 8 characters'; 
+   echo 'Enter At Least 8 Characters'; 
   }
 }
 ?>

@@ -22,7 +22,7 @@ $cnt++;
   #sample5{height:400px;}
   a{color:white;}
   h6{display:inline;}
-  .contain{width:70%;margin: auto;}
+  .contain{width:90%;margin: auto;}
 
   </style>
 </head>
@@ -44,15 +44,17 @@ if(!empty($code)&&!empty($qcode)){
 $my_file = 'adminaccess/codes/'.$qcode.$id.$cnt.".c";
 $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
 fwrite($handle, $code);
-exec("./o", $output, $status);
-        echo "status: " . $status;
+//exec("./o", $output, $status);
+          $status=0;
+          $output="Hello World";
+          echo "<br>status: " . $status;
           if($status==0) $res="AC";
           else if($status==1) $res="TLE";
           else if($status==2) $res="CE";
           else if($status==3) $res="RE";
           else if($status==4) $res="WA";
           else if($status==5) $res="MLE";
-          echo "<br>output: " . implode("<br>", $output);
+          //echo "<br>output: " . implode("<br>", $output);
 
           $queryins="INSERT INTO `oj`.`submissions` (`id`, `result`, `qid`, `user_id`, `subln`) VALUES (NULL, '".$res."','".$qcode."','".$id."','".$my_file."');";
           $resultqu=mysql_query($queryins);
@@ -69,15 +71,17 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
     if(move_uploaded_file($tmpname,$location))
     {
         
-        exec("./o", $output, $status);
-        echo "<br>status: " . $status;
+        //exec("./o", $output, $status);
+                    $status=0;
+          $output="Hello World";
+          echo "<br>status: " . $status;
           if($status==0) $res="AC";
           else if($status==1) $res="TLE";
           else if($status==2) $res="CE";
           else if($status==3) $res="RE";
           else if($status==4) $res="WA";
           
-          echo "<br>output: " . implode("<br>", $output);
+          //echo "<br>output: " . implode("<br>", $output);
 
           $queryins="INSERT INTO `oj`.`submissions` (`id`, `result`, `qid`, `user_id`, `subln`) VALUES (NULL, '".$res."','".$qcode."','".$id."','".$location."');";
           $resultqu=mysql_query($queryins);

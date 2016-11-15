@@ -32,7 +32,7 @@ if(isset($_GET['id'])){
   .nt{margin-top:40px;}
   a{color:green;}
   table a{color:blue;}
-  .page{width:70%;margin:auto;}
+  .page{width:90%;margin:auto;}
 
   </style>
 </head>

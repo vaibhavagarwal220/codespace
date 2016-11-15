@@ -48,7 +48,7 @@ $ln_img=getfield('imgln');
     }
     
     button{font-family:sans-serif;}
-    #contain{width:70%;margin:auto;}
+    #contain{width:60%;margin:auto;}
     #files{display:none;}
     #posimb{text-align:center;position: relative;left:-160px;}
   </style>
@@ -61,7 +61,7 @@ include 'navbar.php'
   <div id="contain">
          
                 
-                <div class=mdl-grid>
+                <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--6-col" id="posimb"><img src= <?php echo $ln_img ?> class="small1" id="image">
                 <br>
                 
@@ -76,7 +76,6 @@ include 'navbar.php'
         </form>
 </div>
 <div class="mdl-cell mdl-cell--6-col">
-  <div id="slideNotice"></div>
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="text"  value="<?php echo $name_f;?>" id="fnm" required maxlength="40">
     <label class="mdl-textfield__label" for="fnm">First Name</label>
@@ -89,13 +88,20 @@ include 'navbar.php'
     <input class="mdl-textfield__input" type="text" value="<?php echo $usern;?>" id="un" required maxlength="40">
     <label class="mdl-textfield__label" for="un">Username</label>
   </div><br><br>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit id="savbtn">
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit id="savbtn">
   Save Changes
 </button>
 
       <br><br>
  </div>       
   </div>
+
+<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
+
+
 </div>
   
 
@@ -104,7 +110,6 @@ include 'navbar.php'
 
 
 
-  <script type="text/javascript" src="js/upprof.js"></script>
   <script type="text/javascript">
   document.getElementById("files").onchange = function () {
     var reader = new FileReader();
@@ -118,5 +123,31 @@ include 'navbar.php'
     reader.readAsDataURL(this.files[0]);
 };
 </script>
+
+ <script type="text/javascript">
+  (function() {
+  'use strict';
+  var snackbarContainer = document.querySelector('#demo-snackbar-example');
+  var showSnackbarButton = document.querySelector('#savbtn');
+  var handler = function(event) {
+    showSnackbarButton.style.backgroundColor = '';
+  };
+  showSnackbarButton.addEventListener('click', function() {
+    'use strict';
+    var nf=$('#fnm').val();
+var nl=$('#srnm').val();
+var unm=$('#un').val();
+$.post('change.php',{nf:nf,nl:nl,unm:unm},function(dataout){
+  //$("#slideNotice").html(dataout).slideDown().delay(500).slideUp();
+    var data = {
+      message: dataout,
+      timeout: 2000,
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+    });
+
+  });
+}());
+  </script>
 </body>
  </html>

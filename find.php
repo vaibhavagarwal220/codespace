@@ -16,7 +16,7 @@ if(isset($_GET['q']))
     <title>Search</title>
   <style type="text/css">
   .mdl-grid{text-align:center;}
-  #contain{width:70%;margin:auto;}
+  #contain{width:80%;margin:auto;}
   #wide{width:100%;font-family:'Roboto';}
   #term{font-size:30px;font-weight:bold;}
   h2{font-size:40px;font-family:'Roboto';}

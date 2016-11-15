@@ -20,16 +20,17 @@ else
   <style type="text/css">
  
   a.sub{color:blue;}
+.posrec{padding-left:40px;}
   table a{color:blue;}
-  .page{width:70%;margin-left:2.5%;}
+  .page{width:90%;margin:auto;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
 .demo-card-square.mdl-card {
-  width: 100%;
+  width: 70%;
   }
 .demo-card-square > .mdl-card__title {
   color: #fff;
-  background:15% #46B6AC;
+  background:url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
 }
 .smallimg{width:200px;height:200px;}
 
@@ -49,7 +50,7 @@ require 'connect.inc.php';
 $query="SELECT fname,srname,imgln,username,id from user_in where username='".$qcode."'";
 $result=@mysql_query($query);
 $numu=@mysql_num_rows($result);
-if($numu==0) echo "<h1>No such user</h1>";
+if($numu==0) echo "<h5>No such user</h5>";
 else
 {
 if($result) 
@@ -106,12 +107,12 @@ if($result)
 
       <?php
       
-     echo "<div class=\"demo-card-square mdl-card mdl-shadow--2dp\">
+     echo "<div class=mdl-grid> <div class=\"demo-card-square mdl-card mdl-shadow--2dp  mdl-cell mdl-cell--8-col\">
   <div class=\"mdl-card__title mdl-card--expand\">
-    <h2 class=\"mdl-card__title-text\"></h2>
+    <h2 class=\"mdl-card__title-text\">
     <img src=".$img." class=\"smallimg\">&nbsp;&nbsp;&nbsp;<h2 class=name>".$fname." ".$srname."</h2>
   </div>
-  <div class=\"mdl-card__supporting-text\"><h6>Username</h6><h5> ".$qcode." <h5><br>";
+  <div class=\"mdl-card__supporting-text\"><h6>Username</h6><h5> ".$qcode." </h5><br>";
   if($num>0){echo "<h6>List of problems successfully solved</h6><h5>";
           for($i=0;$i<$num;$i++)
     { $qid=@mysql_result($result1,$i,'qid');
@@ -129,7 +130,7 @@ if($result)
       EDIT PROFILE
     </a>
   </div>";
-echo "</div><br><br><br>";
+echo "</div>";
 
 
    
@@ -138,9 +139,9 @@ echo "</div><br><br><br>";
 
 ?>
 
-<aside>
-<h4>Recent submissions</h4>
 <?php
+echo "<div class=\"mdl-cell mdl-cell--3-col posrec\">
+<h5>Recent submissions</h5>";
 
 $query1="SELECT id from user_in where username='$qcode';";
 $result1=@mysql_query($query1);
@@ -190,11 +191,11 @@ if($result&&$num)
       echo "</tr>";
     }
   echo "</tbody>
-    </table>";
+    </table></div></div>";
   }
-  else echo "<h4>No submissions</h4>";
+  else echo "<h5>No submissions</h5></div></div>";
 ?>
-</aside>
+
 
   
   

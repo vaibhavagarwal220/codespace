@@ -8,3 +8,4 @@ $.post('savepchange.php',{op:op,np:np,npc:npc},function(data){
 	$("#slideNotice").html(data).slideDown().delay(500).slideUp();
 });
 });
+

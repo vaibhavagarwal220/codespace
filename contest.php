@@ -15,7 +15,7 @@ if(!loggedin()) {header('Location:index.php');}
   <style type="text/css">
   a.sub{color:blue;}
   table a{color:blue;}
-  .page{width:70%;margin:auto;}
+  .page{width:90%;margin:auto;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
 #time {padding:20px;display:none;}
@@ -38,7 +38,7 @@ else
 //echo "<script>
 //$(\"#time\").hide();
 //</script>";
-$queryqw="SELECT * from contests";
+$queryqw="SELECT * from contests order by concat(concat(edate,' '),etime) desc";
 getcontests($queryqw);
 
 

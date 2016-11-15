@@ -63,6 +63,9 @@ $resultqw=@mysql_query($queryqw);
 
 $numqw=@mysql_num_rows($resultqw);
 
+$query1="SELECT NOW();";
+$result1=mysql_query($query1);
+
 if($resultqw&&$numqw) 
   {
     echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
@@ -72,6 +75,7 @@ if($resultqw&&$numqw)
               
               <th class=\"mdl-data-table__cell--non-numeric\">Start Time</th>
               <th class=\"mdl-data-table__cell--non-numeric\">End Time</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">Status</th>
             </tr>
           </thead>
           <tbody>";
@@ -83,12 +87,63 @@ if($resultqw&&$numqw)
       $sd=@mysql_result($resultqw,$i,'sdate');
       $et=@mysql_result($resultqw,$i,'etime');
       $ed=@mysql_result($resultqw,$i,'edate');
+      $status="Ended";
+
+       $sstamp=$sd.' '.$st;
+      $estamp=$ed.' '.$et;
+      $nstamp=mysql_result($result1,0);
+ 
+
+
+
+
+      $query21="SELECT TIMESTAMPDIFF(MINUTE,'".$nstamp."','".$estamp."')%60";
+      $result21=mysql_query($query21);
+      $min1=mysql_result($result21,0);
+
+      $query31="SELECT TIMESTAMPDIFF(DAY,'".$nstamp."','".$estamp."')";
+      $result31=mysql_query($query31);
+      $day1=mysql_result($result31,0);
+
+      $query41="SELECT TIMESTAMPDIFF(HOUR,'".$nstamp."','".$estamp."')%24";
+      $result41=mysql_query($query41);
+      $hour1=mysql_result($result41,0);
+
+      $query51="SELECT TIMESTAMPDIFF(SECOND,'".$nstamp."','".$estamp."')%60";
+      $result51=mysql_query($query51);
+      $sec1=mysql_result($result51,0);
+
+                  if($day1>0||$min1>0||$hour1>0||$sec1>0)
+                        $status="Running";
+
+
+      $query2="SELECT TIMESTAMPDIFF(MINUTE,'".$nstamp."','".$sstamp."')%60";
+      $result2=mysql_query($query2);
+      $min=mysql_result($result2,0);
+
+      $query3="SELECT TIMESTAMPDIFF(DAY,'".$nstamp."','".$sstamp."')";
+      $result3=mysql_query($query3);
+      $day=mysql_result($result3,0);
+
+      $query4="SELECT TIMESTAMPDIFF(HOUR,'".$nstamp."','".$sstamp."')%24";
+      $result4=mysql_query($query4);
+      $hour=mysql_result($result4,0);
+
+      $query5="SELECT TIMESTAMPDIFF(SECOND,'".$nstamp."','".$sstamp."')%60";
+      $result5=mysql_query($query5);
+      $sec=mysql_result($result5,0);
+                      if($day>0||$min>0||$hour>0||$sec>0)
+                        $status="Future<br>Contest";
+
 
 
       echo "<tr>";
       echo "<td class=\"mdl-data-table__cell--non-numeric \"><a href=\"contest.php?q=".$cid."\">".$nm."</a></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\">".$sd."<br>".$st."</td>";
-      echo "<td class=\"mdl-data-table__cell--non-numeric\">".$ed."<br>".$et."</td>";      
+      echo "<td class=\"mdl-data-table__cell--non-numeric\">".$ed."<br>".$et."</td>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\">".$status."</td>";
+
+
       echo "</tr>";
     }
   echo "</tbody>
@@ -107,8 +162,8 @@ if($resultqw&&$numqw)
 <?php
 function prirecsub()
 {
-echo "<aside>";
-echo "<h4>Recent submissions</h4>";
+echo "<div class=\"mdl-cell mdl-cell--3-col posrec\">";
+echo "<h5>Recent submissions</h5>";
 
 $query="SELECT id,qid,user_id,result from submissions order by time desc limit 10 ";
 
@@ -157,9 +212,9 @@ if($result&&$num)
   echo "</tbody>
     </table>";
   }
-  else echo "<h2>No submissions</h2>";
+  else echo "<h5>No submissions</h5>";
 
-echo "</aside>";
+echo "</div>";
 
 }
 ?>

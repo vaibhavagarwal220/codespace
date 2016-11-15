@@ -19,15 +19,14 @@ include 'navbar.php'
  ?>
 <style type="text/css">
   body{background-color:#eceff1;}
-  aside{float:left;position:absolute;left:75%;top:5%;overflow:auto;}
   .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
-  #contain{width:20%;margin-left:40px;text-align:center;margin-top:20px;}
+  #contain{width:90%;margin-left:40px;text-align:center;margin-top:20px;}
   .mdl-cell{text-align:center;}
   a.mdl-cell{color:#424242;}
   .lnk{font-size:90px;}
   #poslnk{width:60%;margin-left:40px;}
   </style>
- 
+ <div id="contain" class=mdl-grid>
 <div class="mycard mdl-grid" id="poslnk">
 
                 <a class="mdl-cell mdl-cell-4-col" href="practice.php">
@@ -50,7 +49,7 @@ include 'navbar.php'
  </div>
 
 
- <div id="contain" class=mycard>
+ <div class="mycard">
 <h4>Judge Environment</h4>
 
 <i class=material-icons>done</i><br>AC (Accepted)<br><br>
@@ -60,9 +59,7 @@ include 'navbar.php'
 <i class=material-icons>warning</i><br>CE (Compilation Error)<br><br>
  </div>
 
- <br><br><br><br>
- 
-
+</div>
 
 
 

@@ -111,9 +111,9 @@ $lnimg=getfield('imgln');}?>
 
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
     for="demo-menu-lower-right">
-  <li class="mdl-menu__item"><a href="profile.php" class=lnko>Edit Profile</a></li>
-  <li class="mdl-menu__item"><a href="changep.php" class=lnko>Change Password</a></li>
-  <li class="mdl-menu__item"><a href="logout.php" class=lnko>Log Out</a></li>
+  <li class="mdl-menu__item" id="ep">Edit Profile</li>
+  <li class="mdl-menu__item" id="cp">Change Password</li>
+  <li class="mdl-menu__item" id="lo">Log Out</li>
 </ul>
 </div>
 </div>
@@ -129,6 +129,16 @@ window.location.href = "find.php?q="+$('#sample-input').val();
   });
      $('#sample-input').blur(function (e) {
        $('#result').fadeOut('fast');
+  });
+
+          $('#ep').click(function () {
+  window.location.href='profile.php';
+  });
+               $('#cp').click(function () {
+                window.location.href='changep.php';
+  });
+                    $('#lo').click(function () {
+              window.location.href='logout.php';
   });
 
 

@@ -21,7 +21,7 @@ else
   .nt{margin-top:40px;}
   a.sub{color:blue;}
   table a{color:blue;}
-  .page{width:70%;margin:auto;}
+  .page{width:90%;margin:auto;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
   </style>

@@ -37,7 +37,7 @@ if(isset($_POST['cc'])&&isset($_POST['cn'])&&isset($_POST['st'])&&isset($_POST['
                     $query="INSERT INTO `oj`.`contests` (`cid`,`name`, `stime`, `etime`, `sdate`, `edate`) VALUES ('$cc','$cn','$st','$et','$sd','$ed');";
                     //query to upload our data on server database
                     
-						echo $query;
+
                     
                     if(mysql_query($query))//run the query
                     {
