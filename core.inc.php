@@ -109,7 +109,7 @@ if($resultqw&&$numqw)
   echo "</tbody>
     </table>";
   }
-  else {echo "<h1>No problems khd uploaded Yet</h1>";}
+  else {echo "<div class=mycard><h3>No Contests Found</h3></div>";}
 
 
 
@@ -179,6 +179,60 @@ if($result&&$num)
   else echo "<h5>No submissions</h5>";
 
 echo "</div>";
+
+}
+
+function recsub($qid)
+{
+
+echo "<h5>Recent submissions</h5>";
+
+$query="SELECT id,qid,user_id,result from submissions where qid='$qid' and result='AC' order by time desc limit 10 ";
+
+$result=mysql_query($query);
+
+$num=mysql_num_rows($result);
+if($result&&$num) 
+  {
+    
+    
+
+
+    echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
+        <thead>
+          <tr>
+              <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=\"Submission ID\">list</i></th>
+              <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=Username>account_circle</i></th>
+              <th class=\"mdl-data-table__cell--non-numeric\">Solution</th>
+            </tr>
+          </thead>
+          <tbody>";
+          if($num==0) echo "<tr><td></td><td>No submissions</td><td></td><td></td></tr>";
+    for($i=0;$i<$num;$i++)
+    { $quid=mysql_result($result,$i,'id');
+      $qid=mysql_result($result,$i,'qid');
+      $res=mysql_result($result,$i,'result');
+      $uid=mysql_result($result,$i,'user_id');
+
+      $query2="SELECT username from user_in where id=".$uid;
+      $result2=mysql_query($query2);
+      $uname=mysql_result($result2,0,'username');
+      $href="href=showcode.php?q=$quid";
+      $btn='enabled';
+      if(proincon($qid)) {$btn='disabled';
+      $href="";}
+
+      echo "<tr>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\">".$quid."</td>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"userprof.php?q=".$uname."\">".$uname."</a></td>";
+        echo "<td class=\"mdl-data-table__cell--non-numeric\"><a $btn $href class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\">SHOW</a></td>";      
+      echo "</tr>";
+    }
+  echo "</tbody>
+    </table>";
+  }
+  else echo "<h5>No submissions</h5>";
+
 
 }
 ?>

@@ -90,20 +90,30 @@ if(isset($_POST['qcode'])&&isset($_POST['qname'])&&isset($_FILES['inp']['name'])
                     $locin="adminaccess/".$locin;
                     $locout="adminaccess/".$locout;
                     $locqu="adminaccess/".$locqu;
-                    $query="INSERT INTO `oj`.`questions` (`qid`,`qname`, `inpln`, `outln`, `qln`, `tl`) VALUES ('".mysql_real_escape_string($qcode)."',
+                    if(isset($qc)&&!empty($qc)) $query="INSERT INTO `oj`.`questions` (`qid`,`qname`, `inpln`, `outln`, `qln`, `tl`,`cid`) VALUES ('".mysql_real_escape_string($qcode)."',
+                      '".mysql_real_escape_string($qnm)."','".mysql_real_escape_string($locin)."','".mysql_real_escape_string($locout)."',
+                      '".mysql_real_escape_string($locqu)."',".mysql_real_escape_string($tl).",'".mysql_real_escape_string($qc)."');";
+                    //query to upload our data on server database
+                    else $query="INSERT INTO `oj`.`questions` (`qid`,`qname`, `inpln`, `outln`, `qln`, `tl`) VALUES ('".mysql_real_escape_string($qcode)."',
                       '".mysql_real_escape_string($qnm)."','".mysql_real_escape_string($locin)."','".mysql_real_escape_string($locout)."',
                       '".mysql_real_escape_string($locqu)."',".mysql_real_escape_string($tl).");";
-                    //query to upload our data on server database
                     
-                    if(isset($qc)&&!empty($qc)) $qury="INSERT INTO `oj`.`keptin` (`id`, `cid`, `score`, `qid`) VALUES (NULL, '$qc', 100, '$qcode');";
                     
                     if(mysql_query($query))//run the query
                     {
 
-                        @mysql_query($qury);
-                      echo "<div class=success>Your question has been added successfully&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";/*giving notification about successful creation of account*/
+                        if(isset($qc)&&!empty($qc)) 
+                          {
+                            $qury="INSERT INTO `oj`.`keptin` (`id`, `cid`, `score`, `qid`) VALUES (NULL, '$qc', 100, '$qcode');";
+                            if(@mysql_query($qury))
+                              echo "<div class=success>Your question has been added successfully&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";
+                            else {echo "<div class=error>Error Adding Question To Contest &nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";}  
+                          }
+                        
+                      else echo "<div class=success>Your question has been added successfully&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";/*giving notification about successful creation of account*/
                        
                     }
+                    else {echo "<div class=error>Error Adding Question to Database &nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";}
               }
               else {echo "<div class=error>Error Uploading Question&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";}//display error about image
             }

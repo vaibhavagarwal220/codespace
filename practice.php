@@ -83,8 +83,22 @@ if($result)
       $totalnum=mysql_result($result2,0,'count(*)');
       if($totalnum==0) $acc=0; 
       else $acc=$succnum*100/$totalnum;
+
+
+      $query3="SELECT * from submissions where result='AC' AND user_id='$id' AND qid='$qid'";
+      $usucnum=mysql_num_rows(mysql_query($query3));
+
+      $query4="SELECT * from submissions where user_id='$id' AND qid='$qid'";
+      $unum=mysql_num_rows(mysql_query($query4));
+
+      $class="none";
+      if($usucnum>0) $class="green title=Solved";
+      else if($usucnum==0 && $unum>0) $class="red title=Unsolved";
+      
+
+
 			echo "<tr>";
-			echo "<td class=\"mdl-data-table__cell--non-numeric \"><a href=\"problem.php?q=".$qid."\">".$qname."</a></td>";
+			echo "<td class=\"mdl-data-table__cell--non-numeric \"><a class=$class href=\"problem.php?q=".$qid."\">".$qname."</a></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"submit.php?q=".$qid."\">".$qid."</a></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\">$succnum</td>";
 			echo "<td class=\"mdl-data-table__cell--non-numeric\">$acc</td>";

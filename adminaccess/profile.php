@@ -14,7 +14,7 @@ if(isset($_FILES['filein']['name'])&&!empty($_FILES['filein']['name']))
  
     $tmpname=$_FILES['filein']['tmp_name'];
     $location='imgprof/'.$name;
-    $query="UPDATE `oj`.`admin` SET `imgln`='$location' WHERE `id`='$idimup'";
+    $query="UPDATE `admin` SET `imgln`='$location' WHERE `id`='$idimup'";
     if(unlink($ln_img)&&move_uploaded_file($tmpname,$location)&&mysql_query($query))
     {
 
@@ -37,20 +37,10 @@ $ln_img=getfield('imgln');
   <title><?php echo $name_f." ".$name_sr;?></title>
    
   <style type="text/css">
-
-
-    body{font-family:sans-serif;}
-    #slideNotice{display:none;
-      width:100%;text-align:center;
-      background-color: gray;color:white;padding:20px;
-      font-size:20px;
-      font-family:sans-serif;
-    }
-    
-    button{font-family:sans-serif;}
-    #contain{width:70%;margin:auto;}
+    .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
+    #contain{width:80%;margin:auto;}
     #files{display:none;}
-    
+    #posimb{text-align:center;}
   </style>
 </head>
 <body>
@@ -59,20 +49,20 @@ $ln_img=getfield('imgln');
 include 'navbar.php'
  ?>
   <div id="contain">
-         
+         <br><br>
                 
-                <div class=mdl-grid>
-                <div class="mdl-cell mdl-cell--6-col"><img src= <?php echo $ln_img ?> class="small1" id="image">
-                <br>
+                <div class="mdl-grid mycard">
+                <div class="mdl-cell mdl-cell--6-col" id="posimb"><img src= <?php echo $ln_img ?> class="small1" id="image">
+                <br><br><br>
                 
-      <form action="profile.php" method="POST" enctype="multipart/form-data" ><br><br><br>
-            Choose Image<input type="file" name="filein" class=upld accept="image/*" required id="files">
-            <label for="files" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+      <form action="profile.php" method="POST" enctype="multipart/form-data" >
+           <input type="file" name="filein" class=upld accept="image/*" required id="files">
+            <label for="files" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"  title="Choose Profile Picture">
               <i class="material-icons">person_outline</i>
-            </label><br><br>
+            </label><br><br><br>
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=submit>
-  Change Profile Picture
-</button>
+            Change Profile Picture
+            </button>
         </form>
 </div>
 <div class="mdl-cell mdl-cell--6-col">
@@ -97,6 +87,12 @@ include 'navbar.php'
  </div>       
   </div>
 </div>
+
+<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
+
   </div>
   </main>
 </div>
@@ -106,7 +102,6 @@ include 'navbar.php'
 
 
 
-  <script type="text/javascript" src="js/upprof.js"></script>
   <script type="text/javascript">
   document.getElementById("files").onchange = function () {
     var reader = new FileReader();
@@ -120,5 +115,31 @@ include 'navbar.php'
     reader.readAsDataURL(this.files[0]);
 };
 </script>
+
+ <script type="text/javascript">
+  (function() {
+  'use strict';
+  var snackbarContainer = document.querySelector('#demo-snackbar-example');
+  var showSnackbarButton = document.querySelector('#savbtn');
+  var handler = function(event) {
+    showSnackbarButton.style.backgroundColor = '';
+  };
+  showSnackbarButton.addEventListener('click', function() {
+    'use strict';
+    var nf=$('#fnm').val();
+var nl=$('#srnm').val();
+var unm=$('#un').val();
+$.post('change.php',{nf:nf,nl:nl,unm:unm},function(dataout){
+  //$("#slideNotice").html(dataout).slideDown().delay(500).slideUp();
+    var data = {
+      message: dataout,
+      timeout: 2000,
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+    });
+
+  });
+}());
+  </script>
 </body>
  </html>

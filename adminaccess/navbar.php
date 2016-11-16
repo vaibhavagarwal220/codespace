@@ -23,6 +23,10 @@ body{background-color:#EFF3F6;}
 .imgsm{width:30px;height:30px;border-radius: 15px;}
 
 .success{background-color:#2eb82e;color:white;font-size:20px;padding:15px;}
+.success a{font-size:30px;text-decoration:none;color:white;}
+.success a:active{font-size:30px;text-decoration:none;color:white;}
+.success a:visited{font-size:30px;text-decoration:none;color:white;}
+
   </style>
 
 <style>
@@ -51,7 +55,7 @@ $lnimg=getfield('imgln');}?>
       <nav class="mdl-navigation">
 
         <a class="mdl-navigation__link" href="welcome.php">Dashboard</a>
-        <a class="mdl-navigation__link" href="contest.php">Contests</a>
+        
         <a class="mdl-navigation__link" href="userprof.php?q=<?php echo $usern;?>"><img class=imgsm src=<?php echo $lnimg;?>></a>
         <button id="demo-menu-lower-right"
         class="mdl-button mdl-js-button mdl-button--icon">
@@ -75,6 +79,9 @@ $lnimg=getfield('imgln');}?>
       <a class="mdl-navigation__link" href="addcontest.php">Add Contest</a>
       <a class="mdl-navigation__link" href="quesm.php">Create Question Text</a>
         <a class="mdl-navigation__link" href="users.php">View Users</a>
+        <a class="mdl-navigation__link" href="contest.php">View Contests</a>
+        <a class="mdl-navigation__link" href="quesdelete.php">Delete a Question</a>
+        <a class="mdl-navigation__link" href="delcontest.php">Delete a Contest</a>
  
   
     </nav>

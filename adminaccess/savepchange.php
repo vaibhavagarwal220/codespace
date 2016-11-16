@@ -3,6 +3,7 @@ include 'core.inc.php';
 include 'connect.inc.php';
 if(!loggedin()) {header('Location:index.php');}
 $id=getfield('id');
+$pwd=getfield('pword');
 ?>
 <?php
 if(isset($_POST['op'])&&isset($_POST['np'])&&isset($_POST['np']))

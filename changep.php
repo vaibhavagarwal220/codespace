@@ -15,6 +15,8 @@ if(!loggedin()) {header('Location:index.php');}
   <style type="text/css">
 
     .contain{width:90%;margin:auto;text-align:center;}
+    .mycard{width:50%;margin:auto;}
+
   </style>
 
 </head>
@@ -25,7 +27,7 @@ include 'navbar.php'
  ?>
     <div class=contain>
  
-                
+    <div class=mycard><h3>Change Password</h3>
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type=password id="opwd" maxlength="40">
     <label class="mdl-textfield__label" for="unam">Old Password
@@ -43,14 +45,16 @@ include 'navbar.php'
                   <button type=button id="save_btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     Save Changes
                   </button>
-        
- <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-  <div class="mdl-snackbar__text"></div>
-  <button class="mdl-snackbar__action" type="button"></button>
-</div>
+    </div>    
+ 
 
  
   </div>
+
+  <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
 
 
 

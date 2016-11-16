@@ -21,6 +21,7 @@ else
   .page{width:90%;margin: auto;}
   a{color:green;}
   .sbtns{float:right;}
+  .prob{padding:50px;}
   </style>
 </head>
 <body>
@@ -35,16 +36,21 @@ include 'navbar.php'
 if(!empty($qcode)){
 $my_file = 'adminaccess/questions/'.$qcode."txt";
 $inread = @file($my_file) or die("<div class=mycard><h1>404</h1><h3>No such Problem in our database</h3></div>");
-echo "<div class=qcard><div class=sbtns>";
+echo "<div class=\"qcard mdl-grid\">";
+echo "<div class=\"mdl-cell mdl-cell--8-col prob\">";
+foreach($inread as $line)
+  echo $line;
+echo "</div>";
+
+echo "<div class=\"mdl-cell mdl-cell--4-col\">";
 echo "<a href=\"submit.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" target=_blank>Submit</a>";
 echo "<a href=\"subm.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" target=_blank>All Submissions</a>";
 echo "<a href=\"subm.php?q=".$qcode."&id=".$id."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" target=_blank>My submissions</a>";
+recsub($qcode);
 echo "</div>";
-foreach($inread as $line)
-  echo $line;
 }
 ?>
 </div>
-</div>
+
   </body>
  </html>

@@ -10,19 +10,19 @@ $query="SELECT * from user_in;";
           echo 'error retrieving';
         else if($num_rows>=1)
           {
-
-            echo"<h1>USERS LIST</h1>";
-            echo "<table class=\"table table-striped table-hover\">";
+            echo"<h3>CodeSpace Users</h3>";
+            echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">";
             echo 
-            "<tr>
+            "
+            <thead>
+            <tr>
             <th>User ID</th>
             <th>Username</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Password</th>
+            <th>Name</th>
+            <th>Password(md5 Hash)</th>
             <th>Image</th>
-
-            </tr>";
+            </tr>
+            </thead><tbody>";
             for($ind=$num_rows-1;$ind>=0;$ind--)
             {
              $us_id=mysql_result($result,$ind,'id');
@@ -36,14 +36,13 @@ $query="SELECT * from user_in;";
             "<tr>
             <td>$us_id</td>
             <td>$unm</td>
-            <td>$fnm</td>
-            <td>$srnm</td>
+            <td>$fnm $srnm</td>
             <td>$pw</td>
             <td><img src=\"$imgl\" class=pport></td>
             
             </tr>";
             }
-            echo"</table>";
+            echo "</tbody></table>";
           }
       }
 

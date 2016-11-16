@@ -41,7 +41,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{font-family: 'Roboto';font-size:16px;}
+  .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
 a:hover{text-decoration:none;}
+.green{color: green;}
+.red{color:red;}
 a{text-decoration:none;}
 
 .mcard{color:white;width:97.3%;background:#263238;padding:20px;max-height:100px;height:90px;margin-bottom:30px;}
@@ -59,6 +62,7 @@ body{background-color:#EFF3F6;}
 .right{float:right;padding-right:15px;display:inline;z-index:5;}
 #sample-input{position:absolute;top:15px;right:15px;width:300px;}
 #result{position:absolute;top:50px;right:15px;background-color:white;color:black;display:inline;width:280px;display:none;padding:10px;line-height:20px;z-index:10;text-align: center;}
+#result a{color:indigo;}
 .mdl-grid{line-height:20px;padding:10px;}
 .mdl-cell{margin:5px;}
 .searche{color:gray;text-align:center;}
