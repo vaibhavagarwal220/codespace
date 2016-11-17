@@ -18,9 +18,9 @@ if(isset($_POST['cc'])&&isset($_POST['cn'])&&isset($_POST['st'])&&isset($_POST['
       $cc=$_POST['cc'];
       $cn=$_POST['cn'];
       $st=$_POST['st'];
-	  $sd=$_POST['sd'];
-	  $et=$_POST['et'];
-	  $ed=$_POST['ed'];      
+    $sd=$_POST['sd'];
+    $et=$_POST['et'];
+    $ed=$_POST['ed'];      
 
       if(!empty($cc)&&!empty($cn)&&!empty($st)&&!empty($sd)&&!empty($et)&&!empty($ed))/*to see the values are not empty*/
         {
@@ -41,8 +41,11 @@ if(isset($_POST['cc'])&&isset($_POST['cn'])&&isset($_POST['st'])&&isset($_POST['
                     
                     if(mysql_query($query))//run the query
                     {
-
-                  
+                      $url="../contest.php?q=$cc";
+                      $myfile = fopen("../cal/events.txt", "a") or die("Unable to open file!");
+                      $txt = "{ \"title\":\"" .$cn. "\",\"start\":\"" .$sd. "T" .$st. "\",\"end\":\"" .$ed. "T" .$et.  "\",\"url\":\"" .$url. "\"}";
+                      fwrite($myfile, ",\n".$txt);
+                      fclose($myfile);
                       echo "Your Contest has been added successfully";/*giving notification about successful creation of account*/
                        
                     }

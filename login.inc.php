@@ -92,9 +92,9 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right mklrg">
-            <li><a href="#home" class="page-scroll">Home</a></li>
-            <li><a href="#about" class="page-scroll">About</a></li>
-            <li><a href="#service" class="page-scroll">Services</a></li>
+            <li><a href="#home" >Home</a></li>
+            <li><a href="#about" >About</a></li>
+            <li><a href="#service">Services</a></li>
             <li><a href="#teams" class="page-scroll">Team</a></li>
             <li><a href="#portfolio" class="page-scroll">Existing User</a></li>
             <li><a href="#client" class="page-scroll">New User</a></li>
