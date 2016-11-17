@@ -118,7 +118,7 @@ $lnimg=getfield('imgln');}?>
   <li class="mdl-menu__item" id="lo">Log Out</li>
 </ul>
 </div>
-</div>
+</div><div id=notify></div>
 
     <script type="text/javascript">
      $('#sample-input').keyup(function (e) {
@@ -147,4 +147,10 @@ window.location.href = "find.php?q="+$('#sample-input').val();
 
     </script>
     <script type="text/javascript" src="js/searchnav.js"></script>
+	<script>
 
+	setInterval(function(){
+	$.post('notification.php',{},function(data){$('#notify').html(data);})
+	},900);
+
+	</script>
