@@ -10,11 +10,6 @@ if(!loggedin()) {header('Location:index.php');}
 
 
 ?>
-<!--sign up -->
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +81,11 @@ if(isset($_POST['cc'])&&isset($_POST['cn'])&&isset($_POST['st'])&&isset($_POST['
                     if(mysql_query($query))//run the query
                     {
 
-                  
+                      $url="../contest.php?q=$cc";
+                      $myfile = fopen("../cal/events.txt", "a") or die("Unable to open file!");
+                      $txt = "{ \"title\":\"" .$cn. "\",\"start\":\"" .$sd. "T" .$st. "\",\"end\":\"" .$ed. "T" .$et.  "\",\"url\":\"" .$url. "\"}";
+                      fwrite($myfile, ",\n".$txt);
+                      fclose($myfile);
                       echo "<div class=success>Your Contest has been added successfully&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";/*giving notification about successful creation of account*/
                        
                     }
