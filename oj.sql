@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2016 at 05:17 PM
+-- Generation Time: Nov 17, 2016 at 10:48 PM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -60,22 +60,22 @@ CREATE TABLE IF NOT EXISTS `contests` (
   `etime` time NOT NULL,
   `sdate` date NOT NULL,
   `edate` date NOT NULL,
+  `noti` int(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `cid` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3245 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3247 ;
 
 --
 -- Dumping data for table `contests`
 --
 
-INSERT INTO `contests` (`id`, `cid`, `name`, `stime`, `etime`, `sdate`, `edate`) VALUES
-(3239, 'scnd', 'second', '10:27:57', '10:29:50', '2016-10-07', '2016-10-07'),
-(3241, 'thrd', 'third', '15:10:57', '15:30:50', '2016-10-10', '2016-12-10'),
-(3242, 'frst', 'First by CodeSPACE', '03:27:39', '12:50:40', '2016-11-10', '2016-11-20'),
-(3243, 'frth', 'CODEsPaCe', '22:25:50', '22:25:50', '2016-11-10', '2016-11-20'),
-(3244, 'TESTC', 'CONTESTTEST', '04:55:00', '04:55:00', '2016-11-20', '2016-11-30');
+INSERT INTO `contests` (`id`, `cid`, `name`, `stime`, `etime`, `sdate`, `edate`, `noti`) VALUES
+(3241, 'thrd', 'third', '15:10:57', '15:30:50', '2016-10-10', '2016-12-10', 0),
+(3242, 'frst', 'First by CodeSPACE', '03:27:39', '12:50:40', '2016-11-10', '2016-11-20', 0),
+(3243, 'frth', 'CODEsPaCe', '22:25:50', '22:25:50', '2016-11-10', '2016-11-20', 0),
+(3244, 'TESTC', 'CONTESTTEST', '03:17:00', '05:35:00', '2016-11-18', '2016-11-18', 1);
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `keptin` (
   PRIMARY KEY (`id`),
   KEY `keptin_ibfk_1` (`qid`),
   KEY `keptin_ibfk_2` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `keptin`
@@ -99,7 +99,8 @@ CREATE TABLE IF NOT EXISTS `keptin` (
 
 INSERT INTO `keptin` (`id`, `cid`, `score`, `qid`) VALUES
 (7, 'thrd', 1000, 'TEST'),
-(11, 'thrd', 100, 'TEST1');
+(11, 'thrd', 100, 'TEST1'),
+(12, 'thrd', 100, 'QUESNA');
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `cid` varchar(50) NOT NULL DEFAULT 'CodeSpace',
   PRIMARY KEY (`id`),
   UNIQUE KEY `qid` (`qid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `questions`
@@ -132,7 +133,8 @@ INSERT INTO `questions` (`id`, `qid`, `qname`, `inpln`, `outln`, `qln`, `tl`, `p
 (6, 'TEST', 'Life, the Universe, and Everything', 'adminaccess/input/TESTtxt', 'adminaccess/output/TESTtxt', 'adminaccess/questions/TESTtxt', 2, '', '', '2016-11-09 23:07:09', '', 'thrd'),
 (16, 'TEST1', 'NA', 'adminaccess/input/TEST1txt', 'adminaccess/output/TEST1txt', 'adminaccess/questions/TEST1txt', 1, '', '', '2016-11-10 03:52:57', '', 'thrd'),
 (17, 'TEST2', 'NA', 'adminaccess/input/TEST2txt', 'adminaccess/output/TEST2txt', 'adminaccess/questions/TEST2txt', 1, '', '', '2016-11-10 04:02:17', '', 'CodeSpace'),
-(19, 'NANA', 'NAQUEST', 'adminaccess/input/NANAtxt', 'adminaccess/output/NANAtxt', 'adminaccess/questions/NANAtxt', 4, '', '', '2016-11-15 04:51:22', '', 'CodeSpace');
+(19, 'NANA', 'NAQUEST', 'adminaccess/input/NANAtxt', 'adminaccess/output/NANAtxt', 'adminaccess/questions/NANAtxt', 4, '', '', '2016-11-15 04:51:22', '', 'CodeSpace'),
+(20, 'QUESNA', 'NAAN', 'adminaccess/input/NANANANAtxt', 'adminaccess/output/NANANANAtxt', 'adminaccess/questions/NANANANAtxt', 4, '', '', '2016-11-17 15:21:42', '', 'thrd');
 
 -- --------------------------------------------------------
 
@@ -150,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `submissions` (
   PRIMARY KEY (`id`),
   KEY `submissions_ibfk_1` (`qid`),
   KEY `submissions_ibfk_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
 
 --
 -- Dumping data for table `submissions`
