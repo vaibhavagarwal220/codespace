@@ -14,7 +14,7 @@ else
    
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?php echo $qcode; ?>'s Profile</title>
+  <title>CodeSpace User|CodeSpace</title>
     
 
   <style type="text/css">

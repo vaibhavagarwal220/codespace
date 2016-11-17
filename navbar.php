@@ -38,7 +38,7 @@
 
 *{font-family: 'Roboto';font-size:16px;}
 .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
-.succard{background:#E3F2FD;padding:20px;color:#424242;text-align:center;}
+.succard{background:#B0BEC5;padding:20px;color:#424242;text-align:center;}
 .succard table{margin:auto;}
 a:hover{text-decoration:none;}
 .green{color: green;}

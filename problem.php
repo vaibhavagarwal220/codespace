@@ -32,10 +32,13 @@ include 'navbar.php'
 
 <div class="page">
 <?php
-
+$query="SELECT qln from questions where qid='".$qcode."'";
+$result=@mysql_query($query);
+$numq=@mysql_num_rows($result);
+$locn=@mysql_result($result,0,'qln');
 if(!empty($qcode)){
 $my_file = 'adminaccess/questions/'.$qcode."txt";
-$inread = @file($my_file) or die("<div class=mycard><h1>404</h1><h3>No such Problem in our database</h3></div>");
+$inread = @file($locn) or die("<div class=mycard><h1>404</h1><h3>No such Problem in our database</h3></div>");
 echo "<div class=\"qcard mdl-grid\">";
 echo "<div class=\"mdl-cell mdl-cell--8-col prob\">";
 foreach($inread as $line)

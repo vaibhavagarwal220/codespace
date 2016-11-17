@@ -80,10 +80,10 @@ if($resultqw&&$numqw)
     echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--10-col\">
         <thead>
           <tr>
-              <th class=\"mdl-data-table__cell--non-numeric\">Contest Name</th>
-              
-              <th class=\"mdl-data-table__cell--non-numeric\">Start Time</th>
-              <th class=\"mdl-data-table__cell--non-numeric\">End Time</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">CODE</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">CONTEST NAME</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">START TIME</th>
+              <th class=\"mdl-data-table__cell--non-numeric\">END TIME</th>
   
             </tr>
           </thead>
@@ -98,6 +98,7 @@ if($resultqw&&$numqw)
       $ed=@mysql_result($resultqw,$i,'edate');
       
       echo "<tr>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric\">".$cid."</td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric \"><a href=\"contest.php?q=".$cid."\">".$nm."</a></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\">".$sd."<br>".$st."</td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\">".$ed."<br>".$et."</td>";
