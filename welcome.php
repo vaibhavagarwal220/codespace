@@ -24,19 +24,19 @@ include 'navbar.php';?>
 <div class=mdl-grid>
 <div class="mdl-cell mdl-cell--8-col mdl-grid mycard">
   <br>
-                  <a class="mdl-cell mdl-cell-4-col" href="practice.php">
+                  <a class="mdl-cell mdl-cell--4-col" href="practice.php">
               <i class="material-icons lnkrsz">description</i>
                     <h4><strong>Practice</strong></h4>
                     <p>Practice through different difficulty levels.</p>
                 </a>
 
-                <a class="mdl-cell mdl-cell-4-col" href=contest.php>
+                <a class="mdl-cell mdl-cell--4-col" href=contest.php>
                      <i class="material-icons lnkrsz">assessment</i>
                     <h4><strong>Compete</strong></h4>
                     <p>Compete in regularly held competitions.</p>
                 </a>
 
-                <a class="mdl-cell mdl-cell-4-col" href=leaderboard.php>
+                <a class="mdl-cell mdl-cell--4-col" href=leaderboard.php>
                     <i class="material-icons lnkrsz">assignment</i>
                     <h4><strong>Leaderboard</strong></h4>
                     <p>Lead the board with points you earn.</p>

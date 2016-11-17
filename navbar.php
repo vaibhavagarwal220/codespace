@@ -1,13 +1,17 @@
 <link rel="shortcut icon" href="" type="image/x-icon" />
 <script src="js/jquery.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Amatica+SC|Galada|Lato|Montserrat|PT+Sans|Suez+One" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
- <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
+ 
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
 <link rel="stylesheet" type="text/css" href="css/fonts.css">
-<link rel="stylesheet" type="text/css" href="css/deslog3.css">
+<link rel="stylesheet" type="text/css" href="css/deslog2.css">
 <link href="css/prism.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-blue.min.css">
 <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
   <script src="js/prism.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/g/ace@1.2.4(min/ace.js+min/mode-c_cpp.js)"></script>
   <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
   <script type="text/javascript" src="edit_area/edit_area_full.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -37,37 +41,23 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{font-family: 'Roboto';font-size:16px;}
-.mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
-.succard{background:#B0BEC5;padding:20px;color:#424242;text-align:center;}
-.succard table{margin:auto;}
 a:hover{text-decoration:none;}
-.green{color: green;}
-.red{color:red;}
 a{text-decoration:none;}
+.mcard{margin-bottom:10px;color:white;position:fixed;width:100%;}
+.title-mcard{font-size:20px;padding:10px;background:url('navi.jpeg');max-height:50px;}
 
-.mcard{color:white;width:97.3%;background:#263238;padding:20px;max-height:100px;height:90px;margin-bottom:30px;}
-.title-mcard{font-size:30px;padding:20px;}
-
-a.wbtn,.usr { color:white;}
-body{background-color:#EFF3F6;}
-.icnew{
-  width:20px;
-  height:20px;
-  border-radius:10px;
+a.wbtn,.usr { color:white ;
+ }
+.srch {
+  padding-bottom :10px;
+  padding-top:6px;
 }
-.lnko{text-decoration:none;color:black;}
-.left{float:left;}
-.right{float:right;padding-right:15px;display:inline;z-index:5;}
-#sample-input{position:absolute;top:15px;right:15px;width:300px;}
-#result{position:absolute;top:50px;right:15px;background-color:white;color:black;display:inline;width:280px;display:none;padding:10px;line-height:20px;z-index:10;text-align: center;}
-#result a{color:purple;}
-.mdl-grid{line-height:20px;padding:10px;}
-.mdl-cell{margin:5px;}
-.searche{color:gray;text-align:center;}
-#out1{margin:10px 0px 10px 0px;font-size:25px;}
-#out2{margin:10px 0px 10px 0px;font-size:25px;}
-#res1{margin:20px 0px 20px 0px;}
-#res2{margin:20px 0px 20px 0px;}
+.icnew{
+  width:30px;
+  height:30px;
+  border-radius: 15px;
+}
+.mnu{position:absolute;}
 
 </style>
 
@@ -81,76 +71,82 @@ $usern=getfield('username');
 $viewprof=getfield('username');
 $id=getfield('id');
 $lnimg=getfield('imgln');}?>
-<div class="mcard"><div class="title-mcard mdl-shadow--12dp">CodeSpace   
-<input type=text id="sample-input" placeholder="Search Users,Problems.." title="Press Enter to Search">
-
-<div id="result">
-<div id="res1">Users
-<div id="out1">
-</div></div>
-<div id="res2">Problems
-<div id="out2">
-</div></div>
-
-</div>
-
-</div>
-        <div class=left><a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="welcome.php">Home</a>
+<div class="mcard"><div class="title-mcard mdl-shadow--12dp">CodeSpace
+<a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="welcome.php">Home</a>
         <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="practice.php">Practice</a>
         <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="contest.php">Compete</a>
         <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="leaderboard.php">Leaderboard</a>
-        </div>
-  <div class=right>        
-            <a class="usr mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  href="userprof.php?q=<?php echo $viewprof;?>">
-              <img src=<?php echo $lnimg;?> class="icnew" >&nbsp;&nbsp;&nbsp;<?php echo $name_f;?>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="usr"  href="userprof.php?q=<?php echo $viewprof;?>">
+              <img src=<?php echo $lnimg;?> class="icnew" >&nbsp;&nbsp;&nbsp;&nbsp;Welcome&nbsp;<?php echo $name_f;?>
             </a>
-          
-
-<button id="demo-menu-lower-right"
+    <button id="demo-menu-lower-right"
         class="mdl-button mdl-js-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
 </button>
 
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mnu mdl-shadow--12dp"
     for="demo-menu-lower-right">
-  <li class="mdl-menu__item" id="ep">Edit Profile</li>
-  <li class="mdl-menu__item" id="cp">Change Password</li>
-  <li class="mdl-menu__item" id="lo">Log Out</li>
+  <li class="mdl-menu__item">Some Action</li>
+  <li class="mdl-menu__item">Another Action</li>
+  <li disabled class="mdl-menu__item">Disabled Action</li>
+  <li class="mdl-menu__item">Yet Another Action</li>
 </ul>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample"
+                 id="waterfall-exp">
+        </div>
+      </div>
+</div></div>
+<!--<div id = "navi">
+<div class="dummy-card-wide mdl-card mdl-shadow--12dp">
+  <div class="mdl-card__title ">
+    <h2 class="mdl-card__title-text">CodeSpace</h2>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="welcome.php">Home</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="practise.php">Practice</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="contest.php">Compete</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="leaderboard.php">Leaderboard</a>
+       
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable srch">
+  <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="sample-input" />
+      <label class="mdl-textfield__label" for="sample-input">Expandable Input</label>
+    </div>
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-input">
+      <i class="material-icons">search</i>
+    </label>
+    
+  </div>
+    
+  </div>
+  <!--<div class="mdl-card__supporting-text">
+    Learn Material Design....
+  </div>
+  <div class="mdl-card__actions mdl-card--border"> Search
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" align="center">
+      Learn More
+    </a>
+  </div>
 </div>
-</div><div id=notify></div>
+</div>-->
+
 
     <script type="text/javascript">
+        var box = $('#box');
+        var link = $('#link');
      $('#sample-input').keyup(function (e) {
     if (e.keyCode === 13) {
 window.location.href = "find.php?q="+$('#sample-input').val();
     }
   });
-     $('#sample-input').focus(function (e) {
-       $('#result').fadeIn('fast');
-  });
-     $('#sample-input').blur(function (e) {
-       $('#result').fadeOut('fast');
-  });
-
-          $('#ep').click(function () {
-  window.location.href='profile.php';
-  });
-               $('#cp').click(function () {
-                window.location.href='changep.php';
-  });
-                    $('#lo').click(function () {
-              window.location.href='logout.php';
-  });
-
 
 
     </script>
-    <script type="text/javascript" src="js/searchnav.js"></script>
-	<script>
 
-	setInterval(function(){
-	$.post('notification.php',{},function(data){$('#notify').html(data);})
-	},900);
-
-	</script>
+    <br><br><br><br><br>

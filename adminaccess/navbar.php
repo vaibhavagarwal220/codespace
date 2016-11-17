@@ -1,4 +1,4 @@
-<script src="../js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Amatica+SC|Galada|Lato|Montserrat|PT+Sans|Suez+One" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
 <link rel="stylesheet" type="text/css" href="../css/fonts.css">
 <link rel="stylesheet" type="text/css" href="../css/deslog3.css">
-  <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 
   <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -55,6 +55,7 @@ $lnimg=getfield('imgln');}?>
       <nav class="mdl-navigation">
 
         <a class="mdl-navigation__link" href="welcome.php">Dashboard</a>
+        <a class="mdl-navigation__link" href="contest.php">Contests</a>
         
         <a class="mdl-navigation__link" href="userprof.php?q=<?php echo $usern;?>"><img class=imgsm src=<?php echo $lnimg;?>></a>
         <button id="demo-menu-lower-right"
@@ -91,8 +92,3 @@ $lnimg=getfield('imgln');}?>
 
 
 
-    <script type="text/javascript">
-        var box = $('#box');
-        var link = $('#link');
-
-    </script>

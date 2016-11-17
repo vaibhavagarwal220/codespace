@@ -8,8 +8,7 @@ if(!loggedin()) {header('Location:index.php');}
  <html>
  <head>
    
-     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>COMPETE|CodeSpace</title>
 
   <style type="text/css">
@@ -33,10 +32,12 @@ include 'navbar.php';?>
 <?php
 
  if(isset($_GET['q'])&&cexists($_GET['q']))
-  $quid=$_GET['q'];
+  {$quid=$_GET['q'];
+
+  }
 
   else if(isset($_GET['q']))
-            echo "<div class=mycard><h1>404</h1><h3>No such Contest</h3></div>";
+            echo "<br><br><div class=mycard><h1>404</h1><h3>No such Contest</h3></div>";
 
 else
   {
@@ -57,7 +58,23 @@ getcontests($queryqw);
 echo "</div><div class=\"mdl-cell mdl-cell--3-col\">dsdsasdad</div></div>";
 
 
-}
+}?>
+<br><br>
+<div id="questions" class=mycard>
+</div>
+
+<div id="time" class=mycard>
+</div>
+
+<?php
+
+if(isset($_GET['q'])&&cexists($_GET['q']))
+  {
+    echo "<a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href=quesadd.php?q=$quid>
+          ADD QUESTION
+          </a>";
+  }
+
  ?>
 
  <script>
@@ -85,12 +102,6 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data1){
 
 
     
-
-<div id="questions">
-</div>
-
-<aside id="time">
-</aside>
 
 
     

@@ -58,7 +58,7 @@ if($result)
       else if($hour>0)
        echo "<div class=mycard><h3>Problems will appear in ".$hour." Hours ".$min." Minutes ".$sec." Seconds</h3></div>";
      else if($min>0)
-      echo "<div class=mycard><h3>Problems will appear in Hours ".$min." Minutes ".$sec." Seconds</h3></div>";
+      echo "<div class=mycard><h3>Problems will appear in ".$min." Minutes ".$sec." Seconds</h3></div>";
       else if($sec>0)
       echo "<div class=mycard><h3>Problems will appear in ".$sec." Seconds</h3></div>";
       else  echo "0"; 
