@@ -28,7 +28,7 @@ include 'navbar.php'
   table{width:100%;}
   .imgi{width:100%;height:300px;}
   </style>
-  <img src="img/lead.png" class=imgi>
+  <img src="images/lead.png" class=imgi>
   
     <?php
 require 'connect.inc.php';

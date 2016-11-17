@@ -23,22 +23,8 @@ body {
     text-align: center;
       }
 
-  #file { display: none;}
+  
   </style>
-
-  <script>
-    $(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-    });
-  //alert($(window).height());
-  //alert($(window).width());
-    var h=$(window).height();
-    var w=$(window).width();
-    $('.page').height(h);
-    $('.page').width(w);
-    $('#login').height(h);
-    $('#login').width(w); 
-  </script>
 </head>
 <body>
 

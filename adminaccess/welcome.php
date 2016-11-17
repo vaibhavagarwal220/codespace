@@ -9,7 +9,7 @@ $id=getfield('fname');
    
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CodeSpace</title>
+    <title>CodeSpace|Admin Dashboard</title>
   <style type="text/css">
   .mdl-grid{margin:auto;width:70%;text-align:center;}
   </style>
@@ -59,6 +59,33 @@ include 'navbar.php'
 		<div class="mdl-card__supporting-text">
 			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href=users.php>
 			  VIEW USERS
+			</a>
+		</div></div></div>
+			 		<div class="mdl-cell mdl-cell--4-col">
+ 			<div class="mdl-card mdl-shadow--4dp">
+			  <div class="mdl-card__media"><img src="view.png" width="173" height="157" border="0" alt="" style="padding:10px;">
+			  </div>
+		<div class="mdl-card__supporting-text">
+			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href=contest.php>
+			  VIEW CONTESTS
+			</a>
+		</div></div></div>
+ 				 		<div class="mdl-cell mdl-cell--4-col">
+ 			<div class="mdl-card mdl-shadow--4dp">
+			  <div class="mdl-card__media"><img src="delete.png" width="173" height="157" border="0" alt="" style="padding:10px;">
+			  </div>
+		<div class="mdl-card__supporting-text">
+			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href=quesdelete.php>
+			  DELETE PROBLEM
+			</a>
+		</div></div></div>
+					 		<div class="mdl-cell mdl-cell--4-col">
+ 			<div class="mdl-card mdl-shadow--4dp">
+			  <div class="mdl-card__media"><img src="delete.png" width="173" height="157" border="0" alt="" style="padding:10px;">
+			  </div>
+		<div class="mdl-card__supporting-text">
+			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href=delcontest.php>
+			  DELETE CONTEST
 			</a>
 		</div></div></div>
  	

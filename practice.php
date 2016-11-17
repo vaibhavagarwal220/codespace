@@ -11,19 +11,21 @@ if(!loggedin()) {header('Location:index.php');}
   <title>Practice Arena</title>
 
 
-  <style type="text/css">
-  .nt{margin-top:40px;}
-  a{color:white;}
-  table a{color:blue;}
-  .page{width:90%;margin:auto;}
-   .posrec{padding-left:50px;}
-  </style>
+
 </head>
 <body>
   
  <?php
 include 'navbar.php'
  ?>
+
+  <style type="text/css">
+  table a{color:blue;}
+  .page{width:90%;margin:auto;}
+  .posrec{padding-left:50px;}
+  table{width:100%;}
+  .linksz{font-size:200px;}
+  </style>
 
 <div class=page>
     <?php
@@ -39,14 +41,25 @@ WHERE (qid) NOT IN
   FROM keptin
 ) ;
 ";
-
+?>
+<?php
 $result1=mysql_query($query1);
 $num1=mysql_num_rows($result1);
 if($num1) {$result=$result1;$num=$num1;}
 
 if($result) 
 	{  echo "<div class=mdl-grid>";
-		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--8-col\">
+		echo "<div class=\"mdl-cell mdl-cell--8-col mdl-grid mycard\">
+      <div class=\"mdl-cell mdl-cell-4-col \">
+              <i class=\"material-icons linksz\" >description</i>
+      </div>
+       <div class=\"mdl-cell mdl-cell--8-col\">
+          <h4><strong>Practice</strong></h4>
+          <p>Practice through different difficulty levels.</p>
+       </div><br>
+
+    
+    <table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
 			  <thead>
     			<tr>
       				<th class=\"mdl-data-table__cell--non-numeric\">Name</th>
@@ -67,8 +80,22 @@ if($result)
       $totalnum=mysql_result($result2,0,'count(*)');
       if($totalnum==0) $acc=0; 
       else $acc=$succnum*100/$totalnum;
+
+
+      $query3="SELECT * from submissions where result='AC' AND user_id='$id' AND qid='$qid'";
+      $usucnum=mysql_num_rows(mysql_query($query3));
+
+      $query4="SELECT * from submissions where user_id='$id' AND qid='$qid'";
+      $unum=mysql_num_rows(mysql_query($query4));
+
+      $class="none";
+      if($usucnum>0) $class="green title=Solved";
+      else if($usucnum==0 && $unum>0) $class="red title=Unsolved";
+      
+
+
 			echo "<tr>";
-			echo "<td class=\"mdl-data-table__cell--non-numeric \"><a href=\"problem.php?q=".$qid."\">".$qname."</a></td>";
+			echo "<td class=\"mdl-data-table__cell--non-numeric \"><a class=$class href=\"problem.php?q=".$qid."\">".$qname."</a></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"submit.php?q=".$qid."\">".$qid."</a></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\">$succnum</td>";
 			echo "<td class=\"mdl-data-table__cell--non-numeric\">$acc</td>";
@@ -76,13 +103,21 @@ if($result)
       echo "</tr>";
 		}
 	echo "</tbody>
-		</table>";
+		</table></div>";
 	}
 ?>
-   <?php
-prirecsub();
-echo "</div>";
-?>
+
+  <div class="mycard mdl-cell mdl-cell-4-col">
+<h4>Judge Environment</h4>
+
+<i class=material-icons>done</i><br>AC (Accepted)<br><br>
+<i class=material-icons>highlight_off</i><br>WA (Wrong Answer)<br><br>
+<i class=material-icons>error_outline</i><br>RE (Runtime Error)<br><br>
+<i class=material-icons>alarm</i><br>TLE (Time Limit Exceeded)<br><br>
+<i class=material-icons>warning</i><br>CE (Compilation Error)<br><br>
+ </div>
+</div>
+
 
 </div>
   

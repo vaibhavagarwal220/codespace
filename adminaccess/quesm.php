@@ -17,18 +17,22 @@ if(!loggedin()) {header('Location:index.php');}?>
     body{text-align: center;}
     .mdl-textfield{width:100%;}
     #pos{position:absolute;left:50px;top:50px;}
+    .mycard{width:50%;margin:auto;}
   </style>
 </head>
 <body>
     <style type="text/css">
-  aside{float:left;position:absolute;left:75%;top:5%;overflow:auto;}
+
   #contain{width:70%;margin:auto;}
+
   </style>
 <?php
 include 'navbar.php';
  ?>
 
  <div id="contain">
+  <br><br><br>
+<div class="mycard">
   <?php
 
 if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POST['test'])&&isset($_POST['exin'])&&isset($_POST['exout'])&&isset($_POST['qcode'])
@@ -51,13 +55,13 @@ if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POS
         <br><h4>Constraints:</h4><p>".$cons."</p><br><h4>Example Test Cases:</h4> <br> <h5>Input Format</h5><p>".$exin."</p><br><h5>Output Format</h5><p>".$exout."</p>";
         if(fwrite($handle, $code)) 
           {
-            echo "Problem Text File Created at <a href=questext/$qcode"."txt"." title=\"Right-Click & Save Link To download the Question Text\">questext/$qcode txt</a>";
+            echo "<div class=success>Problem Text File Created at <a href=questext/$qcode"."txt"." title=\"Right-Click & Save Link To download the Question Text\">questext/$qcode txt</a> &nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";
 
             fclose($handle);
           }
 
     }
-    else {echo "Please fill in all the fields";}
+    else {echo "<div class=error>Please fill in all the fields &nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";}
 }
 ?>
 
@@ -104,7 +108,7 @@ if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POS
 <br><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type=sumbit>
   CREATE TEXT FILE
 </button>
-</form>
+</form></div>
 <br><br><br>
 
 
@@ -124,3 +128,9 @@ if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POS
 
 </html>
 
+<script type="text/javascript">
+    $('.close').click(function(){
+      $('.error').fadeOut();
+      $('.success').fadeOut();
+    });
+    </script>

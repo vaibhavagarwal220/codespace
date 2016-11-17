@@ -10,59 +10,6 @@ if(!loggedin()) {header('Location:index.php');}
 
 
 ?>
-<!--sign up -->
-<?php
-
-if(isset($_POST['cc'])&&isset($_POST['cn'])&&isset($_POST['st'])&&isset($_POST['sd'])&&isset($_POST['et'])&&isset($_POST['ed']))/*to check that user has submitted the signup form*/
-    { //getting values from fields using post method
-      $cc=$_POST['cc'];
-      $cn=$_POST['cn'];
-      $st=$_POST['st'];
-    $sd=$_POST['sd'];
-    $et=$_POST['et'];
-    $ed=$_POST['ed'];      
-
-      if(!empty($cc)&&!empty($cn)&&!empty($st)&&!empty($sd)&&!empty($et)&&!empty($ed))/*to see the values are not empty*/
-        {
-          
-              $query1="SELECT `cid` from `oj`.`contests` where `cid`='".$cc."';";/*query to check username already exists*/
-              $reslt=mysql_query($query1);/*running the query*/
-              if(mysql_num_rows($reslt)!=0)/*checking that same username exists*/
-              {
-                echo "Contest Code Already Exists";//producing error if same username exists 
-              }
-              else
-              {
-               
-                    $query="INSERT INTO `oj`.`contests` (`cid`,`name`, `stime`, `etime`, `sdate`, `edate`) VALUES ('$cc','$cn','$st','$et','$sd','$ed');";
-                    //query to upload our data on server database
-                    
-
-                    
-                    if(mysql_query($query))//run the query
-                    {
-                      $url="../contest.php?q=$cc";
-                      $myfile = fopen("../cal/events.txt", "a") or die("Unable to open file!");
-                      $txt = "{ \"title\":\"" .$cn. "\",\"start\":\"" .$sd. "T" .$st. "\",\"end\":\"" .$ed. "T" .$et.  "\",\"url\":\"" .$url. "\"}";
-                      fwrite($myfile, ",\n".$txt);
-                      fclose($myfile);
-                      echo "Your Contest has been added successfully";/*giving notification about successful creation of account*/
-                       
-                    }
-              
-              //display error about image
-            }
-        
-
-      }
-      else echo "Please fill in all the fields";//display error about empty fields
-
-    }
-?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,6 +33,7 @@ if(isset($_POST['cc'])&&isset($_POST['cn'])&&isset($_POST['st'])&&isset($_POST['
 
   <style type="text/css">
   #contain{width:100%;margin:auto;}
+      .mycard{width:50%;margin:auto;}
   </style>
   
 <?php
@@ -99,8 +47,59 @@ include 'navbar.php'
                     <!-- Colored FAB button with ripple -->
 <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href=index.php id="pos">
   <i class="material-icons" title=Back to Dashboard>fast_rewind</i>
-</a>
+</a><br><br>
+<div class=mycard>
 <h2>Contest Adder</h2>
+<?php
+
+if(isset($_POST['cc'])&&isset($_POST['cn'])&&isset($_POST['st'])&&isset($_POST['sd'])&&isset($_POST['et'])&&isset($_POST['ed']))/*to check that user has submitted the signup form*/
+    { //getting values from fields using post method
+      $cc=$_POST['cc'];
+      $cn=$_POST['cn'];
+      $st=$_POST['st'];
+    $sd=$_POST['sd'];
+    $et=$_POST['et'];
+    $ed=$_POST['ed'];      
+
+      if(!empty($cc)&&!empty($cn)&&!empty($st)&&!empty($sd)&&!empty($et)&&!empty($ed))/*to see the values are not empty*/
+        {
+          
+              $query1="SELECT `cid` from `oj`.`contests` where `cid`='".$cc."';";/*query to check username already exists*/
+              $reslt=mysql_query($query1);/*running the query*/
+              if(mysql_num_rows($reslt)!=0)/*checking that same username exists*/
+              {
+                echo "<div class=error>Contest Code Already Exists&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";//producing error if same username exists 
+              }
+              else
+              {
+               
+                    $query="INSERT INTO `oj`.`contests` (`cid`,`name`, `stime`, `etime`, `sdate`, `edate`) VALUES ('$cc','$cn','$st','$et','$sd','$ed');";
+                    //query to upload our data on server database
+                    
+
+                    
+                    if(mysql_query($query))//run the query
+                    {
+
+                      $url="../contest.php?q=$cc";
+                      $myfile = fopen("../cal/events.txt", "a") or die("Unable to open file!");
+                      $txt = "{ \"title\":\"" .$cn. "\",\"start\":\"" .$sd. "T" .$st. "\",\"end\":\"" .$ed. "T" .$et.  "\",\"url\":\"" .$url. "\"}";
+                      fwrite($myfile, ",\n".$txt);
+                      fclose($myfile);
+                      echo "<div class=success>Your Contest has been added successfully&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";/*giving notification about successful creation of account*/
+                       
+                    }
+              
+              //display error about image
+            }
+        
+
+      }
+      else echo "<div class=error>Please fill in all the fields&nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";//display error about empty fields
+
+    }
+?>
+
                 <form method="post" action=addcontest.php>
                     
 
@@ -149,9 +148,8 @@ include 'navbar.php'
   ADD CONTEST
 </button>
               </form>
+</div>
 <br><br><br><br>
-    <script type="text/javascript" src=js/check.js></script>
-
 
 
 

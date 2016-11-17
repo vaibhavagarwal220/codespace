@@ -10,16 +10,14 @@ if(!loggedin()) {header('Location:index.php');}
    
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>COMPETE|CodeSpace</title>
+  <title>Practice Arena</title>
 
   <style type="text/css">
   a.sub{color:blue;}
   table a{color:blue;}
-  .page{width:90%;margin:auto;}
+  .page{width:70%;margin:auto;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
-  .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;text-align:center;}
-
 #time {padding:20px;display:none;}
 
   </style>
@@ -35,26 +33,13 @@ include 'navbar.php';?>
  if(isset($_GET['q'])&&cexists($_GET['q']))
   $quid=$_GET['q'];
 
-  else if(isset($_GET['q']))
-            echo "<div class=mycard><h1>404</h1><h3>No such Contest</h3></div>";
-
 else
   {
 //echo "<script>
 //$(\"#time\").hide();
 //</script>";
-$queryqw="SELECT * from contests where now()>concat(concat(edate,' '),etime)";//past
-$queryqw1="SELECT * from contests where now()<concat(concat(sdate,' '),stime)";//future
-$queryqw2="SELECT * from contests where now()>concat(concat(sdate,' '),stime) && now()<concat(concat(edate,' '),etime)";//current
-echo "<div class=mdl-grid>";
-echo "<div class=\"mdl-cell mdl-cell--8-col\"><br>Future Contests<br>";
-getcontests($queryqw1);
-echo "<br>Present Contests<br>";
-getcontests($queryqw2);
-echo "<br>Past Contests<br>";
+$queryqw="SELECT * from contests";
 getcontests($queryqw);
-
-echo "</div><div class=\"mdl-cell mdl-cell--3-col\">dsdsasdad</div></div>";
 
 
 }
@@ -69,7 +54,7 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data1){
           
         }
         else if(data=="0"&&data1=="0") {
-  
+
           <?php
            $quer="DELETE from keptin where cid='".$quid."';";
            $quer_res=@mysql_query($query);
@@ -89,15 +74,13 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data1){
 <div id="questions">
 </div>
 
+<?php if(isset($quid)) echo"<br><br><br><a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href=quesadd.php?q=$quid>
+        ADD PROBLEM
+              </a>"; ?>
+
 <aside id="time">
 </aside>
 
-
-    
-  
-</div>
-
-</body>
 <script type="text/javascript">
 
           var inter=setInterval(function()
@@ -147,4 +130,11 @@ $.post('caltime.php',{q:'<?php echo $quid;?>'},function(data){
 
 </script>
 
+    
+  
+</div>
+</div>
+  </main>
+</div>
+</body>
  </html>

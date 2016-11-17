@@ -14,7 +14,7 @@ if(isset($_FILES['filein']['name'])&&!empty($_FILES['filein']['name']))
  
     $tmpname=$_FILES['filein']['tmp_name'];
     $location='imgprof/'.$name;
-    $query="UPDATE `oj`.`user_in` SET `imgln`='$location' WHERE `id`='$idimup'";
+    $query="UPDATE `user_in` SET `imgln`='$location' WHERE `id`='$idimup'";
     if(unlink($ln_img)&&move_uploaded_file($tmpname,$location)&&mysql_query($query))
     {
 
@@ -85,14 +85,12 @@ include 'navbar.php'
       <br><br>
  </div>       
   </div>
-
+</div>
 <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
   <div class="mdl-snackbar__text"></div>
   <button class="mdl-snackbar__action" type="button"></button>
 </div>
 
-
-</div>
   
 
 

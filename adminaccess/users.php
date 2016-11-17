@@ -1,15 +1,7 @@
 <html lang="en">
 <head>
-  <title>Users on Our Page</title>
- <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <title>CodeSpace|Users|Admin</title>
   <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-<style type="text/css">
-img.pport{width: 130px;height: 170px;}
-.icn-lg {width:20px;height: 20px;}
-    #pos{position:absolute;left:50px;top:50px;}
-    #users{text-align:center;}
-</style>
 </head>
 <body>
 	<?php 
@@ -17,16 +9,24 @@ img.pport{width: 130px;height: 170px;}
 	require 'core.inc.php';
 	require 'navbar.php';
 	?>
+  <style type="text/css">
+img.pport{width: 100px;height: 120px;}
+#pos{position:absolute;left:50px;top:50px;}
+#users{text-align:center;width:70%;margin:auto;}
+table{width:100%;}
+</style>
+
 	<a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href=index.php id="pos">
   <i class="material-icons" title=Back to Dashboard>fast_rewind</i>
 </a>
+
 <div id="users">
 </div>
 
 </div>
 </main>
 </div>
-
+</body>
 <script type="text/javascript">
 
 setInterval(function()
@@ -37,5 +37,4 @@ $.post('getusers.php',{},function(data){
 });
 },1000);
 </script>
-</body>
 </html>

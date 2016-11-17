@@ -3,12 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 10, 2016 at 12:11 AM
+-- Generation Time: Nov 16, 2016 at 05:17 PM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -37,14 +36,15 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `email` varchar(200) NOT NULL,
   `imgln` varchar(10000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `fname`, `srname`, `pword`, `username`, `email`, `imgln`) VALUES
-(1, 'Vaibhav', 'Agarwal', '71709241b5cb11e8ed8809b26a7d73d3', 'vaibhav', 'vaibhavagarwl220@s', 'imgprof/IMG_20150615_134817.jpg');
+(1, 'Vaibhav', 'Agarwal', '71709241b5cb11e8ed8809b26a7d73d3', 'vaibhav', 'vaibhavagarwl220@s', 'imgprof/IMG_20150615_134817.jpg'),
+(2, 'ADMIN', 'ACCOUNT', '71709241b5cb11e8ed8809b26a7d73d3', 'adminac', 'admin@codespace.com', 'imgprof/icon.png');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `contests` (
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `cid` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3244 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3245 ;
 
 --
 -- Dumping data for table `contests`
@@ -74,7 +74,8 @@ INSERT INTO `contests` (`id`, `cid`, `name`, `stime`, `etime`, `sdate`, `edate`)
 (3239, 'scnd', 'second', '10:27:57', '10:29:50', '2016-10-07', '2016-10-07'),
 (3241, 'thrd', 'third', '15:10:57', '15:30:50', '2016-10-10', '2016-12-10'),
 (3242, 'frst', 'First by CodeSPACE', '03:27:39', '12:50:40', '2016-11-10', '2016-11-20'),
-(3243, 'frth', 'CODEsPaCe', '22:25:50', '22:25:50', '2016-11-10', '2016-11-20');
+(3243, 'frth', 'CODEsPaCe', '22:25:50', '22:25:50', '2016-11-10', '2016-11-20'),
+(3244, 'TESTC', 'CONTESTTEST', '04:55:00', '04:55:00', '2016-11-20', '2016-11-30');
 
 -- --------------------------------------------------------
 
@@ -88,9 +89,9 @@ CREATE TABLE IF NOT EXISTS `keptin` (
   `score` int(11) NOT NULL,
   `qid` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `qid` (`qid`),
-  KEY `cid` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+  KEY `keptin_ibfk_1` (`qid`),
+  KEY `keptin_ibfk_2` (`cid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `keptin`
@@ -98,9 +99,7 @@ CREATE TABLE IF NOT EXISTS `keptin` (
 
 INSERT INTO `keptin` (`id`, `cid`, `score`, `qid`) VALUES
 (7, 'thrd', 1000, 'TEST'),
-(11, 'thrd', 100, 'TEST1'),
-(12, 'frst', 100, 'TEST2'),
-(13, 'frth', 100, 'TEST3');
+(11, 'thrd', 100, 'TEST1');
 
 -- --------------------------------------------------------
 
@@ -120,19 +119,20 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `pbte` varchar(50) NOT NULL,
   `dadd` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `editorial` varchar(2000) NOT NULL,
+  `cid` varchar(50) NOT NULL DEFAULT 'CodeSpace',
   PRIMARY KEY (`id`),
   UNIQUE KEY `qid` (`qid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `questions`
 --
 
-INSERT INTO `questions` (`id`, `qid`, `qname`, `inpln`, `outln`, `qln`, `tl`, `pbau`, `pbte`, `dadd`, `editorial`) VALUES
-(6, 'TEST', 'Life, the Universe, and Everything', 'adminaccess/input/TESTtxt', 'adminaccess/output/TESTtxt', 'adminaccess/questions/TESTtxt', 2, '', '', '2016-11-09 23:07:09', ''),
-(16, 'TEST1', 'NA', 'adminaccess/input/TEST1txt', 'adminaccess/output/TEST1txt', 'adminaccess/questions/TEST1txt', 1, '', '', '2016-11-10 03:52:57', ''),
-(17, 'TEST2', 'NA', 'adminaccess/input/TEST2txt', 'adminaccess/output/TEST2txt', 'adminaccess/questions/TEST2txt', 1, '', '', '2016-11-10 04:02:17', ''),
-(18, 'TEST3', 'NA', 'adminaccess/input/TEST3txt', 'adminaccess/output/TEST3txt', 'adminaccess/questions/TEST3txt', 2, '', '', '2016-11-10 04:13:47', '');
+INSERT INTO `questions` (`id`, `qid`, `qname`, `inpln`, `outln`, `qln`, `tl`, `pbau`, `pbte`, `dadd`, `editorial`, `cid`) VALUES
+(6, 'TEST', 'Life, the Universe, and Everything', 'adminaccess/input/TESTtxt', 'adminaccess/output/TESTtxt', 'adminaccess/questions/TESTtxt', 2, '', '', '2016-11-09 23:07:09', '', 'thrd'),
+(16, 'TEST1', 'NA', 'adminaccess/input/TEST1txt', 'adminaccess/output/TEST1txt', 'adminaccess/questions/TEST1txt', 1, '', '', '2016-11-10 03:52:57', '', 'thrd'),
+(17, 'TEST2', 'NA', 'adminaccess/input/TEST2txt', 'adminaccess/output/TEST2txt', 'adminaccess/questions/TEST2txt', 1, '', '', '2016-11-10 04:02:17', '', 'CodeSpace'),
+(19, 'NANA', 'NAQUEST', 'adminaccess/input/NANAtxt', 'adminaccess/output/NANAtxt', 'adminaccess/questions/NANAtxt', 4, '', '', '2016-11-15 04:51:22', '', 'CodeSpace');
 
 -- --------------------------------------------------------
 
@@ -148,18 +148,21 @@ CREATE TABLE IF NOT EXISTS `submissions` (
   `subln` varchar(1000) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY `qid` (`qid`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
+  KEY `submissions_ibfk_1` (`qid`),
+  KEY `submissions_ibfk_2` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `submissions`
 --
 
 INSERT INTO `submissions` (`id`, `result`, `qid`, `user_id`, `subln`, `time`) VALUES
-(37, 'AC', 'TEST', 10, 'adminaccess/codes/3.c', '2016-11-09 18:25:55'),
-(38, 'WA', 'TEST2', 10, 'adminaccess/codes/3.c', '2016-11-09 18:25:55'),
-(39, 'AC', 'TEST2', 10, 'adminaccess/codes/3.c', '2016-11-09 18:25:55');
+(37, 'AC', 'TEST', 10, 'adminaccess/codes/3.c', '2016-11-09 23:55:55'),
+(38, 'WA', 'TEST2', 10, 'adminaccess/codes/3.c', '2016-11-09 23:55:55'),
+(39, 'AC', 'TEST2', 10, 'adminaccess/codes/3.c', '2016-11-09 23:55:55'),
+(40, 'AC', 'TEST', 10, 'adminaccess/codes/TEST102.c', '2016-11-15 15:41:19'),
+(41, 'AC', 'NANA', 10, 'adminaccess/codes/NANA101.c', '2016-11-15 20:46:07'),
+(42, 'AC', 'TEST2', 10, 'adminaccess/codes/TEST2103.c', '2016-11-15 21:56:39');
 
 -- --------------------------------------------------------
 
@@ -178,17 +181,18 @@ CREATE TABLE IF NOT EXISTS `user_in` (
   `score` double NOT NULL,
   `imgln` varchar(10000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `user_in`
 --
 
 INSERT INTO `user_in` (`id`, `fname`, `srname`, `pword`, `username`, `email`, `phone`, `score`, `imgln`) VALUES
-(10, 'Vaibhav', 'Agarwal', '71709241b5cb11e8ed8809b26a7d73d3', 'vaibhav', 'vaibhavagarwl220@s', '979622232323', 1000, 'imgprof/IMG_20150615_134817.jpg'),
+(10, 'Vaibhav', 'Agarwal', '71709241b5cb11e8ed8809b26a7d73d3', 'vaibhav', 'vaibhavagarwl220@s', '979622232323', 1000, 'imgprof/IMG_20150615_121432.jpg'),
 (11, 'Vaibhav', 'Agarwal', '71709241b5cb11e8ed8809b26a7d73d3', 'vaibhav220', 'vaibhavagarwal220@gmail.com', '9736260564', 1000, 'imgprof/IMG_20150615_153827.jpg'),
 (12, 'deepanshu', 'tyagi', '71709241b5cb11e8ed8809b26a7d73d3', 'deepanshu', 'vaibhav@sjabs', '6889996595', 1000, 'imgprof/images.jpg'),
-(13, 'Kushagra', 'Singhal', 'a152e841783914146e4bcd4f39100686', 'kushagra', 'vaibhavagarwal220@gmail.com', '988989', 5000, 'imgprof/IMG_20150615_110529.jpg');
+(13, 'Kushagra', 'Singhal', 'a152e841783914146e4bcd4f39100686', 'kushagra', 'vaibhavagarwal220@gmail.com', '988989', 5000, 'imgprof/IMG_20150615_110529.jpg'),
+(14, 'Deepanshu', 'Tyagi', '71709241b5cb11e8ed8809b26a7d73d3', 'detamos', 'detamos@webmail.com', '7877878989', 1000, 'imgprof/14890433_213305072427997_2909354464321348656_o.jpg');
 
 --
 -- Constraints for dumped tables
@@ -198,15 +202,15 @@ INSERT INTO `user_in` (`id`, `fname`, `srname`, `pword`, `username`, `email`, `p
 -- Constraints for table `keptin`
 --
 ALTER TABLE `keptin`
-  ADD CONSTRAINT `keptin_ibfk_1` FOREIGN KEY (`qid`) REFERENCES `questions` (`qid`),
-  ADD CONSTRAINT `keptin_ibfk_2` FOREIGN KEY (`cid`) REFERENCES `contests` (`cid`);
+  ADD CONSTRAINT `keptin_ibfk_1` FOREIGN KEY (`qid`) REFERENCES `questions` (`qid`) ON DELETE CASCADE,
+  ADD CONSTRAINT `keptin_ibfk_2` FOREIGN KEY (`cid`) REFERENCES `contests` (`cid`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `submissions`
 --
 ALTER TABLE `submissions`
-  ADD CONSTRAINT `submissions_ibfk_1` FOREIGN KEY (`qid`) REFERENCES `questions` (`qid`),
-  ADD CONSTRAINT `submissions_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_in` (`id`);
+  ADD CONSTRAINT `submissions_ibfk_1` FOREIGN KEY (`qid`) REFERENCES `questions` (`qid`) ON DELETE CASCADE,
+  ADD CONSTRAINT `submissions_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_in` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

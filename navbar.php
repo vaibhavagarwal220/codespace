@@ -1,17 +1,13 @@
 <link rel="shortcut icon" href="" type="image/x-icon" />
 <script src="js/jquery.min.js"></script>
-
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Amatica+SC|Galada|Lato|Montserrat|PT+Sans|Suez+One" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
- 
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
+ <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
 <link rel="stylesheet" type="text/css" href="css/fonts.css">
 <link rel="stylesheet" type="text/css" href="css/deslog3.css">
 <link href="css/prism.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-blue.min.css">
 <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
   <script src="js/prism.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/g/ace@1.2.4(min/ace.js+min/mode-c_cpp.js)"></script>
   <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
   <script type="text/javascript" src="edit_area/edit_area_full.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -41,7 +37,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{font-family: 'Roboto';font-size:16px;}
+.mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
+.succard{background:#B0BEC5;padding:20px;color:#424242;text-align:center;}
+.succard table{margin:auto;}
 a:hover{text-decoration:none;}
+.green{color: green;}
+.red{color:red;}
 a{text-decoration:none;}
 
 .mcard{color:white;width:97.3%;background:#263238;padding:20px;max-height:100px;height:90px;margin-bottom:30px;}
@@ -59,6 +60,7 @@ body{background-color:#EFF3F6;}
 .right{float:right;padding-right:15px;display:inline;z-index:5;}
 #sample-input{position:absolute;top:15px;right:15px;width:300px;}
 #result{position:absolute;top:50px;right:15px;background-color:white;color:black;display:inline;width:280px;display:none;padding:10px;line-height:20px;z-index:10;text-align: center;}
+#result a{color:purple;}
 .mdl-grid{line-height:20px;padding:10px;}
 .mdl-cell{margin:5px;}
 .searche{color:gray;text-align:center;}
