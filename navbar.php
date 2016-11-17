@@ -45,7 +45,7 @@ a:hover{text-decoration:none;}
 .red{color:red;}
 a{text-decoration:none;}
 
-.mcard{color:white;width:97.3%;background:#263238;padding:20px;max-height:100px;height:90px;margin-bottom:30px;}
+.mcard{color:white;width:97.3%;background:#263238;padding:20px;max-height:100px;height:90px;margin-bottom:30px;position:relative;}
 .title-mcard{font-size:30px;padding:20px;}
 
 a.wbtn,.usr { color:white;font-size:20px;}
@@ -119,6 +119,7 @@ $lnimg=getfield('imgln');}?>
 </ul>
 </div>
 </div>
+<div id="jh"></div>
 
     <script type="text/javascript">
      $('#sample-input').keyup(function (e) {
@@ -147,4 +148,7 @@ window.location.href = "find.php?q="+$('#sample-input').val();
 
     </script>
     <script type="text/javascript" src="js/searchnav.js"></script>
+    <script type="text/javascript">
+    setInterval($.post('notification.php',{},function(data){$('#jh').html(data);}),100);
+    </script>
 
