@@ -68,8 +68,8 @@ if($resultqw&&$numqw)
     echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
         <thead>
           <tr>
+              <th class=\"mdl-data-table__cell--non-numeric\">Contest Code</th>
               <th class=\"mdl-data-table__cell--non-numeric\">Contest Name</th>
-              
               <th class=\"mdl-data-table__cell--non-numeric\">Start Time</th>
               <th class=\"mdl-data-table__cell--non-numeric\">End Time</th>
             </tr>
@@ -86,6 +86,7 @@ if($resultqw&&$numqw)
 
 
       echo "<tr>";
+      echo "<td class=\"mdl-data-table__cell--non-numeric \">$cid</td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric \"><a href=\"contest.php?q=".$cid."\">".$nm."</a></td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\">".$sd."<br>".$st."</td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\">".$ed."<br>".$et."</td>";      
@@ -94,7 +95,7 @@ if($resultqw&&$numqw)
   echo "</tbody>
     </table>";
   }
-  else {echo "<h1>No problems uploaded Yet</h1>";}
+  else {echo "<div class=mycard><h4>No problems uploaded Yet</h4></div>";}
 
 
 
