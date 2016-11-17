@@ -149,6 +149,8 @@ window.location.href = "find.php?q="+$('#sample-input').val();
     </script>
     <script type="text/javascript" src="js/searchnav.js"></script>
     <script type="text/javascript">
-    setInterval($.post('notification.php',{},function(data){$('#jh').html(data);}),100);
+
+    setInterval(function(){$.post('notification.php',{},function(data){
+      $('#jh').html(data);});},1000);
     </script>
 
