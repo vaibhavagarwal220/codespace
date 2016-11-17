@@ -10,10 +10,14 @@ $myid=getfield('id');
 if(isset($_GET['q']))
   {$qcode=$_GET['q'];
   $flag="and 1";}
-else
-  header('Location:practice.php');
+
 if(isset($_GET['id'])){
-  $user=$_GET['id'];
+  $usernm=$_GET['id'];
+
+  $query5="SELECT id from user_in where username='".$usernm."'";
+      $result5=@mysql_query($query5);
+      $user=@mysql_result($result5,0,'id');
+  
   $flag="and user_id=".$user;
    
 
@@ -29,10 +33,11 @@ if(isset($_GET['id'])){
 
 
   <style type="text/css">
-  .nt{margin-top:40px;}
-  a{color:green;}
+  h3 a{font-size:30px;}
   table a{color:blue;}
   .page{width:90%;margin:auto;}
+  .mycard{text-align:center;}
+  table{text-align: center;margin:auto;width:100%;}
 
   </style>
 </head>
@@ -57,19 +62,14 @@ $result=@mysql_query($query);
 $num=@mysql_num_rows($result);
 if($result&&$num) 
 	{
-    if($flag=="and 1") echo "<h3>All submissions for ".$qcode." </h3>";
+    if($flag=="and 1") echo "<div class=mycard><h3>All submissions for ".$qcode." </h3></div>";
     else if($myid!=$user) 
       {
-        $query3="SELECT username from user_in where id=".$user;
-      $result3=@mysql_query($query3);
-      $numr=@mysql_num_rows($result3);
-      if($numr==0) header("Location:practice.php");
-      $uname=@@mysql_result($result3,0,'username');
 
-        echo "<h3><a href=userprof.php?q=".$uname.">".$uname."</a>'s submissions for <a href=problem.php?q=".$qcode.">".$qcode."</a> </h3>";
+        echo "<div class=mycard><h3><a href=userprof.php?q=".$usernm.">".$usernm."</a>'s submissions for <a href=problem.php?q=".$usernm.">".$qcode."</a> </h3></div>";
         
       }
-    else echo "<h3>My submissions for ".$qcode." </h3>";
+    else echo "<div class=mycard><h3>My submissions for ".$qcode." </h3></div>";
 
 		echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
 			  <thead>
@@ -82,7 +82,7 @@ if($result&&$num)
       			</tr>
   			  </thead>
   			  <tbody>";
-          if($num==0) echo "<tr><td></td><td>No submissions</td><td></td><td></td></tr>";
+
 		for($i=0;$i<$num;$i++)
 		{	$quid=@mysql_result($result,$i,'id');
       $qid=@mysql_result($result,$i,'qid');
@@ -111,7 +111,7 @@ if($result&&$num)
 	echo "</tbody>
 		</table><br><br><br><br><br><br>";
 	}
-  else echo "<h1>No submissions</h1>";
+  else echo "<div class=mycard><h3>No submissions</h3></div>";
 ?>
   
 </div>

@@ -46,7 +46,7 @@ echo "<div class=\"mdl-cell mdl-cell--4-col\">";
 echo "<a href=\"submit.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" target=_blank>Submit</a>";
 echo "<a href=\"subm.php?q=".$qcode."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" target=_blank>All Submissions</a>";
 echo "<a href=\"subm.php?q=".$qcode."&id=".$id."\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" target=_blank>My submissions</a>";
-recsub($qcode);
+sucsub($qcode);
 echo "</div>";
 }
 ?>

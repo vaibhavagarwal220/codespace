@@ -20,13 +20,10 @@ include 'navbar.php'
  ?>
 
   <style type="text/css">
-  .nt{margin-top:40px;}
-  a{color:white;}
   table a{color:blue;}
   .page{width:90%;margin:auto;}
-   .posrec{padding-left:50px;}
+  .posrec{padding-left:50px;}
   table{width:100%;}
-      .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
   .linksz{font-size:200px;}
   </style>
 
@@ -56,7 +53,7 @@ if($result)
       <div class=\"mdl-cell mdl-cell-4-col \">
               <i class=\"material-icons linksz\" >description</i>
       </div>
-       <div class=\"mdl-cell mdl-cell-8-col\">
+       <div class=\"mdl-cell mdl-cell--8-col\">
           <h4><strong>Practice</strong></h4>
           <p>Practice through different difficulty levels.</p>
        </div><br>
@@ -109,10 +106,18 @@ if($result)
 		</table></div>";
 	}
 ?>
-   <?php
-prirecsub();
-echo "</div>";
-?>
+
+  <div class="mycard mdl-cell mdl-cell-4-col">
+<h4>Judge Environment</h4>
+
+<i class=material-icons>done</i><br>AC (Accepted)<br><br>
+<i class=material-icons>highlight_off</i><br>WA (Wrong Answer)<br><br>
+<i class=material-icons>error_outline</i><br>RE (Runtime Error)<br><br>
+<i class=material-icons>alarm</i><br>TLE (Time Limit Exceeded)<br><br>
+<i class=material-icons>warning</i><br>CE (Compilation Error)<br><br>
+ </div>
+</div>
+
 
 </div>
   

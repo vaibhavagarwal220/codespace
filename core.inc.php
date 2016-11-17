@@ -138,7 +138,7 @@ if($result&&$num)
     echo "<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">
         <thead>
           <tr>
-              <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=\"Submission ID\">list</i></th>
+
               <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=\"Problem Code\">credit_card</i></th>
               <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=\"Result\">&#xE890;</i></th>
               <th class=\"mdl-data-table__cell--non-numeric\"><i class=\"material-icons\" title=Username>account_circle</i></th>
@@ -162,7 +162,6 @@ if($result&&$num)
       $href="";}
 
       echo "<tr>";
-      echo "<td class=\"mdl-data-table__cell--non-numeric\">".$quid."</td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"problem.php?q=".$qid."\">".$qid."</a></td>";
       if ($res=="AC") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons  title=\"AC\">done</i></td>";
       else if ($res=="WA") echo "<td class=\"mdl-data-table__cell--non-numeric\"><i class=material-icons  title=\"WA\">highlight_off</i></td>";
@@ -182,10 +181,10 @@ echo "</div>";
 
 }
 
-function recsub($qid)
+function sucsub($qid)
 {
 
-echo "<h5>Recent submissions</h5>";
+echo "<br><br><div class=succard><h5>SUCCESSFUL SUBMISSIONS</h5>";
 
 $query="SELECT id,qid,user_id,result from submissions where qid='$qid' and result='AC' order by time desc limit 10 ";
 
@@ -225,13 +224,13 @@ if($result&&$num)
       echo "<tr>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\">".$quid."</td>";
       echo "<td class=\"mdl-data-table__cell--non-numeric\"><a href=\"userprof.php?q=".$uname."\">".$uname."</a></td>";
-        echo "<td class=\"mdl-data-table__cell--non-numeric\"><a $btn $href class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\">SHOW</a></td>";      
+      echo "<td class=\"mdl-data-table__cell--non-numeric\"><a $btn $href class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\">SHOW</a></td>";      
       echo "</tr>";
     }
   echo "</tbody>
-    </table>";
+    </table></div>";
   }
-  else echo "<h5>No submissions</h5>";
+  else echo "<div class=mycard><h5>No submissions</h5></div>";
 
 
 }
