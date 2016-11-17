@@ -17,23 +17,24 @@ if(!loggedin()) {header('Location:index.php');}?>
     body{text-align: center;}
     .mdl-textfield{width:100%;}
     #pos{position:absolute;left:50px;top:50px;}
-    .mycard{width:50%;margin:auto;}
   </style>
 </head>
 <body>
     <style type="text/css">
-
-  #contain{width:70%;margin:auto;}
-
+  #contain{width:90%;margin:auto;}
+  #view{text-align:left;}
   </style>
 <?php
 include 'navbar.php';
  ?>
 
- <div id="contain">
-  <br><br><br>
-<div class="mycard">
-  <?php
+ 
+
+  <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href=index.php id="pos">
+  <i class="material-icons" title=Back to Dashboard>fast_rewind</i>
+</a>
+
+ <?php
 
 if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POST['test'])&&isset($_POST['exin'])&&isset($_POST['exout'])&&isset($_POST['qcode'])
     &&isset($_POST['qnm']) )
@@ -64,10 +65,9 @@ if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POS
     else {echo "<div class=error>Please fill in all the fields &nbsp;&nbsp;&nbsp;&nbsp;<a class=close align=right href=#>&#215;</a></div>";}
 }
 ?>
-
-  <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href=index.php id=pos>
-  <i class="material-icons" title=Back to Dashboard>fast_rewind</i>
-</a>
+ <div id="contain">
+  <br><br><br>
+  <div class=mdl-grid><div class="mdl-cell mdl-cell--6-col mycard">
 <h1>Problem Text Maker</h1>
 <form action="quesm.php" method="post">
     <br><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -109,15 +109,12 @@ if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POS
   CREATE TEXT FILE
 </button>
 </form></div>
+<div class="mdl-cell mdl-cell--6-col mycard" id="view">Preview</div>
 <br><br><br>
-
-
-
-
- </div>
+</div></div>
 
 </div>
-  </main>
+</main>
 </div>
 
 
@@ -133,4 +130,20 @@ if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POS
       $('.error').fadeOut();
       $('.success').fadeOut();
     });
+
+    $('.mdl-textfield__input').keyup(function(){
+
+        var qn=$('#sample4').val();
+        var qc=$('#sample3').val();
+        var ps=$('#sample5').val();
+        var ifr=$('#sample6').val();
+        var ofr=$('#sample7').val();
+        var cst=$('#sample8').val();
+        var ein=$('#sample9').val();
+        var eot=$('#sample10').val();
+        $('#view').html('<h2>'+qn+'</h2><h5>Problem Code:'+qc+'</h5><br><hr><br>Problem Statement<br><p>'+ps+'</p><br><h4>Input Format:</h4><br><p>'+ifr+'</p><h4>Output Format</h4><p>'+ofr+'</p><br><h4>Constraints:</h4><p>'+cst+'</p><br><h4>Example Test Cases:</h4><br><h5>Input Format</h5><p>'+ein+'</p><br><h5>Output Format</h5><p>'+eot+'</p>');
+
+
+    });
+
     </script>

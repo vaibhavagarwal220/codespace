@@ -48,7 +48,7 @@ a{text-decoration:none;}
 .mcard{color:white;width:97.3%;background:#263238;padding:20px;max-height:100px;height:90px;margin-bottom:30px;}
 .title-mcard{font-size:30px;padding:20px;}
 
-a.wbtn,.usr { color:white;}
+a.wbtn,.usr { color:white;font-size:20px;}
 body{background-color:#EFF3F6;}
 .icnew{
   width:20px;
@@ -59,7 +59,7 @@ body{background-color:#EFF3F6;}
 .left{float:left;}
 .right{float:right;padding-right:15px;display:inline;z-index:5;}
 #sample-input{position:absolute;top:15px;right:15px;width:300px;}
-#result{position:absolute;top:50px;right:15px;background-color:white;color:black;display:inline;width:280px;display:none;padding:10px;line-height:20px;z-index:10;text-align: center;}
+#result{position:absolute;border:1px solid #424242;top:50px;right:15px;background-color:white;color:black;display:inline;width:280px;display:none;padding:10px;line-height:20px;z-index:10;text-align: center;}
 #result a{color:purple;}
 .mdl-grid{line-height:20px;padding:10px;}
 .mdl-cell{margin:5px;}
@@ -95,10 +95,10 @@ $lnimg=getfield('imgln');}?>
 </div>
 
 </div>
-        <div class=left><a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="welcome.php">Home</a>
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="practice.php">Practice</a>
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="contest.php">Compete</a>
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="leaderboard.php">Leaderboard</a>
+        <div class=left><a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="welcome.php"><i class="material-icons lnz">home</i>&nbsp;&nbsp;Home</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="practice.php"><i class="material-icons lnz">description</i>&nbsp;&nbsp;Practice</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="contest.php"><i class="material-icons lnz">assessment</i>&nbsp;&nbsp;Compete</a>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect wbtn" href="leaderboard.php"><i class="material-icons lnz">assignment</i>&nbsp;&nbsp;Leaderboard</a>
         </div>
   <div class=right>        
             <a class="usr mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  href="userprof.php?q=<?php echo $viewprof;?>">
