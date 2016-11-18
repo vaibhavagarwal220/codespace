@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 18, 2016 at 05:27 PM
--- Server version: 5.6.14
--- PHP Version: 5.5.6
+-- Generation Time: Nov 18, 2016 at 08:41 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
@@ -13,7 +13,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `oj`
@@ -27,16 +27,15 @@ USE `oj`;
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `id` int(10) NOT NULL,
   `fname` varchar(30) NOT NULL,
   `srname` varchar(30) NOT NULL,
   `pword` varchar(32) NOT NULL,
   `username` varchar(40) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `imgln` varchar(10000) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `imgln` varchar(10000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
@@ -52,25 +51,13 @@ INSERT INTO `admin` (`id`, `fname`, `srname`, `pword`, `username`, `email`, `img
 -- Table structure for table `cboard`
 --
 
-CREATE TABLE IF NOT EXISTS `cboard` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cboard` (
+  `id` int(10) NOT NULL,
   `cid` varchar(20) NOT NULL,
   `uid` int(5) NOT NULL,
   `score` int(10) NOT NULL DEFAULT '0',
-  `sttime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `cboard_ibfk_1` (`cid`),
-  KEY `cboard_ibfk_2` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `cboard`
---
-
-INSERT INTO `cboard` (`id`, `cid`, `uid`, `score`, `sttime`) VALUES
-(1, 'frth', 10, 200, '2016-11-18 17:19:49'),
-(2, 'frth', 11, 100, '2016-11-18 17:19:49'),
-(5, 'frth', 14, 300, '2016-11-18 17:21:22');
+  `sttime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -78,30 +65,27 @@ INSERT INTO `cboard` (`id`, `cid`, `uid`, `score`, `sttime`) VALUES
 -- Table structure for table `contests`
 --
 
-CREATE TABLE IF NOT EXISTS `contests` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contests` (
+  `id` int(11) NOT NULL,
   `cid` varchar(20) NOT NULL,
   `name` varchar(200) NOT NULL,
   `stime` time NOT NULL,
   `etime` time NOT NULL,
   `sdate` date NOT NULL,
   `edate` date NOT NULL,
-  `noti` int(5) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `cid` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3245 ;
+  `noti` int(5) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `contests`
 --
 
 INSERT INTO `contests` (`id`, `cid`, `name`, `stime`, `etime`, `sdate`, `edate`, `noti`) VALUES
-(3241, 'thrd', 'third', '15:10:57', '15:30:50', '2016-10-10', '2016-12-10', 0),
-(3242, 'frst', 'First by CodeSPACE', '03:27:39', '12:50:40', '2016-11-10', '2016-11-20', 0),
-(3243, 'frth', 'CODEsPaCe', '22:25:50', '22:25:50', '2016-11-10', '2016-11-20', 0),
-(3244, 'TESTC', 'CONTESTTEST', '03:33:00', '05:35:00', '2016-11-18', '2016-11-18', 1);
+(3245, 'nov2016', 'Nov Long challenge 2016', '00:00:01', '23:59:59', '2016-11-01', '2016-11-10', 0),
+(3246, 'utkarsh2016', 'Utkarsh 2016', '21:00:00', '23:59:59', '2016-11-15', '2016-11-15', 0),
+(3247, 'novquicktest', 'Nov Quick Test ', '14:00:00', '17:00:00', '2016-11-19', '2016-11-19', 0),
+(3248, 'nov tea time ', 'nov 2016 tea time', '17:00:00', '20:00:00', '2016-11-28', '2016-11-28', 0),
+(3249, 'codemarathon2016', 'Code marathon 2016', '00:00:00', '23:58:59', '2016-11-19', '2016-11-19', 0);
 
 -- --------------------------------------------------------
 
@@ -109,24 +93,21 @@ INSERT INTO `contests` (`id`, `cid`, `name`, `stime`, `etime`, `sdate`, `edate`,
 -- Table structure for table `keptin`
 --
 
-CREATE TABLE IF NOT EXISTS `keptin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `keptin` (
+  `id` int(11) NOT NULL,
   `cid` varchar(20) NOT NULL,
   `score` int(11) NOT NULL,
-  `qid` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `keptin_ibfk_1` (`qid`),
-  KEY `keptin_ibfk_2` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+  `qid` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `keptin`
 --
 
 INSERT INTO `keptin` (`id`, `cid`, `score`, `qid`) VALUES
-(7, 'frth', 100, 'TEST'),
-(11, 'frth', 100, 'TEST1'),
-(12, 'frth', 100, 'QUESNA');
+(13, 'novquicktest', 100, 'LUE'),
+(14, 'novquicktest', 100, 'INTEST'),
+(15, 'codemarathon2016', 100, 'das');
 
 -- --------------------------------------------------------
 
@@ -134,8 +115,8 @@ INSERT INTO `keptin` (`id`, `cid`, `score`, `qid`) VALUES
 -- Table structure for table `questions`
 --
 
-CREATE TABLE IF NOT EXISTS `questions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
   `qid` varchar(100) NOT NULL,
   `qname` varchar(200) NOT NULL,
   `inpln` varchar(1000) NOT NULL,
@@ -146,21 +127,17 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `pbte` varchar(50) NOT NULL,
   `dadd` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `editorial` varchar(2000) NOT NULL,
-  `cid` varchar(50) NOT NULL DEFAULT 'CodeSpace',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `qid` (`qid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+  `cid` varchar(50) NOT NULL DEFAULT 'CodeSpace'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `questions`
 --
 
 INSERT INTO `questions` (`id`, `qid`, `qname`, `inpln`, `outln`, `qln`, `tl`, `pbau`, `pbte`, `dadd`, `editorial`, `cid`) VALUES
-(6, 'TEST', 'Life, the Universe, and Everything', 'adminaccess/input/TESTtxt', 'adminaccess/output/TESTtxt', 'adminaccess/questions/TESTtxt', 2, '', '', '2016-11-09 23:07:09', '', 'frth'),
-(16, 'TEST1', 'NA', 'adminaccess/input/TEST1txt', 'adminaccess/output/TEST1txt', 'adminaccess/questions/TEST1txt', 1, '', '', '2016-11-10 03:52:57', '', 'frth'),
-(17, 'TEST2', 'NA', 'adminaccess/input/TEST2txt', 'adminaccess/output/TEST2txt', 'adminaccess/questions/TEST2txt', 1, '', '', '2016-11-10 04:02:17', '', 'CodeSpace'),
-(19, 'NANA', 'NAQUEST', 'adminaccess/input/NANAtxt', 'adminaccess/output/NANAtxt', 'adminaccess/questions/NANAtxt', 4, '', '', '2016-11-15 04:51:22', '', 'CodeSpace'),
-(20, 'QUESNA', 'NAAN', 'adminaccess/input/NANANANAtxt', 'adminaccess/output/NANANANAtxt', 'adminaccess/questions/NANANANAtxt', 4, '', '', '2016-11-17 15:21:42', '', 'frth');
+(22, 'LUE', 'Life , Universe And Everything', 'adminaccess/input/lueinp.txt', 'adminaccess/output/lueout.txt', 'adminaccess/questions/LUEtxt', 1, '', '', '2016-11-18 23:08:28', '', 'novquicktest'),
+(23, 'INTEST', 'Enormous Input Test', 'adminaccess/input/intestinp.txt', 'adminaccess/output/intestout.txt', 'adminaccess/questions/INTESTtxt', 8, '', '', '2016-11-19 00:24:02', '', 'novquicktest'),
+(24, 'das', 'Detamos And His Students ', 'adminaccess/input/dasinp.txt', 'adminaccess/output/dasout.txt', 'adminaccess/questions/dastxt', 1, '', '', '2016-11-19 00:47:42', '', 'codemarathon2016');
 
 -- --------------------------------------------------------
 
@@ -168,33 +145,14 @@ INSERT INTO `questions` (`id`, `qid`, `qname`, `inpln`, `outln`, `qln`, `tl`, `p
 -- Table structure for table `submissions`
 --
 
-CREATE TABLE IF NOT EXISTS `submissions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `submissions` (
+  `id` int(11) NOT NULL,
   `result` varchar(10) NOT NULL,
   `qid` varchar(100) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `subln` varchar(1000) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `submissions_ibfk_1` (`qid`),
-  KEY `submissions_ibfk_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
-
---
--- Dumping data for table `submissions`
---
-
-INSERT INTO `submissions` (`id`, `result`, `qid`, `user_id`, `subln`, `time`) VALUES
-(37, 'AC', 'TEST', 10, 'adminaccess/codes/3.c', '2016-11-09 23:55:55'),
-(38, 'WA', 'TEST2', 10, 'adminaccess/codes/3.c', '2016-11-09 23:55:55'),
-(39, 'AC', 'TEST2', 13, 'adminaccess/codes/3.c', '2016-11-09 23:55:55'),
-(40, 'AC', 'TEST', 10, 'adminaccess/codes/TEST102.c', '2016-11-15 15:41:19'),
-(41, 'AC', 'NANA', 11, 'adminaccess/codes/NANA101.c', '2016-11-15 20:46:07'),
-(42, 'AC', 'TEST2', 10, 'adminaccess/codes/TEST2103.c', '2016-11-15 21:56:39'),
-(43, 'AC', 'TEST2', 11, 'adminaccess/codes/TEST2103.c', '2016-11-15 21:56:39'),
-(44, 'AC', 'QUESNA', 11, 'adminaccess/codes/QUESNA111.c', '2016-11-18 19:01:26'),
-(45, 'AC', 'QUESNA', 11, 'adminaccess/codes/QUESNA111.c', '2016-11-18 19:01:26'),
-(46, 'AC', 'QUESNA', 11, 'adminaccess/codes/QUESNA111.c', '2016-11-18 19:01:26');
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -202,8 +160,8 @@ INSERT INTO `submissions` (`id`, `result`, `qid`, `user_id`, `subln`, `time`) VA
 -- Table structure for table `user_in`
 --
 
-CREATE TABLE IF NOT EXISTS `user_in` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_in` (
+  `id` int(10) NOT NULL,
   `fname` varchar(30) NOT NULL,
   `srname` varchar(30) NOT NULL,
   `pword` varchar(32) NOT NULL,
@@ -211,9 +169,8 @@ CREATE TABLE IF NOT EXISTS `user_in` (
   `email` varchar(200) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `score` double NOT NULL,
-  `imgln` varchar(10000) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+  `imgln` varchar(10000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_in`
@@ -226,6 +183,101 @@ INSERT INTO `user_in` (`id`, `fname`, `srname`, `pword`, `username`, `email`, `p
 (13, 'Kushagra', 'Singhal', 'a152e841783914146e4bcd4f39100686', 'kushagra', 'vaibhavagarwal220@gmail.com', '988989', 5000, 'imgprof/IMG_20150615_110529.jpg'),
 (14, 'Deepanshu', 'Tyagi', '71709241b5cb11e8ed8809b26a7d73d3', 'detamos', 'detamos@webmail.com', '7877878989', 1000, 'imgprof/14890433_213305072427997_2909354464321348656_o.jpg');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cboard`
+--
+ALTER TABLE `cboard`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cboard_ibfk_1` (`cid`),
+  ADD KEY `cboard_ibfk_2` (`uid`);
+
+--
+-- Indexes for table `contests`
+--
+ALTER TABLE `contests`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD UNIQUE KEY `cid` (`cid`);
+
+--
+-- Indexes for table `keptin`
+--
+ALTER TABLE `keptin`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `keptin_ibfk_1` (`qid`),
+  ADD KEY `keptin_ibfk_2` (`cid`);
+
+--
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `qid` (`qid`);
+
+--
+-- Indexes for table `submissions`
+--
+ALTER TABLE `submissions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `submissions_ibfk_1` (`qid`),
+  ADD KEY `submissions_ibfk_2` (`user_id`);
+
+--
+-- Indexes for table `user_in`
+--
+ALTER TABLE `user_in`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `cboard`
+--
+ALTER TABLE `cboard`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `contests`
+--
+ALTER TABLE `contests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3250;
+--
+-- AUTO_INCREMENT for table `keptin`
+--
+ALTER TABLE `keptin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT for table `submissions`
+--
+ALTER TABLE `submissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+--
+-- AUTO_INCREMENT for table `user_in`
+--
+ALTER TABLE `user_in`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Constraints for dumped tables
 --
