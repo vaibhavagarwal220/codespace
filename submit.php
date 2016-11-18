@@ -99,21 +99,41 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
 
 
 <!-- Floating Multiline Textfield -->
+
+
+
 <form action="submit.php?q=<?php echo $qcode;?>" method=post>
   
     <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" name=ln></textarea>
-    
-  <input type="submit" value=submit  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+    <br><br>
+   Language &nbsp;:&nbsp; <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+  <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+  <span class="mdl-radio__label">C</span>&nbsp;&nbsp;&nbsp;
+</label>
+<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+  <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+  <span class="mdl-radio__label">C++</span>
+</label><br><br>
+<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">SUBMIT</button>
 </form>
- OR<br>
+<br><br>
+ OR
+ <br><br>
+
 <form action="submit.php?q=<?php echo $qcode;?>" method="POST" enctype="multipart/form-data" >
-            <input type="file" name="file" accept=".c,.cpp,.java" required>
-            <input type="submit" value="submit"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            <input type="file" name="file" accept=".c,.cpp" required>
+            <br><br>
+   Language &nbsp;:&nbsp; <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+  <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+  <span class="mdl-radio__label">C</span>&nbsp;&nbsp;&nbsp;
+</label>
+<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+  <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+  <span class="mdl-radio__label">C++</span>
+</label><br><br>
+          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">SUBMIT</button>
         </form>
         
-
-
-
     
   </div>
 
