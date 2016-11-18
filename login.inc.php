@@ -39,8 +39,8 @@
     <style> 
 
   #file { display: none;}
-  #logins{background:white;box-shadow:6px 6px 10px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px;text-align:center;}
-#logups{background:white;box-shadow: 10px 10px 0px 0px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; text-align:center;color:black;}
+  #logins{background:white;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px;text-align:center;}
+#logups{background:white;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; text-align:center;color:black;}
 .mdl-grid{margin:auto;}
 img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
 #posme{position:relative;left:150px;}
@@ -298,7 +298,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
      <div class="gap"></div>
      <br><br><br>
 
-    <div id="logins" class=" mdl-cell mdl-cell-6-col">
+    <div id="logins" class=" mdl-cell mdl-cell--6-col mdl-shadow--6dp">
 
 <form method="post" action="log.php">
 
@@ -355,11 +355,11 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
                         <hr>
                     </div>
                 </div>
-<div id="logups" >
+<div id="logups" class="mdl-shadow--12dp">
   
 <form method="post" action="signup.php" enctype="multipart/form-data" class="mdl-grid">
                     <br><br>
-                    <div class="mdl-cell mdl-cell-4-col">
+                    <div class="mdl-cell mdl-cell-4-col ">
                       <input type="file" id="file" accept='image/*' name="proim" >
 <label for="file" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" id="posme" title="Choose a Profile Picture">
   <i class="material-icons">person_outline</i>

@@ -25,8 +25,8 @@ body {
 <body>
 
   <style>
-#logins{background:white;box-shadow:6px 6px 20px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
-#logups{background:white;box-shadow: 6px 6px 20px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
+#logins{background:white;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
+#logups{background:white;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
 .error{background-color:#ff3333;color:white;font-size:20px;padding:15px;}
 .error a{font-size:30px;text-decoration:none;color:white;}
 .error a:active{font-size:30px;text-decoration:none;color:white;}
@@ -51,7 +51,7 @@ body {
   <main class="mdl-layout__content">
     <div class="page-content"><!-- Your content goes here -->
 
-<div id="logups" class="mdl-cell mdl-cell--6-col">
+<div id="logups" class="mdl-cell mdl-cell--6-col mdl-shadow--6dp">
   <br>
   <h4>SIGN UP</h4>
 <br>
