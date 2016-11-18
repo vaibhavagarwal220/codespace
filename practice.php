@@ -30,12 +30,9 @@ include 'navbar.php'
 <div class=page>
     <?php
 require 'connect.inc.php';
-$query="SELECT * 
-FROM questions";
-$result=mysql_query($query);
-$num=mysql_num_rows($result);
 
-$query1="SELECT questions.qid,questions.qname FROM questions
+
+$query="SELECT questions.qid,questions.qname FROM questions
 WHERE (qid) NOT IN
 ( SELECT qid
   FROM keptin
@@ -43,11 +40,10 @@ WHERE (qid) NOT IN
 ";
 ?>
 <?php
-$result1=mysql_query($query1);
-$num1=mysql_num_rows($result1);
-if($num1) {$result=$result1;$num=$num1;}
+$result=mysql_query($query);
+$num=mysql_num_rows($result);
 
-if($result) 
+if($result&&$num) 
 	{  echo "<div class=mdl-grid>";
 		echo "<div class=\"mdl-cell mdl-cell--8-col mdl-grid mycard\">
       <div class=\"mdl-cell mdl-cell-4-col \">
