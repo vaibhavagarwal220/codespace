@@ -37,6 +37,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{font-family: 'Roboto';font-size:16px;}
+  thead{background-color:#263238;}
+  th.mdl-data-table__cell--non-numeric{color:white;}
 .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;}
 .succard{background:#B0BEC5;padding:20px;color:#424242;text-align:center;}
 .succard table{margin:auto;}
