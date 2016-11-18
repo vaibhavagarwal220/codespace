@@ -55,7 +55,7 @@ getcontests($queryqw2);
 echo "<br>Past Contests<br>";
 getcontests($queryqw);
 
-echo "</div><div class=\"mdl-cell mdl-cell--3-col\">dsdsasdad</div></div>";
+echo "</div><div class=\"mdl-cell mdl-cell--3-col\"></div></div>";
 
 
 }?>

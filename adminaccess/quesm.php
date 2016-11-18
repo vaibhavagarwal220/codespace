@@ -22,7 +22,7 @@ if(!loggedin()) {header('Location:index.php');}?>
 <body>
     <style type="text/css">
   #contain{width:90%;margin:auto;}
-  #view{text-align:left;}
+  #view{text-align:left;white-space: pre-wrap;}
   </style>
 <?php
 include 'navbar.php';
@@ -141,6 +141,7 @@ if(isset($_POST['stat'])&&isset($_POST['in'])&&isset($_POST['out'])&&isset($_POS
         var cst=$('#sample8').val();
         var ein=$('#sample9').val();
         var eot=$('#sample10').val();
+
         $('#view').html('<h2>'+qn+'</h2><h5>Problem Code:'+qc+'</h5><br><hr><br>Problem Statement<br><p>'+ps+'</p><br><h4>Input Format:</h4><br><p>'+ifr+'</p><h4>Output Format</h4><p>'+ofr+'</p><br><h4>Constraints:</h4><p>'+cst+'</p><br><h4>Example Test Cases:</h4><br><h5>Input Format</h5><p>'+ein+'</p><br><h5>Output Format</h5><p>'+eot+'</p>');
 
 
