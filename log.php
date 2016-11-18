@@ -43,8 +43,8 @@ body {
   color: white;
 }
 
-#logins{background:white;box-shadow:6px 6px 20px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
-#logups{background:white;box-shadow: 6px 6px 20px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
+#logins{background:white;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
+#logups{background:white;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
 .mdl-grid{margin:auto;}
 .error{background-color:#ff3333;color:white;font-size:20px;padding:15px;}
 .error a{font-size:30px;text-decoration:none;color:white;}
@@ -69,7 +69,7 @@ body {
   <main class="mdl-layout__content">
     <div class="page-content"><!-- Your content goes here -->
 
-<div id="logins" class="mdl-cell mdl-cell--6-col">
+<div id="logins" class="mdl-cell mdl-cell--6-col mdl-shadow--6dp">
   <br>
   <h4>LOG IN</h4>
   <br>

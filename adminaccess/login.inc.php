@@ -44,8 +44,8 @@ body {
 
   <style>
 
-#logins{background:white;box-shadow:6px 6px 20px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
-#logups{background:white;box-shadow: 6px 6px 20px 2px;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
+#logins{background:white;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
+#logups{background:white;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px; }
 .mdl-grid{margin:auto;}
 img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
 
@@ -68,7 +68,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
     <div class="page-content"><!-- Your content goes here -->
 
 
-<div id="logins" class="mdl-cell mdl-cell--6-col">
+<div id="logins" class="mdl-cell mdl-cell--6-col mdl-shadow--6dp">
 <form method="post" action="log.php">
                   <br>
                     <h4>LOG IN</h4>
@@ -100,7 +100,7 @@ img.small1,img.icn{width: 160px;height: 160px;border-radius: 80px;}
 
 <br><br>
 
-<div id="logups" class="mdl-cell mdl-cell--6-col">
+<div id="logups" class="mdl-cell mdl-cell--6-col mdl-shadow--6dp">
   <br>
   <h4>SIGN UP</h4>
   <br>
