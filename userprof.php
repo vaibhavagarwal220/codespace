@@ -17,11 +17,22 @@ else
   <title>CodeSpace User|CodeSpace</title>
     
 
+
+</head>
+<body>
+
+  
+ <?php
+include 'navbar.php'
+ ?>
+
+
   <style type="text/css">
  
   a.sub{color:blue;}
-.posrec{padding-left:40px;}
+
   table a{color:blue;}
+
   .page{width:90%;margin:auto;}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
@@ -35,15 +46,10 @@ h2.name,h5{display:inline;}
 .smallimg{width:200px;height:200px;}
   .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;text-align:center;}
 
+  table{margin:20px;}
 
   </style>
-</head>
-<body>
 
-  
- <?php
-include 'navbar.php'
- ?>
 
 <div class=page>
     <?php
@@ -142,7 +148,7 @@ echo "</div></div>";
 ?>
 
 <?php
-echo "<div class=\"mdl-cell mdl-cell--4-col posrec\">
+echo "<div class=\"mdl-cell mdl-cell--4-col \">
 <div class=succard><h4>RECENT SUBMISSIONS</h4>";
 
 $query1="SELECT id from user_in where username='$qcode';";

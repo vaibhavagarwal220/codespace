@@ -50,6 +50,10 @@ a{text-decoration:none;}
 .mcard{color:white;width:97.3%;background:#263238;padding:20px;max-height:100px;height:90px;margin-bottom:30px;position:relative;}
 .title-mcard{font-size:30px;padding:20px;}
 
+.calcard{color:white;width:97.3%;background:#263238;margin-bottom:0px;position:relative;}
+.title-calcard{font-size:30px;padding:20px;}
+
+
 a.wbtn,.usr { color:white;font-size:20px;}
 body{background-color:#EFF3F6;}
 .icnew{

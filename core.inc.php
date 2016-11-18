@@ -110,7 +110,7 @@ if($resultqw&&$numqw)
   echo "</tbody>
     </table>";
   }
-  else {echo "<div class=mycard><h3>No Contests Found</h3></div>";}
+  else {echo "<div class=\"mycard mdl-cell mdl-cell--10-col\"><h3>No Contests Found</h3></div>";}
 
 
 

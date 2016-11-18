@@ -19,8 +19,9 @@ if(!loggedin()) {header('Location:index.php');}
 img.pport{display:inline;}
 h2.name,h5{display:inline;}
   .mycard{background:white;margin-bottom:10px;padding:20px;color:#424242;text-align:center;}
-
+iframe{height:100%;border:1px solid black;}
 #time {padding:20px;display:none;}
+.holds{background:url('images/load.gif') center center no-repeat;}
 
   </style>
 </head>
@@ -47,14 +48,14 @@ $queryqw="SELECT * from contests where now()>concat(concat(edate,' '),etime)";//
 $queryqw1="SELECT * from contests where now()<concat(concat(sdate,' '),stime)";//future
 $queryqw2="SELECT * from contests where now()>concat(concat(sdate,' '),stime) && now()<concat(concat(edate,' '),etime)";//current
 echo "<div class=mdl-grid>";
-echo "<div class=\"mdl-cell mdl-cell--8-col\"><br>Future Contests<br>";
+echo "<div class=\"mdl-cell mdl-cell--7-col\"><br>Future Contests<br>";
 getcontests($queryqw1);
 echo "<br>Present Contests<br>";
 getcontests($queryqw2);
 echo "<br>Past Contests<br>";
 getcontests($queryqw);
 
-echo "</div><div class=\"mdl-cell mdl-cell--3-col\">asdad</div></div>";
+echo "</div><div class=\"mdl-cell mdl-cell--5-col cal mycard\"><div class=calcard><div class=title-calcard>CALENDAR</div></div><div class=holds><iframe src=cal/theme.php></iframe></div></div></div>";
 
 
 }

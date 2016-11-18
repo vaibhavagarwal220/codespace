@@ -40,7 +40,7 @@
 	
 
 	#calendar {
-		max-width: 40% ;
+		max-width: 95% ;
 		
 		position: absolute;
 		margin: 0 auto;
