@@ -1,0 +1,4 @@
+./adminaccess/codes/LUE101.c: In function ‘main’:
+./adminaccess/codes/LUE101.c:6:8: warning: format ‘%d’ expects a matching ‘int *’ argument [-Wformat=]
+ {scanf("%d,&a");
+        ^

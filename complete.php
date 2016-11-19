@@ -53,13 +53,14 @@ fwrite($handle, $code);
           $tltle=mysql_result($resultq,0,'tl');
           $in=mysql_result($resultq,0,'inpln');
           $out=mysql_result($resultq,0,'outln');
+          $contid=mysql_result($resultq,0,'cid');
           $termin="./bin/Controller.EXE $lang $tltle $my_file $in $out 2>&1";
           exec("./bin/Controller.EXE $lang $tltle $my_file $in $out 2>&1", $output, $status);
           //echo "<br>status: " . $status;
           if($status==0) 
             {
               $res="AC";
-              echo "<div class=mycard><h2>AC(";
+              echo "<div class=mycard><img src=images/ac.png><br><h2>All Correct(";
                 if($lang=="C") $inread = 'tmp/'.$qcode.$id.$cnt.".c.out.time";
                 else if($lang=="C++") $inread = 'tmp/'.$qcode.$id.$cnt.".cpp.out.time";
                 $read=file($inread);
@@ -69,11 +70,11 @@ fwrite($handle, $code);
                 echo ")</h2></div>";
             }
           else if($status==1) {$res="TLE";
-                          echo "<div class=mycard><h2>TLE($tltle)</h2></div>";
+                          echo "<div class=mycard><img src=images/tle1.png><br><h2>Time Limit Exceeded($tltle)</h2></div>";
 
               }
           else if($status==2) {$res="CE";
-                          echo "<div class=mycard><h2>CE</h2>";
+                          echo "<div class=mycard><img src=images/ce.png><br><h2>Compilation Error</h2>";
                 if($lang=="C") $inread = 'tmp/'.$qcode.$id.$cnt.".c.err";
                 else if($lang=="C++") $inread = 'tmp/'.$qcode.$id.$cnt.".cpp.err";
                 $read=file($inread);
@@ -83,7 +84,7 @@ fwrite($handle, $code);
                 echo "</div>";
         }
           else if($status==3) {$res="RE";
-                          echo "<div class=mycard><h2>RE(";
+                          echo "<div class=mycard><img src=images/re.png><br><h2>Runtime Error(";
                 if($lang=="C") $inread = 'tmp/'.$qcode.$id.$cnt.".c.out.time";
                 else if($lang=="C++") $inread = 'tmp/'.$qcode.$id.$cnt.".cpp.out.time";
                 $read=file($inread);
@@ -93,7 +94,7 @@ fwrite($handle, $code);
                 echo ")</h2></div>";
         }
           else if($status==4) {$res="WA";
-                          echo "<div class=mycard><h2>WA(";
+                          echo "<div class=mycard><img src=images/wa.png><br><h2>Wrong Answer(";
                 if($lang=="C") $inread = 'tmp/'.$qcode.$id.$cnt.".c.out.time";
                 else if($lang=="C++") $inread = 'tmp/'.$qcode.$id.$cnt.".cpp.out.time";
                 $read=file($inread);
@@ -108,6 +109,9 @@ fwrite($handle, $code);
 
           $queryins="INSERT INTO `oj`.`submissions` (`id`, `result`, `qid`, `user_id`, `subln`,`lang`) VALUES (NULL, '".$res."','".$qcode."',".$id.",'".$my_file."','".$lang."');";
           $resultqu=mysql_query($queryins);
+          $queryupd="UPDATE `cboard` set `score`=`score`+100 where uid=".$id." and cid='".$contid."'";
+          $resultupd=mysql_query($queryupd);
+
           
 }
 
@@ -137,7 +141,7 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
     if($status==0) 
             {
               $res="AC";
-              echo "<div class=mycard><h2>AC(";
+              echo "<div class=mycard><img src=images/ac.png><br><h2>All Correct(";
                 if($langu=="C") $inread = 'tmp/'.$qcode.$id.$cnt.".c.out.time";
                 else if($langu=="C++") $inread = 'tmp/'.$qcode.$id.$cnt.".cpp.out.time";
                 $read=file($inread);
@@ -147,11 +151,11 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
                 echo ")</h2></div>";
             }
           else if($status==1) {$res="TLE";
-                          echo "<div class=mycard><h2>TLE($tltleq)</h2></div>";
+                          echo "<div class=mycard><img src=images/tle2.png><br><h2>Time Limit Exceeded($tltleq)</h2></div>";
 
               }
           else if($status==2) {$res="CE";
-                          echo "<div class=mycard><h2>CE</h2>";
+                          echo "<div class=mycard><img src=images/ce.png><br><h2>Compilation Error</h2>";
                 if($langu=="C") $inread = 'tmp/'.$qcode.$id.$cnt.".c.err";
                 else if($langu=="C++") $inread = 'tmp/'.$qcode.$id.$cnt.".cpp.err";
                 $read=file($inread);
@@ -161,7 +165,7 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
                 echo "</div>";
         }
           else if($status==3) {$res="RE";
-                          echo "<div class=mycard><h2>RE(";
+                          echo "<div class=mycard><img src=images/re.png><br><h2>Runtime Error(";
                 if($langu=="C") $inread = 'tmp/'.$qcode.$id.$cnt.".c.out.time";
                 else if($langu=="C++") $inread = 'tmp/'.$qcode.$id.$cnt.".cpp.out.time";
                 $read=file($inread);
@@ -171,7 +175,7 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
                 echo ")</h2></div>";
         }
           else if($status==4) {$res="WA";
-                          echo "<div class=mycard><h2>WA(";
+                          echo "<div class=mycard><img src=images/wa.png><br><h2>Wrong Answer(";
                 if($langu=="C") $inread = 'tmp/'.$qcode.$id.$cnt.".c.out.time";
                 else if($langu=="C++") $inread = 'tmp/'.$qcode.$id.$cnt.".cpp.out.time";
                 $read=file($inread);

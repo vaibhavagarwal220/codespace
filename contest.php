@@ -48,10 +48,11 @@ $queryqw="SELECT * from contests where now()>concat(concat(edate,' '),etime)";//
 $queryqw1="SELECT * from contests where now()<concat(concat(sdate,' '),stime)";//future
 $queryqw2="SELECT * from contests where now()>concat(concat(sdate,' '),stime) && now()<concat(concat(edate,' '),etime)";//current
 echo "<div class=mdl-grid>";
-echo "<div class=\"mdl-cell mdl-cell--7-col\"><br>Future Contests<br>";
-getcontests($queryqw1);
+echo "<div class=\"mdl-cell mdl-cell--7-col\">";
 echo "<br>Present Contests<br>";
 getcontests($queryqw2);
+echo "<br>Future Contests<br>";
+getcontests($queryqw1);
 echo "<br>Past Contests<br>";
 getcontests($queryqw);
 

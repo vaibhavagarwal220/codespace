@@ -1,0 +1,6 @@
+./adminaccess/codes/LUE106.c:1:1: error: unknown type name ‘dadaddad’
+ dadaddad
+ ^
+./adminaccess/codes/LUE106.c:2:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ at end of input
+ adadadadadad
+ ^
