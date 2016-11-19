@@ -68,6 +68,19 @@ fwrite($handle, $code);
                        echo $line;
 
                 echo ")</h2></div>";
+
+                if(proincon($qcode)) {
+                  $querycnt="SELECT * from submissions where user_id=".$id." and qid='$qcode'";
+                                            $resultcnt=mysql_query($querycnt);
+                                            $st=mysql_num_rows($resultcnt);
+
+                  $querycnt1="SELECT * from submissions where user_id=".$id." and qid='$qcode' and result='AC'";
+                                            $resultcnt1=mysql_query($querycnt1);
+                                            $act=mysql_num_rows($resultcnt1);
+
+                  if($act==0) {$queryupd="UPDATE `user_in` set `score`=`score`+100 where id=".$id."";
+                                            $resultupd=mysql_query($queryupd);}
+
             }
           else if($status==1) {$res="TLE";
                           echo "<div class=mycard><img src=images/tle1.png><br><h2>Time Limit Exceeded($tltle)</h2></div>";
@@ -109,8 +122,10 @@ fwrite($handle, $code);
 
           $queryins="INSERT INTO `oj`.`submissions` (`id`, `result`, `qid`, `user_id`, `subln`,`lang`) VALUES (NULL, '".$res."','".$qcode."',".$id.",'".$my_file."','".$lang."');";
           $resultqu=mysql_query($queryins);
-          $queryupd="UPDATE `cboard` set `score`=`score`+100 where uid=".$id." and cid='".$contid."'";
-          $resultupd=mysql_query($queryupd);
+          //$queryupd="UPDATE `cboard` set `score`=`score`+100 where uid=".$id." and cid='".$contid."'";
+          //$resultupd=mysql_query($queryupd);
+
+          }
 
           
 }
@@ -149,6 +164,19 @@ else if(isset($_FILES['file']['name'])&&!empty($_FILES['file']['name']))
                        echo $line;
 
                 echo ")</h2></div>";
+                 if(proincon($qcode)) {
+                  $querycnt="SELECT * from submissions where user_id=".$id." and qid='$qcode'";
+                                            $resultcnt=mysql_query($querycnt);
+                                            $st=mysql_num_rows($resultcnt);
+
+                  $querycnt1="SELECT * from submissions where user_id=".$id." and qid='$qcode' and result='AC'";
+                                            $resultcnt1=mysql_query($querycnt1);
+                                            $act=mysql_num_rows($resultcnt1);
+
+                  if($act==0) {$queryupd="UPDATE `user_in` set `score`=`score`+100 where id=".$id."";
+                                            $resultupd=mysql_query($queryupd);}
+
+            }
             }
           else if($status==1) {$res="TLE";
                           echo "<div class=mycard><img src=images/tle2.png><br><h2>Time Limit Exceeded($tltleq)</h2></div>";
