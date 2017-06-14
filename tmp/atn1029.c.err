@@ -1,0 +1,4 @@
+./adminaccess/codes/atn1029.c: In function ‘main’:
+./adminaccess/codes/atn1029.c:3:10: error: expected expression before ‘}’ token
+ {while(1)}
+          ^

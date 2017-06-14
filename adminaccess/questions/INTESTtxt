@@ -1,0 +1,9 @@
+<h2>Enormous Input Test</h2><h5>Problem Code:INTEST</h5><br><hr><br><p>The purpose of this problem is to verify whether the method you are using to read input data is sufficiently fast to handle problems branded with the enormous Input/Output warning. You are expected to be able to process at least 2.5MB of input data per second at runtime. </p><br><h4>Input Format:</h4><br><p>The input begins with two positive integers n k (n, k<=10000000). The next n lines of input contain one positive integer ti, not greater than 1000000000, each. </p><h4>Output Format</h4><p>Write a single integer to output, denoting how many integers t<sub>i</sub> are divisible by k. </p>
+        <br><h4>Constraints:</h4><p>t<sub>i</sub> should be less than equal to 1000000000 </p><br><h4>Example Test Cases:</h4> <br> <h5>Input Format</h5><p>7 3<br />
+1<br />
+51<br />
+966369<br />
+7<br />
+9<br />
+999996<br />
+11</p><br><h5>Output Format</h5><p>4</p>
