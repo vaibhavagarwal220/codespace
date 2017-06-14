@@ -1,9 +1,0 @@
-<h2>Display Numbers</h2><h5>Problem Code:disp</h5><br><hr><br><p>Display each number in the input in a new line .</p><br><h4>Input Format:</h4><br><p>First line contains n denoting number of inputs .</p><h4>Output Format</h4><p>Display each number in the input in a new line .</p>
-        <br><h4>Constraints:</h4><p>n is a positiive integer less than 100</p><br><h4>Example Test Cases:</h4> <br> <h5>Input Format</h5><p>5<br />
-4<br />
-5<br />
-8<br />
-7</p><br><h5>Output Format</h5><p>4<br />
-5<br />
-8<br />
-7</p>
