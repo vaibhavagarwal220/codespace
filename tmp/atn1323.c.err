@@ -1,4 +1,0 @@
-./adminaccess/codes/atn1323.c: In function ‘main’:
-./adminaccess/codes/atn1323.c:14:5: error: expected declaration or statement at end of input
-     }
-     ^

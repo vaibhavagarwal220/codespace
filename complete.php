@@ -57,6 +57,7 @@ fwrite($handle, $code);
           $contid=mysql_result($resultq,0,'cid');
           $termin="./bin/Controller.EXE $lang $tltle $my_file $in $out 2>&1";
           exec("./bin/Controller.EXE $lang $tltle $my_file $in $out 2>&1", $output, $status);
+          
           //echo "<br>status: " . $status;
           if($status==0) 
             {

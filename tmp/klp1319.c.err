@@ -1,4 +1,0 @@
-./adminaccess/codes/klp1319.c: In function ‘main’:
-./adminaccess/codes/klp1319.c:9:14: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[27]’ [-Wformat=]
-        scanf("%s",&alp);
-              ^
